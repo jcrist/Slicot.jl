@@ -1,0 +1,1 @@
+This folder contains a modified version of XERBLA.f. Compiling with this modified version results in xerbla not printing anything, or stopping the program (a dead call). The benefit of this is that it allows julia to handle errors itself. However, this requires that the user check for INFO < 0 after any call to Slicot.jl. 
