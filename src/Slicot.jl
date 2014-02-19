@@ -14,8 +14,8 @@ include("simple.jl")
 
 ## RAW ROUTINES ##
 #
-# These are just the raw call strings. Same as in fortran (with 1
-# exception. See below). For most cases, you shouldn't need to 
+# These are just the raw call strings. Same as in fortran 
+# For most cases, you shouldn't need to have any need to 
 # touch these. If your case requires more finese, please file 
 # an issue, as the simple.jl routines interface may need to be
 # changed to allow for your use case. Assumptions may have been
@@ -30,10 +30,9 @@ include("simple.jl")
 #         arrays for more than one operations (as you would in
 #         the original fortran.
 #---> 3.) Quick translate of legacy code. The call signature is
-#         exactly the same (with 1 exception: INFO).
+#         exactly the same.
 #
-# INFO may be passed in, or ommited from the call (optional param).
-# Either way, a "SlicotError" is thrown if INFO < 0. This may be
+# A "SlicotError" is thrown if INFO < 0. This may be
 # handled same as any other error.
 #
 # To use these, you must import them explicitly. The raw module

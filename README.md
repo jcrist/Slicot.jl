@@ -2,15 +2,20 @@
 
 Status
 ------
-Unfinished, untested, extremely new. So far only 1 routine has been wrapped.
-However, more are on the way. Further, the installation procedure needs
-some serious work. Research into BinDeps is needed.
+Unfinished, untested, extremely new. 
+
+* All functions have been wrapped in the "RAW" API
+* So far only 1 routine has been wrapped in the "Simple" API.
+
+However, more are on the way. 
 
 Installation
 ------------
 Git clone the repo into your Julia directory. Change into ./src/slicot,
 and run the makefile included there. This will build libslicot.so, and place
-it in ./src/slicot/. Move this file somewhere Julia can find it.
+it in ./src/slicot/. Move this file somewhere Julia can find it. The 
+installation procedure could use some serious work. Research into BinDeps 
+will be done in once the library is more mature.
 
 Use
 ---

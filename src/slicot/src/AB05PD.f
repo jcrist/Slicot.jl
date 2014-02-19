@@ -1,7 +1,7 @@
       SUBROUTINE AB05PD( OVER, N1, M, P, N2, ALPHA, A1, LDA1, B1, LDB1,
      $                   C1, LDC1, D1, LDD1, A2, LDA2, B2, LDB2, C2,
      $                   LDC2, D2, LDD2, N, A, LDA, B, LDB, C, LDC, D,
-     $                   LDD, INFO)
+     $                   LDD, INFO )
 C
 C     SLICOT RELEASE 5.0.
 C
