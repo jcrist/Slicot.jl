@@ -2,6 +2,8 @@
 
 module Simple
 
+import Slicot: SlicotException, BlasInt
+
 export tb04ad
 
 #TODO: Slice return matrices before returning on tb04ad
@@ -84,8 +86,8 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
     end
 
     #Determine remainder of parameters
-    NR = Array(Int64,1)
-    INDEX = Array(Int64, porm)
+    NR = Array(BlasInt,1)
+    INDEX = Array(BlasInt, porm)
     lddcoe= max(1,porm)
     DCOEFF = Array(Float64, lddcoe, n+1)
     lduc01 = max(1,porm)
@@ -93,25 +95,25 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
     UCOEFF = Array(Float64, lduc01, lduc02, n+1)
     IWORK = Array(Float64, n+max(m,p))
     DWORK = Array(Float64, ldwork)
-    INFO = 0 #Array(Int64, 1)
+    INFO = Array(BlasInt, 1)
 
     #Call the subroutine
     ccall((:tb04ad_, "libslicot"), Void, 
-            (Ptr{Char}, Ptr{Int64}, Ptr{Int64}, Ptr{Int64},
-            Ptr{Float64}, Ptr{Int64}, Ptr{Float64}, Ptr{Int64},
-            Ptr{Float64}, Ptr{Int64}, Ptr{Float64}, Ptr{Int64},
-            Ptr{Int64}, Ptr{Int64}, Ptr{Float64}, Ptr{Int64},
-            Ptr{Float64}, Ptr{Int64}, Ptr{Int64}, Ptr{Float64},
-            Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Int64},
-            Ptr{Int64}),
+            (Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
+            Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
+            Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
+            Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
+            Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
+            Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
+            Ptr{BlasInt}),
             &rowcol, &n, &m, &p, A, &lda, B, &ldb, C, &ldc, D, &ldd,
             NR, INDEX, DCOEFF, &lddcoe, UCOEFF, &lduc01, &lduc02,
-            &tol1, &tol2, IWORK, DWORK, &ldwork, &INFO)
+            &tol1, &tol2, IWORK, DWORK, &ldwork, INFO)
     
     #Check INFO for error value:
-    if INFO != 0
-        error(@sprintf("SlicotError in TB04AD: The %dth argument had
-        an illegal value", -INFO))
+    if INFO[1] < 0
+        throw(SlicotException(INFO[1], @sprintf("SlicotError in TB04AD: the 
+        %dth argument had an illegal value", -INFO[1])))
     else
         return (A, B, C, NR, INDEX, DCOEFF, UCOEFF, INFO)
     end

@@ -112,7 +112,7 @@ DSLSRC = \
 all: double
 
 double: $(DSLSRC)
-	$(LOAD) $(LOADFLAGS) -o $(SLICOTLIB) $(DSLSRC) $(LAPACKLIB) $(BLASLIB)
+	$(LOAD) $(LOADFLAGS) -o $(SLICOTLIB) $(DSLSRC) $(LOADOPTS)
 
 $(DSLSRC): $(FRC)
 

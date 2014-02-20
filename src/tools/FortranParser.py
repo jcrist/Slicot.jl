@@ -77,25 +77,32 @@ def parse_params(ctype, plist):
 class Formatter:
     def __init__(self, typedict):
         self.typedict = typedict
-        self.lookup={'CHARACTER': 'Char',
-                     'INTEGER': 'BlasInt',
-                     'DOUBLE PRECISION': 'Float64',
-                     'COMPLEX*16': 'Complex128',
-                     'LOGICAL': 'Bool'}
+        self.headlookup={'CHARACTER': 'Char',
+                        'INTEGER': 'Integer',
+                        'DOUBLE PRECISION': 'FloatingPoint',
+                        'COMPLEX*16': 'Complex',
+                        'LOGICAL': 'Bool'}
+        self.calllookup={'CHARACTER': 'Char',
+                        'INTEGER': 'BlasInt',
+                        'DOUBLE PRECISION': 'Float64',
+                        'COMPLEX*16': 'Complex128',
+                        'LOGICAL': 'Bool'}
         self.funcformat = """{:}
+
+    INFO = [0]
 
     {:}
     
-    if INFO < 0
-        error(@sprintf("SlicotError in {:}: the %dth argument had
-        an illegal value", -INFO))
+    if INFO[1] < 0
+        throw(SlicotException(INFO[1], @sprintf("SlicotError in {:}: the 
+        %dth argument had an illegal value", -INFO[1])))
     end
 end"""
 
     def header(self, funcname, params):
         #Create the header
-        header = "function {:}(".format(funcname)
-        call_list = [self._header(p) for p in params]
+        header = "function {:}!(".format(funcname.lower())
+        call_list = [self._header(p) for p in params if p != "INFO"]
         if None in call_list:
             return None
         header += ', '.join(call_list) + ')'
@@ -132,10 +139,10 @@ end"""
         if len(args) == 2:
             #It's an array
             ctype, ndims = args
-            jtype = self.lookup[ctype]
+            jtype = self.headlookup[ctype]
             return "{:}::Array{{{:},{:}}}".format(name,jtype,ndims)
         else:
-            return "{:}::{:}".format(name,self.lookup[args[0]])
+            return "{:}::{:}".format(name,self.headlookup[args[0]])
 
     def _call(self, name):
         args = self.typedict[name]
@@ -145,7 +152,7 @@ end"""
             call_val = name
         else:
             call_val = '&{:}'.format(name)
-        jtype = self.lookup[args[0]]
+        jtype = self.calllookup[args[0]]
         call_sig = 'Ptr{{{:}}}'.format(jtype)
         return (call_sig, call_val)
 
@@ -165,9 +172,14 @@ if __name__ == '__main__':
         text = open(fil).read()
 
         funcname, funcparams = get_header(text)
+        if not funcname:
+            #It's a function, not a subroutine. Continue, will do later
+            continue
         typedict = get_typedict(text)
+        typedict["INFO"] = ("INTEGER", 1)
         formatter = Formatter(typedict)
         function = formatter.subroutine(funcname, funcparams)
         if function:
+            #function is none if requires EXTERNAL
             print function
             print "\n"

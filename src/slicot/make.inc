@@ -19,7 +19,7 @@ FORTRAN  = f77
 OPTS     = -O4 -u -fPIC
 NOOPT    = -u
 LOADER   = f77
-LOADOPTS = $(ALT_XERBLALIB) $(SLICOTLIB) $(LPKAUXLIB) $(BLASLIB) $(LAPACKLIB)
+LOADOPTS = $(ALT_XERBLALIB) $(BLASLIB) $(LAPACKLIB)
 #
 #  The loader, archiver and the flag(s) to use when building the library
 #

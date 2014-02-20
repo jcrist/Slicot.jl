@@ -2,6 +2,19 @@
 
 module Slicot
 
+import Base.USE_BLAS64
+
+if USE_BLAS64
+    typealias BlasInt Int64
+else
+    typealias BlasInt Int32
+end
+
+type SlicotException <:Exception
+    info::BlasInt
+    msg::ASCIIString
+end
+
 ## SIMPLIFIED ROUTINES ##
 #
 # These are wrapped with "sugar", using defaults for many
@@ -14,7 +27,7 @@ include("simple.jl")
 
 ## RAW ROUTINES ##
 #
-# These are just the raw call strings. Same as in fortran 
+# These are just the FORTRAN call strings minus the "INFO" param. 
 # For most cases, you shouldn't need to have any need to 
 # touch these. If your case requires more finese, please file 
 # an issue, as the simple.jl routines interface may need to be
