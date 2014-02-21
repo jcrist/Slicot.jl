@@ -11,6 +11,8 @@ Unfinished, untested, extremely new.
 
 However, more are on the way. 
 
+For more up to date information, check "status.md"
+
 Installation
 ------------
 Git clone the repo into your Julia directory. Change into ./src/slicot,

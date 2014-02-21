@@ -1,6 +1,17 @@
 ## Raw call strings for SLICOT routines ##
 # For most cases you probably want to use Slicot.Simple
 
+#Call signatures in this module are the same as they are in the original
+#fortran, with 2 exceptions:
+#
+# 1.) INFO is not passed in. This is to ensure error handling is *always*
+#     valid
+#
+# 2.) If a parameter is an output (or input/output) it must be an array.
+#     Even if the parameter is an integer, it must be passed in wrapped
+#     in a 1d array. For example, TD04AD takes NR, which is an integer. 
+#     This must be passed in as [some number].
+
 module Raw
 
 import Slicot: SlicotException, BlasInt
@@ -10346,7 +10357,7 @@ function tb04ad!(ROWCOL::Char, N::Integer, M::Integer, P::Integer,
     A::Array{FloatingPoint,2}, LDA::Integer,
     B::Array{FloatingPoint,2}, LDB::Integer,
     C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NR::Integer,
+    D::Array{FloatingPoint,2}, LDD::Integer, NR::Array{Integer,1},
     INDEX::Array{Integer,1}, DCOEFF::Array{FloatingPoint,2},
     LDDCOE::Integer, UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer,
     LDUCO2::Integer, TOL1::FloatingPoint, TOL2::FloatingPoint,
@@ -10362,7 +10373,7 @@ function tb04ad!(ROWCOL::Char, N::Integer, M::Integer, P::Integer,
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &ROWCOL, &N,
-            &M, &P, A, &LDA, B, &LDB, C, &LDC, D, &LDD, &NR, INDEX,
+            &M, &P, A, &LDA, B, &LDB, C, &LDC, D, &LDD, NR, INDEX,
             DCOEFF, &LDDCOE, UCOEFF, &LDUCO1, &LDUCO2, &TOL1, &TOL2,
             IWORK, DWORK, &LDWORK, INFO)
     

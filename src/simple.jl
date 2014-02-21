@@ -9,8 +9,9 @@ export tb04ad
 #TODO: Slice return matrices before returning on tb04ad
 
 function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer, 
-    A::Array{Float64, 2}, B::Array{Float64, 2}, C::Array{Float64, 2}, 
-    D::Array{Float64, 2}, tol1=0.0, tol2=0.0, ldwork::Integer=-1)
+    A::Array{FloatingPoint, 2}, B::Array{FloatingPoint, 2}, 
+    C::Array{FloatingPoint, 2}, D::Array{FloatingPoint, 2}, 
+    tol1=0.0, tol2=0.0, ldwork::Integer=-1)
     ## Calculate Transfer Matrix of State Space Representation (A,B,C,D) ##
     ## INPUTS:
     #---> rowcol = 'R' for row/den, 'C' for col/den
@@ -97,6 +98,12 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
     DWORK = Array(Float64, ldwork)
     INFO = Array(BlasInt, 1)
 
+    #Create copies of arrays, to prevent change by reference
+    AR = copy(A)
+    BR = copy(B)
+    CR = copy(C)
+    DR = copy(D)
+
     #Call the subroutine
     ccall((:tb04ad_, "libslicot"), Void, 
             (Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -106,8 +113,8 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}),
-            &rowcol, &n, &m, &p, A, &lda, B, &ldb, C, &ldc, D, &ldd,
-            NR, INDEX, DCOEFF, &lddcoe, UCOEFF, &lduc01, &lduc02,
+            &rowcol, &n, &m, &p, AR, &lda, BR, &ldb, CR, &ldc, DR, 
+            &ldd, NR, INDEX, DCOEFF, &lddcoe, UCOEFF, &lduc01, &lduc02,
             &tol1, &tol2, IWORK, DWORK, &ldwork, INFO)
     
     #Check INFO for error value:
@@ -115,7 +122,8 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
         throw(SlicotException(INFO[1], @sprintf("SlicotError in TB04AD: the 
         %dth argument had an illegal value", -INFO[1])))
     else
-        return (A, B, C, NR, INDEX, DCOEFF, UCOEFF, INFO)
+        return (AR[:NR, :NR], BR[:NR, :m], CR[:p, :NR], NR[1], INDEX, 
+        DCOEFF[:porm, :kdcoef], UCOEFF[:porm, :porp, :kdcoef], INFO[1])
     end
 end
 
