@@ -3,6 +3,8 @@
 module Slicot
 
 import Base.USE_BLAS64
+using BinDeps
+@BinDeps.load_dependencies [:libslicot]
 
 if USE_BLAS64
     typealias BlasInt Int64

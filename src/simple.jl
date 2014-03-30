@@ -2,7 +2,7 @@
 
 module Simple
 
-import Slicot: SlicotException, BlasInt
+import Slicot: SlicotException, BlasInt, libslicot
 
 export tb04ad
 
@@ -105,7 +105,7 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
     DR = copy(D)
 
     #Call the subroutine
-    ccall((:tb04ad_, "libslicot"), Void, 
+    ccall((:tb04ad_, libslicot), Void, 
             (Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},

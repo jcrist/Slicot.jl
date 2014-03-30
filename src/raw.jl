@@ -14,7 +14,7 @@
 
 module Raw
 
-import Slicot: SlicotException, BlasInt
+import Slicot: SlicotException, BlasInt, libslicot
 
 function ab01md!(JOBZ::Char, N::Integer, A::Array{FloatingPoint,2},
     LDA::Integer, B::Array{FloatingPoint,1}, NCONT::Integer,
@@ -24,7 +24,7 @@ function ab01md!(JOBZ::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:ab01md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab01md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &JOBZ, &N, A,
@@ -49,7 +49,7 @@ function ab01nd!(JOBZ::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ab01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab01nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -75,7 +75,7 @@ function ab01od!(STAGES::Char, JOBU::Char, JOBV::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab01od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab01od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -102,7 +102,7 @@ function ab04md!(TYPE::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab04md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab04md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -134,7 +134,7 @@ function ab05md!(UPLO::Char, OVER::Char, N1::Integer, M1::Integer,
 
     INFO = [0]
 
-    ccall((:ab05md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab05md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -172,7 +172,7 @@ function ab05nd!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
 
     INFO = [0]
 
-    ccall((:ab05nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab05nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -210,7 +210,7 @@ function ab05od!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
 
     INFO = [0]
 
-    ccall((:ab05od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab05od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -247,7 +247,7 @@ function ab05pd!(OVER::Char, N1::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab05pd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab05pd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -283,7 +283,7 @@ function ab05qd!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
 
     INFO = [0]
 
-    ccall((:ab05qd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab05qd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -322,7 +322,7 @@ function ab05rd!(FBTYPE::Char, JOBD::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ab05rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab05rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -355,7 +355,7 @@ function ab05sd!(FBTYPE::Char, JOBD::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ab05sd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab05sd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -379,7 +379,7 @@ function ab07md!(JOBD::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab07md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab07md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &JOBD, &N,
@@ -401,7 +401,7 @@ function ab07nd!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:ab07nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ab07nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -425,7 +425,7 @@ function ab08md!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab08md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab08md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -450,7 +450,7 @@ function ab08mz!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab08mz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab08mz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{BlasInt}, Ptr{Complex128},
@@ -481,7 +481,7 @@ function ab08nd!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab08nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab08nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -510,7 +510,7 @@ function ab08nx!(N::Integer, M::Integer, P::Integer, RO::Integer,
 
     INFO = [0]
 
-    ccall((:ab08nx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ab08nx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -539,7 +539,7 @@ function ab08nz!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab08nz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab08nz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{BlasInt}, Ptr{Complex128},
@@ -571,7 +571,7 @@ function ab09ad!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -598,7 +598,7 @@ function ab09ax!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09ax_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09ax_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -627,7 +627,7 @@ function ab09bd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -657,7 +657,7 @@ function ab09bx!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09bx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09bx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -687,7 +687,7 @@ function ab09cd!(DICO::Char, EQUIL::Char, ORDSEL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09cd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09cd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -715,7 +715,7 @@ function ab09cx!(DICO::Char, ORDSEL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ab09cx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09cx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -741,7 +741,7 @@ function ab09dd!(DICO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab09dd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab09dd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -768,7 +768,7 @@ function ab09ed!(DICO::Char, EQUIL::Char, ORDSEL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09ed_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09ed_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -797,7 +797,7 @@ function ab09fd!(DICO::Char, JOBCF::Char, FACT::Char, JOBMR::Char,
 
     INFO = [0]
 
-    ccall((:ab09fd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09fd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -827,7 +827,7 @@ function ab09gd!(DICO::Char, JOBCF::Char, FACT::Char, JOBMR::Char,
 
     INFO = [0]
 
-    ccall((:ab09gd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09gd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -861,7 +861,7 @@ function ab09hd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09hd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09hd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -893,7 +893,7 @@ function ab09hx!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09hx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09hx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -924,7 +924,7 @@ function ab09hy!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ab09hy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ab09hy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -963,7 +963,7 @@ function ab09id!(DICO::Char, JOBC::Char, JOBO::Char, JOB::Char,
 
     INFO = [0]
 
-    ccall((:ab09id_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09id_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -1005,7 +1005,7 @@ function ab09ix!(DICO::Char, JOB::Char, FACT::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09ix_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09ix_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -1045,7 +1045,7 @@ function ab09iy!(DICO::Char, JOBC::Char, JOBO::Char, WEIGHT::Char,
 
     INFO = [0]
 
-    ccall((:ab09iy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09iy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -1091,7 +1091,7 @@ function ab09jd!(JOBV::Char, JOBW::Char, JOBINV::Char, DICO::Char,
 
     INFO = [0]
 
-    ccall((:ab09jd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09jd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -1132,7 +1132,7 @@ function ab09jv!(JOB::Char, DICO::Char, JOBEV::Char, STBCHK::Char,
 
     INFO = [0]
 
-    ccall((:ab09jv_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09jv_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1168,7 +1168,7 @@ function ab09jw!(JOB::Char, DICO::Char, JOBEW::Char, STBCHK::Char,
 
     INFO = [0]
 
-    ccall((:ab09jw_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09jw_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1195,7 +1195,7 @@ function ab09jx!(DICO::Char, STDOM::Char, EVTYPE::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09jx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09jx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &DICO, &STDOM, &EVTYPE, &N, &ALPHA, ER, EI, ED, &TOLINF,
@@ -1229,7 +1229,7 @@ function ab09kd!(JOB::Char, DICO::Char, WEIGHT::Char, EQUIL::Char,
 
     INFO = [0]
 
-    ccall((:ab09kd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09kd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -1272,7 +1272,7 @@ function ab09kx!(JOB::Char, DICO::Char, WEIGHT::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ab09kx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09kx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -1305,7 +1305,7 @@ function ab09md!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1334,7 +1334,7 @@ function ab09nd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
 
     INFO = [0]
 
-    ccall((:ab09nd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab09nd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1365,7 +1365,7 @@ function ab13dd!(DICO::Char, JOBE::Char, EQUIL::Char, JOBD::Char,
 
     INFO = [0]
 
-    ccall((:ab13dd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ab13dd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -1390,7 +1390,7 @@ function ab13ed!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:ab13ed_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:ab13ed_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, A, &LDA,
             &LOW, &HIGH, &TOL, DWORK, &LDWORK, INFO)
@@ -1409,7 +1409,7 @@ function ab13fd!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:ab13fd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:ab13fd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, A, &LDA, &BETA, &OMEGA,
@@ -1432,7 +1432,7 @@ function ab13md!(FACT::Char, N::Integer, Z::Array{Complex,1},
 
     INFO = [0]
 
-    ccall((:ab13md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ab13md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1458,7 +1458,7 @@ function ab8nxz!(N::Integer, M::Integer, P::Integer, RO::Integer,
 
     INFO = [0]
 
-    ccall((:ab8nxz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ab8nxz_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Complex128}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -1489,7 +1489,7 @@ function ag07bd!(JOBE::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ag07bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ag07bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1521,7 +1521,7 @@ function ag08bd!(EQUIL::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ag08bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ag08bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1552,7 +1552,7 @@ function ag08by!(FIRST::Bool, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ag08by_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:ag08by_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -1583,7 +1583,7 @@ function ag08bz!(EQUIL::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ag08bz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ag08bz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt},
@@ -1616,7 +1616,7 @@ function ag8byz!(FIRST::Bool, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:ag8byz_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:ag8byz_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{Complex128}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -1639,7 +1639,7 @@ function de01od!(CONV::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:de01od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:de01od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &CONV, &N, A,
             B, INFO)
     
@@ -1656,7 +1656,7 @@ function de01pd!(CONV::Char, WGHT::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:de01pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:de01pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &CONV, &WGHT, &N, A, B, W, INFO)
     
@@ -1672,7 +1672,7 @@ function df01md!(SICO::Char, N::Integer, DT::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:df01md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:df01md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &SICO, &N, &DT, A, DWORK, INFO)
     
@@ -1688,7 +1688,7 @@ function dg01md!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:dg01md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:dg01md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &INDI, &N,
             XR, XI, INFO)
     
@@ -1704,7 +1704,7 @@ function dg01nd!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:dg01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:dg01nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &INDI, &N,
             XR, XI, INFO)
     
@@ -1720,7 +1720,7 @@ function dg01ny!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:dg01ny_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:dg01ny_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}), &INDI, &N, XR, XI)
     
     if INFO[1] < 0
@@ -1735,7 +1735,7 @@ function dg01od!(SCR::Char, WGHT::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:dg01od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:dg01od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &SCR, &WGHT, &N, A, W, INFO)
     
@@ -1750,7 +1750,7 @@ function dk01md!(TYPE::Char, N::Integer, A::Array{FloatingPoint,1})
 
     INFO = [0]
 
-    ccall((:dk01md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:dk01md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &TYPE, &N, A, INFO)
     
     if INFO[1] < 0
@@ -1773,7 +1773,7 @@ function fb01qd!(JOBK::Char, MULTBQ::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:fb01qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:fb01qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1803,7 +1803,7 @@ function fb01rd!(JOBK::Char, MULTBQ::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:fb01rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:fb01rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1834,7 +1834,7 @@ function fb01sd!(JOBX::Char, MULTAB::Char, MULTRC::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:fb01sd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:fb01sd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -1867,7 +1867,7 @@ function fb01td!(JOBX::Char, MULTRC::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:fb01td_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:fb01td_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1899,7 +1899,7 @@ function fb01vd!(N::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:fb01vd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:fb01vd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -1925,7 +1925,7 @@ function fd01ad!(JP::Char, L::Integer, LAMBDA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:fd01ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:fd01ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -1951,7 +1951,7 @@ function ib01ad!(METH::Char, ALG::Char, JOBD::Char, BATCH::Char,
 
     INFO = [0]
 
-    ccall((:ib01ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -1985,7 +1985,7 @@ function ib01bd!(METH::Char, JOB::Char, JOBCK::Char, NOBR::Integer,
 
     INFO = [0]
 
-    ccall((:ib01bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2018,7 +2018,7 @@ function ib01cd!(JOBX0::Char, COMUSE::Char, JOB::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ib01cd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01cd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -2046,7 +2046,7 @@ function ib01md!(METH::Char, ALG::Char, BATCH::Char, CONCT::Char,
 
     INFO = [0]
 
-    ccall((:ib01md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2070,7 +2070,7 @@ function ib01my!(METH::Char, BATCH::Char, CONCT::Char, NOBR::Integer,
 
     INFO = [0]
 
-    ccall((:ib01my_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01my_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -2093,7 +2093,7 @@ function ib01nd!(METH::Char, JOBD::Char, NOBR::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ib01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01nd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -2113,7 +2113,7 @@ function ib01od!(CTRL::Char, NOBR::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:ib01od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ib01od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &CTRL, &NOBR, &L, SV, &N,
             &TOL, &IWARN, INFO)
@@ -2130,7 +2130,7 @@ function ib01oy!(NS::Integer, NMAX::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:ib01oy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ib01oy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &NS, &NMAX,
             &N, SV, INFO)
     
@@ -2157,7 +2157,7 @@ function ib01pd!(METH::Char, JOB::Char, JOBCV::Char, NOBR::Integer,
 
     INFO = [0]
 
-    ccall((:ib01pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2191,7 +2191,7 @@ function ib01px!(JOB::Char, NOBR::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ib01px_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ib01px_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -2225,7 +2225,7 @@ function ib01py!(METH::Char, JOB::Char, NOBR::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:ib01py_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01py_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -2257,7 +2257,7 @@ function ib01qd!(JOBX0::Char, JOB::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:ib01qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib01qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2288,7 +2288,7 @@ function ib01rd!(JOB::Char, N::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:ib01rd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ib01rd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -2316,7 +2316,7 @@ function ib03ad!(INIT::Char, ALG::Char, STOR::Char, NOBR::Integer,
 
     INFO = [0]
 
-    ccall((:ib03ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ib03ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2344,7 +2344,7 @@ function ib03bd!(INIT::Char, NOBR::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:ib03bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ib03bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2366,7 +2366,7 @@ function ma01ad!(XR::FloatingPoint, XI::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:ma01ad_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:ma01ad_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), &XR, &XI, &YR, &YI)
     
     if INFO[1] < 0
@@ -2383,7 +2383,7 @@ function ma01bd!(BASE::FloatingPoint, LGBAS::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:ma01bd_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:ma01bd_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &BASE,
             &LGBAS, &K, S, A, &INCA, &ALPHA, &BETA, &SCAL)
@@ -2401,7 +2401,7 @@ function ma02ad!(JOB::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:ma02ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ma02ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}), &JOB, &M, &N, A, &LDA, B, &LDB)
     
@@ -2417,7 +2417,7 @@ function ma02bd!(SIDE::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:ma02bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ma02bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &SIDE, &M,
             &N, A, &LDA)
     
@@ -2433,7 +2433,7 @@ function ma02bz!(SIDE::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:ma02bz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ma02bz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt}), &SIDE, &M,
             &N, A, &LDA)
     
@@ -2449,7 +2449,7 @@ function ma02cd!(N::Integer, KL::Integer, KU::Integer,
 
     INFO = [0]
 
-    ccall((:ma02cd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ma02cd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &N, &KL, &KU,
             A, &LDA)
     
@@ -2465,7 +2465,7 @@ function ma02cz!(N::Integer, KL::Integer, KU::Integer,
 
     INFO = [0]
 
-    ccall((:ma02cz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:ma02cz_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt}), &N, &KL,
             &KU, A, &LDA)
     
@@ -2482,7 +2482,7 @@ function ma02dd!(JOB::Char, UPLO::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:ma02dd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:ma02dd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}),
             &JOB, &UPLO, &N, A, &LDA, AP)
     
@@ -2498,7 +2498,7 @@ function ma02ed!(UPLO::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:ma02ed_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:ma02ed_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &UPLO, &N, A, &LDA)
     
     if INFO[1] < 0
@@ -2513,7 +2513,7 @@ function ma02fd!(X1::FloatingPoint, X2::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:ma02fd_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:ma02fd_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &X1, &X2, &C,
             &S, INFO)
     
@@ -2530,7 +2530,7 @@ function ma02gd!(N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:ma02gd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:ma02gd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}), &N, A, &LDA, &K1, &K2, IPIV, &INCX)
     
@@ -2548,7 +2548,7 @@ function mb01kd!(UPLO::Char, TRANS::Char, N::Integer, K::Integer,
 
     INFO = [0]
 
-    ccall((:mb01kd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01kd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &UPLO,
@@ -2571,7 +2571,7 @@ function mb01ld!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01ld_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01ld_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2592,7 +2592,7 @@ function mb01md!(UPLO::Char, N::Integer, ALPHA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb01md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &UPLO, &N, &ALPHA, A, &LDA, X, &INCX, &BETA, Y, &INCY)
@@ -2611,7 +2611,7 @@ function mb01nd!(UPLO::Char, N::Integer, ALPHA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}), &UPLO, &N,
             &ALPHA, X, &INCX, Y, &INCY, A, &LDA)
@@ -2629,7 +2629,7 @@ function mb01pd!(SCUN::Char, TYPE::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &SCUN, &TYPE, &M, &N, &KL,
@@ -2649,7 +2649,7 @@ function mb01qd!(TYPE::Char, M::Integer, N::Integer, KL::Integer,
 
     INFO = [0]
 
-    ccall((:mb01qd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01qd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &TYPE, &M, &N, &KL, &KU,
@@ -2671,7 +2671,7 @@ function mb01rd!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2694,7 +2694,7 @@ function mb01ru!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01ru_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01ru_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2715,7 +2715,7 @@ function mb01rw!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01rw_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01rw_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &UPLO, &TRANS, &M, &N, A, &LDA, Z, &LDZ, DWORK, INFO)
@@ -2735,7 +2735,7 @@ function mb01rx!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb01rx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01rx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -2758,7 +2758,7 @@ function mb01ry!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb01ry_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01ry_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
@@ -2778,7 +2778,7 @@ function mb01sd!(JOBS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01sd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01sd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}), &JOBS, &M, &N, A, &LDA, R, C)
     
@@ -2795,7 +2795,7 @@ function mb01td!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:mb01td_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb01td_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}), &N, A, &LDA, B, &LDB, DWORK, INFO)
     
@@ -2813,7 +2813,7 @@ function mb01ud!(SIDE::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01ud_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01ud_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &SIDE, &TRANS, &M, &N,
@@ -2833,7 +2833,7 @@ function mb01uw!(SIDE::Char, TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb01uw_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01uw_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &SIDE, &TRANS, &M, &N,
@@ -2853,7 +2853,7 @@ function mb01ux!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb01ux_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01ux_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &SIDE, &UPLO,
@@ -2875,7 +2875,7 @@ function mb01vd!(TRANA::Char, TRANB::Char, MA::Integer, NA::Integer,
 
     INFO = [0]
 
-    ccall((:mb01vd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01vd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -2898,7 +2898,7 @@ function mb01wd!(DICO::Char, UPLO::Char, TRANS::Char, HESS::Char,
 
     INFO = [0]
 
-    ccall((:mb01wd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01wd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -2917,7 +2917,7 @@ function mb01xd!(UPLO::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb01xd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01xd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &UPLO, &N, A,
             &LDA, INFO)
     
@@ -2933,7 +2933,7 @@ function mb01xy!(UPLO::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb01xy_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb01xy_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &UPLO, &N, A,
             &LDA, INFO)
     
@@ -2951,7 +2951,7 @@ function mb01yd!(UPLO::Char, TRANS::Char, N::Integer, K::Integer,
 
     INFO = [0]
 
-    ccall((:mb01yd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01yd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &UPLO, &TRANS, &N, &K, &L,
@@ -2971,7 +2971,7 @@ function mb01zd!(SIDE::Char, UPLO::Char, TRANST::Char, DIAG::Char,
 
     INFO = [0]
 
-    ccall((:mb01zd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb01zd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &SIDE, &UPLO,
@@ -2995,7 +2995,7 @@ function mb02cd!(JOB::Char, TYPET::Char, K::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02cd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02cd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -3020,7 +3020,7 @@ function mb02cu!(TYPEG::Char, K::Integer, P::Integer, Q::Integer,
 
     INFO = [0]
 
-    ccall((:mb02cu_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02cu_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -3048,7 +3048,7 @@ function mb02cv!(TYPEG::Char, STRUCG::Char, K::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02cv_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02cv_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -3073,7 +3073,7 @@ function mb02cx!(TYPET::Char, P::Integer, Q::Integer, K::Integer,
 
     INFO = [0]
 
-    ccall((:mb02cx_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02cx_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &TYPET, &P,
@@ -3096,7 +3096,7 @@ function mb02cy!(TYPET::Char, STRUCG::Char, P::Integer, Q::Integer,
 
     INFO = [0]
 
-    ccall((:mb02cy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02cy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -3122,7 +3122,7 @@ function mb02dd!(JOB::Char, TYPET::Char, K::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02dd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02dd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3145,7 +3145,7 @@ function mb02ed!(TYPET::Char, K::Integer, N::Integer, NRHS::Integer,
 
     INFO = [0]
 
-    ccall((:mb02ed_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02ed_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &TYPET, &K, &N, &NRHS, T, &LDT, B, &LDB,
@@ -3165,7 +3165,7 @@ function mb02fd!(TYPET::Char, K::Integer, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb02fd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02fd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &TYPET, &K, &N, &P, &S, T,
@@ -3185,7 +3185,7 @@ function mb02gd!(TYPET::Char, TRIU::Char, K::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02gd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02gd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -3208,7 +3208,7 @@ function mb02hd!(TRIU::Char, K::Integer, L::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02hd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02hd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3232,7 +3232,7 @@ function mb02id!(JOB::Char, K::Integer, L::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02id_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02id_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3256,7 +3256,7 @@ function mb02jd!(JOB::Char, K::Integer, L::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02jd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02jd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3281,7 +3281,7 @@ function mb02jx!(JOB::Char, K::Integer, L::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02jx_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02jx_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -3307,7 +3307,7 @@ function mb02kd!(LDBLK::Char, TRANS::Char, K::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:mb02kd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02kd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3331,7 +3331,7 @@ function mb02md!(JOB::Char, M::Integer, N::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:mb02md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -3356,7 +3356,7 @@ function mb02nd!(M::Integer, N::Integer, L::Integer, RANK::Integer,
 
     INFO = [0]
 
-    ccall((:mb02nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb02nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Bool}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -3380,7 +3380,7 @@ function mb02ny!(UPDATU::Bool, UPDATV::Bool, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02ny_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb02ny_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}), &UPDATU,
@@ -3402,7 +3402,7 @@ function mb02od!(SIDE::Char, UPLO::Char, TRANS::Char, DIAG::Char,
 
     INFO = [0]
 
-    ccall((:mb02od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -3429,7 +3429,7 @@ function mb02pd!(FACT::Char, TRANS::Char, N::Integer, NRHS::Integer,
 
     INFO = [0]
 
-    ccall((:mb02pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Char},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -3456,7 +3456,7 @@ function mb02qd!(JOB::Char, INIPER::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -3479,7 +3479,7 @@ function mb02qy!(M::Integer, N::Integer, NRHS::Integer, RANK::Integer,
 
     INFO = [0]
 
-    ccall((:mb02qy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb02qy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &M, &N,
@@ -3500,7 +3500,7 @@ function mb02rd!(TRANS::Char, N::Integer, NRHS::Integer,
 
     INFO = [0]
 
-    ccall((:mb02rd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02rd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &TRANS, &N,
             &NRHS, H, &LDH, IPIV, B, &LDB, INFO)
@@ -3518,7 +3518,7 @@ function mb02rz!(TRANS::Char, N::Integer, NRHS::Integer,
 
     INFO = [0]
 
-    ccall((:mb02rz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02rz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{BlasInt}), &TRANS, &N, &NRHS, H, &LDH, IPIV, B,
@@ -3536,7 +3536,7 @@ function mb02sd!(N::Integer, H::Array{FloatingPoint,2}, LDH::Integer,
 
     INFO = [0]
 
-    ccall((:mb02sd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb02sd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}), &N, H, &LDH,
             IPIV, INFO)
     
@@ -3552,7 +3552,7 @@ function mb02sz!(N::Integer, H::Array{Complex,2}, LDH::Integer,
 
     INFO = [0]
 
-    ccall((:mb02sz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Complex128},
+    ccall((:mb02sz_, libslicot), Void, (Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}), &N, H, &LDH,
             IPIV, INFO)
     
@@ -3570,7 +3570,7 @@ function mb02td!(NORM::Char, N::Integer, HNORM::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb02td_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02td_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &NORM, &N, &HNORM, H, &LDH, IPIV, &RCOND, IWORK, DWORK,
@@ -3590,7 +3590,7 @@ function mb02tz!(NORM::Char, N::Integer, HNORM::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb02tz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02tz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Complex128}, Ptr{BlasInt}), &NORM, &N, &HNORM, H,
@@ -3613,7 +3613,7 @@ function mb02ud!(FACT::Char, SIDE::Char, TRANS::Char, JOBP::Char,
 
     INFO = [0]
 
-    ccall((:mb02ud_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb02ud_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -3636,7 +3636,7 @@ function mb02uu!(N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb02uu_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb02uu_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}), &N, A, &LDA, RHS, IPIV, JPIV, &SCALE)
     
@@ -3653,7 +3653,7 @@ function mb02uv!(N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb02uv_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb02uv_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}),
             &N, A, &LDA, IPIV, JPIV, INFO)
     
@@ -3671,7 +3671,7 @@ function mb02uw!(LTRANS::Bool, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb02uw_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:mb02uw_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &LTRANS, &N, &M, PAR, A, &LDA, B, &LDB, &SCALE, &IWARN)
@@ -3690,7 +3690,7 @@ function mb02vd!(TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb02vd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02vd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &TRANS, &M,
             &N, A, &LDA, IPIV, B, &LDB, INFO)
@@ -3710,7 +3710,7 @@ function mb02yd!(COND::Char, N::Integer, R::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb02yd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb02yd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &COND, &N, R,
@@ -3732,7 +3732,7 @@ function mb03ad!(SHFT::Char, K::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}), &SHFT, &K,
@@ -3750,7 +3750,7 @@ function mb03ba!(K::Integer, H::Integer, S::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:mb03ba_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03ba_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}),
             &K, &H, S, &SMULT, AMAP, QMAP)
     
@@ -3770,7 +3770,7 @@ function mb03bb!(BASE::FloatingPoint, LGBAS::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb03bb_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:mb03bb_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -3793,7 +3793,7 @@ function mb03bc!(K::Integer, AMAP::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:mb03bc_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03bc_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}), &K, AMAP, S, &SINV, A, &LDA1, &LDA2,
@@ -3818,7 +3818,7 @@ function mb03bd!(JOB::Char, DEFL::Char, COMPQ::Char,
 
     INFO = [0]
 
-    ccall((:mb03bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -3842,7 +3842,7 @@ function mb03be!(K::Integer, AMAP::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:mb03be_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03be_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &K, AMAP, S, &SINV, A, &LDA1, &LDA2)
     
@@ -3864,7 +3864,7 @@ function mb03cd!(UPLO::Char, N1::Integer, N2::Integer,
 
     INFO = [0]
 
-    ccall((:mb03cd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03cd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -3889,7 +3889,7 @@ function mb03dd!(UPLO::Char, N1::Integer, N2::Integer,
 
     INFO = [0]
 
-    ccall((:mb03dd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03dd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -3914,7 +3914,7 @@ function mb03ed!(N::Integer, PREC::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb03ed_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb03ed_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -3938,7 +3938,7 @@ function mb03fd!(N::Integer, PREC::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb03fd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb03fd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, &PREC, A,
@@ -3960,7 +3960,7 @@ function mb03gd!(N::Integer, B::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03gd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb03gd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, B, &LDB,
@@ -3980,7 +3980,7 @@ function mb03hd!(N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03hd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb03hd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &N, A, &LDA, B, &LDB, MACPAR, Q, &LDQ, DWORK, INFO)
@@ -4006,7 +4006,7 @@ function mb03id!(COMPQ::Char, COMPU::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03id_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03id_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4034,7 +4034,7 @@ function mb03jd!(COMPQ::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03jd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03jd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -4061,7 +4061,7 @@ function mb03ka!(COMPQ::Char, WHICHQ::Array{Integer,1}, WS::Bool,
 
     INFO = [0]
 
-    ccall((:mb03ka_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03ka_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -4090,7 +4090,7 @@ function mb03kb!(COMPQ::Char, WHICHQ::Array{Integer,1}, WS::Bool,
 
     INFO = [0]
 
-    ccall((:mb03kb_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03kb_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -4113,7 +4113,7 @@ function mb03kc!(K::Integer, KHESS::Integer, N::Integer, R::Integer,
 
     INFO = [0]
 
-    ccall((:mb03kc_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03kc_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}), &K, &KHESS,
             &N, &R, S, A, &LDA, V, TAU)
@@ -4136,7 +4136,7 @@ function mb03kd!(COMPQ::Char, WHICHQ::Array{Integer,1}, STRONG::Char,
 
     INFO = [0]
 
-    ccall((:mb03kd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03kd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Bool},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -4162,7 +4162,7 @@ function mb03ke!(TRANA::Bool, TRANB::Bool, ISGN::Integer, K::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ke_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03ke_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4190,7 +4190,7 @@ function mb03ld!(COMPQ::Char, ORTH::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ld_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03ld_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -4215,7 +4215,7 @@ function mb03md!(N::Integer, L::Integer, THETA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb03md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &L, &THETA, Q, E, Q2,
@@ -4237,7 +4237,7 @@ function mb03od!(JOBQR::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -4259,7 +4259,7 @@ function mb03oy!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03oy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03oy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &M, &N, A, &LDA, &RCOND,
@@ -4280,7 +4280,7 @@ function mb03pd!(JOBRQ::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03pd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03pd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &JOBRQ, &M,
@@ -4302,7 +4302,7 @@ function mb03py!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03py_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03py_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &M, &N, A, &LDA, &RCOND,
@@ -4323,7 +4323,7 @@ function mb03qd!(DICO::Char, STDOM::Char, JOBU::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
@@ -4342,7 +4342,7 @@ function mb03qx!(N::Integer, T::Array{FloatingPoint,1}, LDT::Integer,
 
     INFO = [0]
 
-    ccall((:mb03qx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb03qx_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &N, T, &LDT, WR, WI, INFO)
     
@@ -4359,7 +4359,7 @@ function mb03qy!(N::Integer, L::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb03qy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03qy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &N, &L, A,
             &LDA, U, &LDU, &E1, &E2, INFO)
@@ -4380,7 +4380,7 @@ function mb03rd!(JOBX::Char, SORT::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4402,7 +4402,7 @@ function mb03rx!(JOBV::Char, N::Integer, KL::Integer, KU::Integer,
 
     INFO = [0]
 
-    ccall((:mb03rx_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03rx_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}), &JOBV, &N, &KL, &KU, A, &LDA, X, &LDX,
@@ -4422,7 +4422,7 @@ function mb03ry!(M::Integer, N::Integer, PMAX::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb03ry_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03ry_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
             &M, &N, &PMAX, A, &LDA, B, &LDB, C, &LDC, INFO)
@@ -4441,7 +4441,7 @@ function mb03sd!(JOBSCL::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb03sd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb03sd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &JOBSCL, &N, A, &LDA, QG, &LDQG, WR, WI,
@@ -4464,7 +4464,7 @@ function mb03td!(TYP::Char, COMPU::Char, SELECT::Array{Bool,1},
 
     INFO = [0]
 
-    ccall((:mb03td_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03td_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Bool}, Ptr{Bool}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -4489,7 +4489,7 @@ function mb03ts!(ISHAM::Bool, WANTU::Bool, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ts_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03ts_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -4512,7 +4512,7 @@ function mb03ud!(JOBQ::Char, JOBP::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ud_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03ud_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &JOBQ, &JOBP, &N, A, &LDA, Q, &LDQ, SV,
@@ -4532,7 +4532,7 @@ function mb03vd!(N::Integer, P::Integer, ILO::Integer, IHI::Integer,
 
     INFO = [0]
 
-    ccall((:mb03vd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03vd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &N, &P, &ILO, &IHI, A, &LDA1, &LDA2, TAU,
@@ -4553,7 +4553,7 @@ function mb03vy!(N::Integer, P::Integer, ILO::Integer, IHI::Integer,
 
     INFO = [0]
 
-    ccall((:mb03vy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03vy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &P, &ILO, &IHI, A,
@@ -4574,7 +4574,7 @@ function mb03wa!(WANTQ::Bool, WANTZ::Bool, N1::Integer, N2::Integer,
 
     INFO = [0]
 
-    ccall((:mb03wa_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03wa_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &WANTQ,
@@ -4598,7 +4598,7 @@ function mb03wd!(JOB::Char, COMPZ::Char, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb03wd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03wd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4620,7 +4620,7 @@ function mb03wx!(N::Integer, P::Integer, T::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb03wx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb03wx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &N, &P, T, &LDT1, &LDT2,
             WR, WI, INFO)
@@ -4646,7 +4646,7 @@ function mb03xd!(BALANC::Char, JOB::Char, JOBU::Char, JOBV::Char,
 
     INFO = [0]
 
-    ccall((:mb03xd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03xd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -4675,7 +4675,7 @@ function mb03xp!(JOB::Char, COMPQ::Char, COMPZ::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03xp_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03xp_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -4710,7 +4710,7 @@ function mb03xu!(LTRA::Bool, LTRB::Bool, N::Integer, K::Integer,
 
     INFO = [0]
 
-    ccall((:mb03xu_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03xu_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -4740,7 +4740,7 @@ function mb03ya!(WANTT::Bool, WANTQ::Bool, WANTZ::Bool, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03ya_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03ya_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -4767,7 +4767,7 @@ function mb03yd!(WANTT::Bool, WANTQ::Bool, WANTZ::Bool, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb03yd_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb03yd_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -4792,7 +4792,7 @@ function mb03yt!(A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:mb03yt_, "libslicot"), Void, (Ptr{Float64}, Ptr{BlasInt},
+    ccall((:mb03yt_, libslicot), Void, (Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}), A, &LDA, B, &LDB, ALPHAR, ALPHAI, BETA,
@@ -4820,7 +4820,7 @@ function mb03za!(COMPC::Char, COMPU::Char, COMPV::Char, COMPW::Char,
 
     INFO = [0]
 
-    ccall((:mb03za_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03za_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -4857,7 +4857,7 @@ function mb03zd!(WHICH::Char, METH::Char, STAB::Char, BALANC::Char,
 
     INFO = [0]
 
-    ccall((:mb03zd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb03zd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -4895,7 +4895,7 @@ function mb04ad!(JOB::Char, COMPQ1::Char, COMPQ2::Char, COMPU1::Char,
 
     INFO = [0]
 
-    ccall((:mb04ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4932,7 +4932,7 @@ function mb04bd!(JOB::Char, COMPQ1::Char, COMPQ2::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -4958,7 +4958,7 @@ function mb04dd!(JOB::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04dd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04dd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &JOB, &N, A,
             &LDA, QG, &LDQG, &ILO, SCALE, INFO)
@@ -4977,7 +4977,7 @@ function mb04di!(JOB::Char, SGN::Char, N::Integer, ILO::Integer,
 
     INFO = [0]
 
-    ccall((:mb04di_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04di_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &JOB, &SGN, &N, &ILO, SCALE, &M, V1,
@@ -4996,7 +4996,7 @@ function mb04ds!(JOB::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04ds_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04ds_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &JOB, &N, A,
             &LDA, QG, &LDQG, &ILO, SCALE, INFO)
@@ -5014,7 +5014,7 @@ function mb04dy!(JOBSCL::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04dy_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04dy_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &JOBSCL, &N,
             A, &LDA, QG, &LDQG, D, DWORK, INFO)
@@ -5032,7 +5032,7 @@ function mb04gd!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb04gd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04gd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &M, &N, A, &LDA, JPVT, TAU,
             DWORK, INFO)
@@ -5054,7 +5054,7 @@ function mb04hd!(COMPQ1::Char, COMPQ2::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04hd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04hd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -5077,7 +5077,7 @@ function mb04id!(N::Integer, M::Integer, P::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:mb04id_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04id_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &P, &L, A, &LDA, B,
@@ -5098,7 +5098,7 @@ function mb04iy!(SIDE::Char, TRANS::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb04iy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04iy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -5119,7 +5119,7 @@ function mb04iz!(N::Integer, M::Integer, P::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:mb04iz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04iz_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Complex128},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{BlasInt},
@@ -5141,7 +5141,7 @@ function mb04jd!(N::Integer, M::Integer, P::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:mb04jd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04jd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &P, &L, A, &LDA, B,
@@ -5163,7 +5163,7 @@ function mb04kd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb04kd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04kd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}),
@@ -5186,7 +5186,7 @@ function mb04ld!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ld_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04ld_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}),
@@ -5206,7 +5206,7 @@ function mb04md!(N::Integer, MAXRED::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb04md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb04md_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &N, &MAXRED, A, &LDA, SCALE, INFO)
     
@@ -5226,7 +5226,7 @@ function mb04nd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb04nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}),
@@ -5247,7 +5247,7 @@ function mb04ny!(M::Integer, N::Integer, V::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb04ny_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04ny_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64}),
             &M, &N, V, &INCV, &TAU, A, &LDA, B, &LDB, DWORK)
@@ -5268,7 +5268,7 @@ function mb04od!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb04od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}),
@@ -5292,7 +5292,7 @@ function mb04ow!(M::Integer, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ow_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04ow_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5311,7 +5311,7 @@ function mb04ox!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ox_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb04ox_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}), &N, A, &LDA,
             X, &INCX)
     
@@ -5329,7 +5329,7 @@ function mb04oy!(M::Integer, N::Integer, V::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb04oy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04oy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}), &M, &N, V,
             &TAU, A, &LDA, B, &LDB, DWORK)
@@ -5353,7 +5353,7 @@ function mb04pa!(LHAM::Bool, N::Integer, K::Integer, NB::Integer,
 
     INFO = [0]
 
-    ccall((:mb04pa_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:mb04pa_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -5376,7 +5376,7 @@ function mb04pb!(N::Integer, ILO::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04pb_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04pb_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &N, &ILO, A, &LDA, QG, &LDQG, CS, TAU,
@@ -5396,7 +5396,7 @@ function mb04pu!(N::Integer, ILO::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04pu_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04pu_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &N, &ILO, A, &LDA, QG, &LDQG, CS, TAU,
@@ -5416,7 +5416,7 @@ function mb04py!(SIDE::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04py_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04py_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), &SIDE, &M, &N, V, &TAU, C,
             &LDC, DWORK)
@@ -5439,7 +5439,7 @@ function mb04qb!(TRANC::Char, TRAND::Char, TRANQ::Char, STOREV::Char,
 
     INFO = [0]
 
-    ccall((:mb04qb_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04qb_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -5468,7 +5468,7 @@ function mb04qc!(STRUCT::Char, TRANA::Char, TRANB::Char, TRANQ::Char,
 
     INFO = [0]
 
-    ccall((:mb04qc_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04qc_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5495,7 +5495,7 @@ function mb04qf!(DIRECT::Char, STOREV::Char, STOREW::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04qf_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04qf_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5521,7 +5521,7 @@ function mb04qu!(TRANC::Char, TRAND::Char, TRANQ::Char, STOREV::Char,
 
     INFO = [0]
 
-    ccall((:mb04qu_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04qu_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -5545,7 +5545,7 @@ function mb04su!(M::Integer, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04su_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04su_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &M, &N, A, &LDA, B, &LDB, CS, TAU, DWORK,
@@ -5569,7 +5569,7 @@ function mb04tb!(TRANA::Char, TRANB::Char, N::Integer, ILO::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tb_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04tb_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -5596,7 +5596,7 @@ function mb04ts!(TRANA::Char, TRANB::Char, N::Integer, ILO::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ts_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04ts_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -5622,7 +5622,7 @@ function mb04tt!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tt_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb04tt_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5644,7 +5644,7 @@ function mb04tu!(N::Integer, X::Array{FloatingPoint,1}, INCX::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tu_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb04tu_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}), &N, X, &INCX, Y, &INCY, &C, &S)
     
@@ -5662,7 +5662,7 @@ function mb04tv!(UPDATZ::Bool, N::Integer, NRA::Integer, NCA::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tv_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:mb04tv_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &UPDATZ, &N, &NRA, &NCA,
@@ -5683,7 +5683,7 @@ function mb04tw!(UPDATQ::Bool, M::Integer, N::Integer, NRE::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tw_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:mb04tw_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
@@ -5706,7 +5706,7 @@ function mb04tx!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04tx_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb04tx_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5730,7 +5730,7 @@ function mb04ty!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ty_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb04ty_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5755,7 +5755,7 @@ function mb04ud!(JOBQ::Char, JOBZ::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04ud_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04ud_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -5782,7 +5782,7 @@ function mb04vd!(MODE::Char, JOBQ::Char, JOBZ::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb04vd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04vd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -5809,7 +5809,7 @@ function mb04vx!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04vx_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb04vx_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -5832,7 +5832,7 @@ function mb04wd!(TRANQ1::Char, TRANQ2::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04wd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04wd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -5853,7 +5853,7 @@ function mb04wp!(N::Integer, ILO::Integer, U1::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04wp_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb04wp_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &N, &ILO, U1, &LDU1, U2, &LDU2, CS, TAU,
@@ -5874,7 +5874,7 @@ function mb04wr!(JOB::Char, TRANS::Char, N::Integer, ILO::Integer,
 
     INFO = [0]
 
-    ccall((:mb04wr_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04wr_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &JOB, &TRANS,
@@ -5896,7 +5896,7 @@ function mb04wu!(TRANQ1::Char, TRANQ2::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04wu_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04wu_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -5920,7 +5920,7 @@ function mb04xd!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04xd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04xd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Bool},
@@ -5944,7 +5944,7 @@ function mb04xy!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04xy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04xy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Bool}, Ptr{BlasInt}),
@@ -5967,7 +5967,7 @@ function mb04yd!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:mb04yd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:mb04yd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Bool}, Ptr{Float64},
@@ -5992,7 +5992,7 @@ function mb04yw!(QRIT::Bool, UPDATU::Bool, UPDATV::Bool, M::Integer,
 
     INFO = [0]
 
-    ccall((:mb04yw_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:mb04yw_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{Bool}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -6013,7 +6013,7 @@ function mb04zd!(COMPU::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:mb04zd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb04zd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &COMPU, &N, A, &LDA, QG, &LDQG, U, &LDU, DWORK, INFO)
@@ -6035,7 +6035,7 @@ function mb05md!(BALANC::Char, N::Integer, DELTA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb05md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb05md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -6057,7 +6057,7 @@ function mb05my!(BALANC::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mb05my_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb05my_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &BALANC, &N,
@@ -6079,7 +6079,7 @@ function mb05nd!(N::Integer, DELTA::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mb05nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mb05nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, &DELTA,
@@ -6100,7 +6100,7 @@ function mb05od!(BALANC::Char, N::Integer, NDIAG::Integer,
 
     INFO = [0]
 
-    ccall((:mb05od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb05od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}), &BALANC, &N,
@@ -6120,7 +6120,7 @@ function mb05oy!(JOB::Char, N::Integer, LOW::Integer, IGH::Integer,
 
     INFO = [0]
 
-    ccall((:mb05oy_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mb05oy_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &JOB, &N, &LOW, &IGH, A,
             &LDA, SCALE, INFO)
@@ -6140,7 +6140,7 @@ function mb3oyz!(M::Integer, N::Integer, A::Array{Complex,1},
 
     INFO = [0]
 
-    ccall((:mb3oyz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb3oyz_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Float64}, Ptr{Complex128},
@@ -6162,7 +6162,7 @@ function mb3pyz!(M::Integer, N::Integer, A::Array{Complex,1},
 
     INFO = [0]
 
-    ccall((:mb3pyz_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mb3pyz_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Float64}, Ptr{Complex128},
@@ -6181,7 +6181,7 @@ function mc01md!(DP::Integer, ALPHA::FloatingPoint, K::Integer,
 
     INFO = [0]
 
-    ccall((:mc01md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01md_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &DP, &ALPHA, &K, P, Q, INFO)
     
@@ -6197,7 +6197,7 @@ function mc01nd!(DP::Integer, XR::FloatingPoint, XI::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mc01nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &DP, &XR, &XI, P, &VR, &VI, INFO)
     
@@ -6214,7 +6214,7 @@ function mc01od!(K::Integer, REZ::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01od_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01od_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &K, REZ, IMZ, REP, IMP, DWORK, INFO)
     
@@ -6231,7 +6231,7 @@ function mc01pd!(K::Integer, REZ::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01pd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01pd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &K, REZ, IMZ, P, DWORK, INFO)
     
@@ -6248,7 +6248,7 @@ function mc01py!(K::Integer, REZ::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01py_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01py_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &K, REZ, IMZ, P, DWORK, INFO)
     
@@ -6265,7 +6265,7 @@ function mc01qd!(DA::Integer, DB::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01qd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc01qd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &DA, &DB, A, B, RQ, &IWARN, INFO)
     
@@ -6282,7 +6282,7 @@ function mc01rd!(DP1::Integer, DP2::Integer, DP3::Integer,
 
     INFO = [0]
 
-    ccall((:mc01rd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc01rd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &DP1, &DP2, &DP3, &ALPHA,
             P1, P2, P3, INFO)
@@ -6300,7 +6300,7 @@ function mc01sd!(DP::Integer, P::Array{FloatingPoint,1}, S::Integer,
 
     INFO = [0]
 
-    ccall((:mc01sd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01sd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}), &DP, P, &S, &T, MANT, E,
             IWORK, INFO)
@@ -6317,7 +6317,7 @@ function mc01sw!(A::FloatingPoint, B::Integer, M::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mc01sw_, "libslicot"), Void, (Ptr{Float64}, Ptr{BlasInt},
+    ccall((:mc01sw_, libslicot), Void, (Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &A, &B, &M, &E)
     
     if INFO[1] < 0
@@ -6332,7 +6332,7 @@ function mc01sy!(M::FloatingPoint, E::Integer, B::Integer,
 
     INFO = [0]
 
-    ccall((:mc01sy_, "libslicot"), Void, (Ptr{Float64}, Ptr{BlasInt},
+    ccall((:mc01sy_, libslicot), Void, (Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Bool}), &M, &E, &B, &A,
             &OVFLOW)
     
@@ -6349,7 +6349,7 @@ function mc01td!(DICO::Char, DP::Integer, P::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01td_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:mc01td_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Bool}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &DICO, &DP, P, &STABLE,
             &NZ, DWORK, &IWARN, INFO)
@@ -6367,7 +6367,7 @@ function mc01vd!(A::FloatingPoint, B::FloatingPoint, C::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:mc01vd_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:mc01vd_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &A, &B, &C, &Z1RE, &Z1IM,
             &Z2RE, &Z2IM, INFO)
@@ -6384,7 +6384,7 @@ function mc01wd!(DP::Integer, P::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:mc01wd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:mc01wd_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &DP, P, &U1, &U2, Q, INFO)
     
@@ -6404,7 +6404,7 @@ function mc03md!(RP1::Integer, CP1::Integer, CP2::Integer,
 
     INFO = [0]
 
-    ccall((:mc03md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc03md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -6430,7 +6430,7 @@ function mc03nd!(MP::Integer, NP::Integer, DP::Integer,
 
     INFO = [0]
 
-    ccall((:mc03nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc03nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -6453,7 +6453,7 @@ function mc03nx!(MP::Integer, NP::Integer, DP::Integer,
 
     INFO = [0]
 
-    ccall((:mc03nx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc03nx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &MP, &NP, &DP, P, &LDP1, &LDP2, A, &LDA, E, &LDE)
@@ -6473,7 +6473,7 @@ function mc03ny!(NBLCKS::Integer, NRA::Integer, NCA::Integer,
 
     INFO = [0]
 
-    ccall((:mc03ny_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:mc03ny_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &NBLCKS, &NRA, &NCA, A,
@@ -6494,7 +6494,7 @@ function md03ba!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 
     INFO = [0]
 
-    ccall((:md03ba_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:md03ba_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, IPAR,
@@ -6519,7 +6519,7 @@ function md03bb!(COND::Char, N::Integer, IPAR::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:md03bb_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:md03bb_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -6544,7 +6544,7 @@ function md03bf!(IFLAG::Integer, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:md03bf_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:md03bf_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6567,7 +6567,7 @@ function md03bx!(M::Integer, N::Integer, FNORM::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:md03bx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:md03bx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &M, &N, &FNORM, J, &LDJ, E,
@@ -6590,7 +6590,7 @@ function md03by!(COND::Char, N::Integer, R::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:md03by_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:md03by_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -6613,7 +6613,7 @@ function nf01ad!(NSMP::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:nf01ad_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01ad_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -6636,7 +6636,7 @@ function nf01ay!(NSMP::Integer, NZ::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:nf01ay_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01ay_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -6660,7 +6660,7 @@ function nf01ba!(IFLAG::Integer, NSMP::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:nf01ba_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01ba_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6685,7 +6685,7 @@ function nf01bb!(IFLAG::Integer, NFUN::Integer, LX::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bb_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01bb_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6709,7 +6709,7 @@ function nf01bd!(CJTE::Char, NSMP::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:nf01bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -6733,7 +6733,7 @@ function nf01be!(IFLAG::Integer, NSMP::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:nf01be_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01be_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6757,7 +6757,7 @@ function nf01bf!(IFLAG::Integer, NFUN::Integer, LX::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bf_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01bf_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6783,7 +6783,7 @@ function nf01bp!(COND::Char, N::Integer, IPAR::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:nf01bp_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:nf01bp_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -6807,7 +6807,7 @@ function nf01bq!(COND::Char, N::Integer, IPAR::Array{Integer,1},
 
     INFO = [0]
 
-    ccall((:nf01bq_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:nf01bq_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -6831,7 +6831,7 @@ function nf01br!(COND::Char, UPLO::Char, TRANS::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:nf01br_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:nf01br_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -6854,7 +6854,7 @@ function nf01bs!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bs_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01bs_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &N, IPAR,
@@ -6877,7 +6877,7 @@ function nf01bu!(STOR::Char, UPLO::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bu_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:nf01bu_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -6900,7 +6900,7 @@ function nf01bv!(STOR::Char, UPLO::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bv_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:nf01bv_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -6922,7 +6922,7 @@ function nf01bw!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bw_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01bw_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, IPAR, &LIPAR, DPAR,
@@ -6943,7 +6943,7 @@ function nf01bx!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 
     INFO = [0]
 
-    ccall((:nf01bx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:nf01bx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, IPAR, &LIPAR, DPAR,
@@ -6966,7 +6966,7 @@ function nf01by!(CJTE::Char, NSMP::Integer, NZ::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:nf01by_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:nf01by_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -6992,7 +6992,7 @@ function sb01bd!(DICO::Char, N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb01bd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb01bd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -7015,7 +7015,7 @@ function sb01bx!(REIG::Bool, N::Integer, XR::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:sb01bx_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:sb01bx_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), &REIG, &N, &XR, &XI, WR,
             WI, &S, &P)
@@ -7034,7 +7034,7 @@ function sb01by!(N::Integer, M::Integer, S::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:sb01by_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb01by_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &N, &M, &S, &P, A, B, F, &TOL, DWORK, INFO)
@@ -7058,7 +7058,7 @@ function sb01dd!(N::Integer, M::Integer, INDCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb01dd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb01dd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -7082,7 +7082,7 @@ function sb01fy!(DISCR::Bool, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb01fy_, "libslicot"), Void, (Ptr{Bool}, Ptr{BlasInt},
+    ccall((:sb01fy_, libslicot), Void, (Ptr{Bool}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &DISCR, &N, &M, A, &LDA, B,
@@ -7104,7 +7104,7 @@ function sb01md!(NCONT::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb01md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb01md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &NCONT, &N, A, &LDA, B, WR,
@@ -7129,7 +7129,7 @@ function sb02md!(DICO::Char, HINV::Char, UPLO::Char, SCAL::Char,
 
     INFO = [0]
 
-    ccall((:sb02md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -7158,7 +7158,7 @@ function sb02mt!(JOBG::Char, JOBL::Char, FACT::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb02mt_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02mt_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -7184,7 +7184,7 @@ function sb02mu!(DICO::Char, HINV::Char, UPLO::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb02mu_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02mu_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -7211,7 +7211,7 @@ function sb02nd!(DICO::Char, FACT::Char, UPLO::Char, JOBL::Char,
 
     INFO = [0]
 
-    ccall((:sb02nd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02nd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -7246,7 +7246,7 @@ function sb02od!(DICO::Char, JOBB::Char, FACT::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb02od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7283,7 +7283,7 @@ function sb02oy!(TYPE::Char, DICO::Char, JOBB::Char, FACT::Char,
 
     INFO = [0]
 
-    ccall((:sb02oy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02oy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7315,7 +7315,7 @@ function sb02pd!(JOB::Char, TRANA::Char, UPLO::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb02pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7344,7 +7344,7 @@ function sb02qd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb02qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7378,7 +7378,7 @@ function sb02rd!(JOB::Char, DICO::Char, HINV::Char, TRANA::Char,
 
     INFO = [0]
 
-    ccall((:sb02rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7408,7 +7408,7 @@ function sb02ru!(DICO::Char, HINV::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb02ru_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02ru_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -7436,7 +7436,7 @@ function sb02sd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb02sd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb02sd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7465,7 +7465,7 @@ function sb03md!(DICO::Char, JOB::Char, FACT::Char, TRANA::Char,
 
     INFO = [0]
 
-    ccall((:sb03md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7491,7 +7491,7 @@ function sb03mu!(LTRANL::Bool, LTRANR::Bool, ISGN::Integer,
 
     INFO = [0]
 
-    ccall((:sb03mu_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03mu_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7513,7 +7513,7 @@ function sb03mv!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb03mv_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03mv_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &LTRAN, &LUPPER, T, &LDT, B, &LDB,
@@ -7533,7 +7533,7 @@ function sb03mw!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb03mw_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03mw_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &LTRAN, &LUPPER, T, &LDT, B, &LDB,
@@ -7552,7 +7552,7 @@ function sb03mx!(TRANA::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb03mx_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb03mx_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &TRANA, &N,
             A, &LDA, C, &LDC, &SCALE, DWORK, INFO)
@@ -7570,7 +7570,7 @@ function sb03my!(TRANA::Char, N::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb03my_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb03my_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &TRANA, &N, A, &LDA, C,
             &LDC, &SCALE, INFO)
@@ -7591,7 +7591,7 @@ function sb03od!(DICO::Char, FACT::Char, TRANS::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7614,7 +7614,7 @@ function sb03or!(DISCR::Bool, LTRANS::Bool, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb03or_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03or_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}), &DISCR, &LTRANS, &N, &M, S,
@@ -7634,7 +7634,7 @@ function sb03ot!(DISCR::Bool, LTRANS::Bool, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03ot_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03ot_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &DISCR, &LTRANS, &N, S, &LDS, R, &LDR, &SCALE, DWORK,
@@ -7656,7 +7656,7 @@ function sb03ou!(DISCR::Bool, LTRANS::Bool, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb03ou_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03ou_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -7675,7 +7675,7 @@ function sb03ov!(A::Array{FloatingPoint,1}, B::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:sb03ov_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:sb03ov_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), A, &B, C, &S)
     
     if INFO[1] < 0
@@ -7692,7 +7692,7 @@ function sb03oy!(DISCR::Bool, LTRANS::Bool, ISGN::Integer,
 
     INFO = [0]
 
-    ccall((:sb03oy_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb03oy_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}), &DISCR, &LTRANS, &ISGN, S, &LDS, R, &LDR,
@@ -7716,7 +7716,7 @@ function sb03pd!(JOB::Char, FACT::Char, TRANA::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7745,7 +7745,7 @@ function sb03qd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb03qd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03qd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7772,7 +7772,7 @@ function sb03qx!(TRANA::Char, UPLO::Char, LYAPUN::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03qx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03qx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7796,7 +7796,7 @@ function sb03qy!(JOB::Char, TRANA::Char, LYAPUN::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03qy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03qy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7822,7 +7822,7 @@ function sb03rd!(JOB::Char, FACT::Char, TRANA::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7851,7 +7851,7 @@ function sb03sd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb03sd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03sd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7878,7 +7878,7 @@ function sb03sx!(TRANA::Char, UPLO::Char, LYAPUN::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03sx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03sx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7903,7 +7903,7 @@ function sb03sy!(JOB::Char, TRANA::Char, LYAPUN::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb03sy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03sy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -7932,7 +7932,7 @@ function sb03td!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb03td_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03td_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7964,7 +7964,7 @@ function sb03ud!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sb03ud_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb03ud_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -7990,7 +7990,7 @@ function sb04md!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sb04md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -8009,7 +8009,7 @@ function sb04mr!(M::Integer, D::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb04mr_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:sb04mr_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &M, D, IPR, INFO)
     
     if INFO[1] < 0
@@ -8027,7 +8027,7 @@ function sb04mu!(N::Integer, M::Integer, IND::Integer,
 
     INFO = [0]
 
-    ccall((:sb04mu_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04mu_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &IND, A, &LDA, B,
@@ -8045,7 +8045,7 @@ function sb04mw!(M::Integer, D::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb04mw_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:sb04mw_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &M, D, IPR, INFO)
     
     if INFO[1] < 0
@@ -8063,7 +8063,7 @@ function sb04my!(N::Integer, M::Integer, IND::Integer,
 
     INFO = [0]
 
-    ccall((:sb04my_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04my_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &IND, A, &LDA, B,
@@ -8085,7 +8085,7 @@ function sb04nd!(ABSCHU::Char, ULA::Char, ULB::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb04nd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04nd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8107,7 +8107,7 @@ function sb04nv!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04nv_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04nv_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}),
             &ABSCHR, &UL, &N, &M, C, &LDC, &INDX, AB, &LDAB, D)
@@ -8126,7 +8126,7 @@ function sb04nw!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04nw_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04nw_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}),
             &ABSCHR, &UL, &N, &M, C, &LDC, &INDX, AB, &LDAB, D)
@@ -8147,7 +8147,7 @@ function sb04nx!(RC::Char, UL::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04nx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04nx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -8169,7 +8169,7 @@ function sb04ny!(RC::Char, UL::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04ny_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04ny_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &RC, &UL, &M, A, &LDA,
@@ -8197,7 +8197,7 @@ function sb04od!(REDUCE::Char, TRANS::Char, JOBD::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04od_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04od_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8227,7 +8227,7 @@ function sb04ow!(M::Integer, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sb04ow_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04ow_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -8254,7 +8254,7 @@ function sb04pd!(DICO::Char, FACTA::Char, FACTB::Char, TRANA::Char,
 
     INFO = [0]
 
-    ccall((:sb04pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8281,7 +8281,7 @@ function sb04px!(LTRANL::Bool, LTRANR::Bool, ISGN::Integer,
 
     INFO = [0]
 
-    ccall((:sb04px_, "libslicot"), Void, (Ptr{Bool}, Ptr{Bool},
+    ccall((:sb04px_, libslicot), Void, (Ptr{Bool}, Ptr{Bool},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8304,7 +8304,7 @@ function sb04py!(TRANA::Char, TRANB::Char, ISGN::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04py_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04py_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
@@ -8326,7 +8326,7 @@ function sb04qd!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sb04qd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04qd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -8345,7 +8345,7 @@ function sb04qr!(M::Integer, D::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb04qr_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:sb04qr_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &M, D, IPR, INFO)
     
     if INFO[1] < 0
@@ -8363,7 +8363,7 @@ function sb04qu!(N::Integer, M::Integer, IND::Integer,
 
     INFO = [0]
 
-    ccall((:sb04qu_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04qu_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &IND, A, &LDA, B,
@@ -8384,7 +8384,7 @@ function sb04qy!(N::Integer, M::Integer, IND::Integer,
 
     INFO = [0]
 
-    ccall((:sb04qy_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb04qy_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &N, &M, &IND, A, &LDA, B,
@@ -8406,7 +8406,7 @@ function sb04rd!(ABSCHU::Char, ULA::Char, ULB::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb04rd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04rd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8429,7 +8429,7 @@ function sb04rv!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04rv_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04rv_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}), &ABSCHR, &UL,
@@ -8450,7 +8450,7 @@ function sb04rw!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04rw_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04rw_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}), &ABSCHR, &UL,
@@ -8472,7 +8472,7 @@ function sb04rx!(RC::Char, UL::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04rx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04rx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -8494,7 +8494,7 @@ function sb04ry!(RC::Char, UL::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb04ry_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb04ry_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &RC, &UL, &M, A, &LDA,
@@ -8516,7 +8516,7 @@ function sb06nd!(N::Integer, M::Integer, KMAX::Integer,
 
     INFO = [0]
 
-    ccall((:sb06nd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb06nd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
@@ -8541,7 +8541,7 @@ function sb08cd!(DICO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08cd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08cd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -8569,7 +8569,7 @@ function sb08dd!(DICO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08dd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08dd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -8597,7 +8597,7 @@ function sb08ed!(DICO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08ed_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08ed_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -8625,7 +8625,7 @@ function sb08fd!(DICO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08fd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08fd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -8653,7 +8653,7 @@ function sb08gd!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08gd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb08gd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8679,7 +8679,7 @@ function sb08hd!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:sb08hd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb08hd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8700,7 +8700,7 @@ function sb08md!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb08md_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08md_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &ACONA, &DA, A, &RES, E,
             DWORK, &LDWORK, INFO)
@@ -8717,7 +8717,7 @@ function sb08my!(DA::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb08my_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:sb08my_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), &DA, A, B, &EPSB)
     
     if INFO[1] < 0
@@ -8733,7 +8733,7 @@ function sb08nd!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb08nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sb08nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}), &ACONA, &DA, A, &RES, E,
             DWORK, &LDWORK, INFO)
@@ -8750,7 +8750,7 @@ function sb08ny!(DA::Integer, A::Array{FloatingPoint,1},
 
     INFO = [0]
 
-    ccall((:sb08ny_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:sb08ny_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}), &DA, A, B, &EPSB)
     
     if INFO[1] < 0
@@ -8769,7 +8769,7 @@ function sb09md!(N::Integer, NC::Integer, NB::Integer,
 
     INFO = [0]
 
-    ccall((:sb09md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb09md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -8804,7 +8804,7 @@ function sb10ad!(JOB::Integer, N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb10ad_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10ad_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8845,7 +8845,7 @@ function sb10dd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10dd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10dd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8881,7 +8881,7 @@ function sb10ed!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10ed_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10ed_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8915,7 +8915,7 @@ function sb10fd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10fd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10fd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8949,7 +8949,7 @@ function sb10hd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10hd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10hd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -8983,7 +8983,7 @@ function sb10id!(N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb10id_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10id_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9011,7 +9011,7 @@ function sb10jd!(N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb10jd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10jd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -9040,7 +9040,7 @@ function sb10kd!(N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb10kd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10kd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9075,7 +9075,7 @@ function sb10ld!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10ld_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10ld_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9114,7 +9114,7 @@ function sb10md!(NC::Integer, MP::Integer, LENDAT::Integer,
 
     INFO = [0]
 
-    ccall((:sb10md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9148,7 +9148,7 @@ function sb10pd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10pd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10pd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9180,7 +9180,7 @@ function sb10qd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10qd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10qd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9219,7 +9219,7 @@ function sb10rd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10rd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10rd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9258,7 +9258,7 @@ function sb10sd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10sd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10sd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9291,7 +9291,7 @@ function sb10td!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10td_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10td_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9320,7 +9320,7 @@ function sb10ud!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10ud_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10ud_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9350,7 +9350,7 @@ function sb10vd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10vd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10vd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9384,7 +9384,7 @@ function sb10wd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
 
     INFO = [0]
 
-    ccall((:sb10wd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10wd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9414,7 +9414,7 @@ function sb10yd!(DISCFL::Integer, FLAG::Integer, LENDAT::Integer,
 
     INFO = [0]
 
-    ccall((:sb10yd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10yd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -9444,7 +9444,7 @@ function sb10zd!(N::Integer, M::Integer, NP::Integer,
 
     INFO = [0]
 
-    ccall((:sb10zd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10zd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -9471,7 +9471,7 @@ function sb10zp!(DISCFL::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:sb10zp_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:sb10zp_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}), &DISCFL, &N, A, &LDA, B, C, D, IWORK,
@@ -9501,7 +9501,7 @@ function sb16ad!(DICO::Char, JOBC::Char, JOBO::Char, JOBMR::Char,
 
     INFO = [0]
 
-    ccall((:sb16ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb16ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -9539,7 +9539,7 @@ function sb16ay!(DICO::Char, JOBC::Char, JOBO::Char, WEIGHT::Char,
 
     INFO = [0]
 
-    ccall((:sb16ay_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb16ay_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9575,7 +9575,7 @@ function sb16bd!(DICO::Char, JOBD::Char, JOBMR::Char, JOBCF::Char,
 
     INFO = [0]
 
-    ccall((:sb16bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb16bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -9609,7 +9609,7 @@ function sb16cd!(DICO::Char, JOBD::Char, JOBMR::Char, JOBCF::Char,
 
     INFO = [0]
 
-    ccall((:sb16cd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb16cd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9640,7 +9640,7 @@ function sb16cy!(DICO::Char, JOBCF::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:sb16cy_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sb16cy_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9675,7 +9675,7 @@ function sg02ad!(DICO::Char, JOBB::Char, FACT::Char, UPLO::Char,
 
     INFO = [0]
 
-    ccall((:sg02ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sg02ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -9712,7 +9712,7 @@ function sg03ad!(DICO::Char, JOB::Char, FACT::Char, TRANS::Char,
 
     INFO = [0]
 
-    ccall((:sg03ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sg03ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{Char}, Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -9736,7 +9736,7 @@ function sg03ax!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sg03ax_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sg03ax_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &TRANS, &N, A, &LDA, E, &LDE, X, &LDX, &SCALE, INFO)
@@ -9754,7 +9754,7 @@ function sg03ay!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sg03ay_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sg03ay_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
             &TRANS, &N, A, &LDA, E, &LDE, X, &LDX, &SCALE, INFO)
@@ -9778,7 +9778,7 @@ function sg03bd!(DICO::Char, FACT::Char, TRANS::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:sg03bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sg03bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9802,7 +9802,7 @@ function sg03bu!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sg03bu_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sg03bu_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &TRANS, &N, A, &LDA, E, &LDE, B, &LDB,
@@ -9822,7 +9822,7 @@ function sg03bv!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sg03bv_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sg03bv_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}), &TRANS, &N, A, &LDA, E, &LDE, B, &LDB,
@@ -9844,7 +9844,7 @@ function sg03bw!(TRANS::Char, M::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:sg03bw_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:sg03bw_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9867,7 +9867,7 @@ function sg03bx!(DICO::Char, TRANS::Char, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:sg03bx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:sg03bx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -9889,7 +9889,7 @@ function sg03by!(XR::FloatingPoint, XI::FloatingPoint,
 
     INFO = [0]
 
-    ccall((:sg03by_, "libslicot"), Void, (Ptr{Float64}, Ptr{Float64},
+    ccall((:sg03by_, libslicot), Void, (Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}), &XR, &XI,
             &YR, &YI, &CR, &CI, &SR, &SI, &Z)
@@ -9909,7 +9909,7 @@ function tb01id!(JOB::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01id_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01id_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &JOB, &N, &M,
@@ -9929,7 +9929,7 @@ function tb01iz!(JOB::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01iz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01iz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
@@ -9954,7 +9954,7 @@ function tb01kd!(DICO::Char, STDOM::Char, JOBA::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tb01kd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb01kd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -9981,7 +9981,7 @@ function tb01ld!(DICO::Char, STDOM::Char, JOBA::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tb01ld_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb01ld_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -10005,7 +10005,7 @@ function tb01md!(JOBU::Char, UPLO::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tb01md_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb01md_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &JOBU, &UPLO, &N, &M, A,
@@ -10026,7 +10026,7 @@ function tb01nd!(JOBU::Char, UPLO::Char, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb01nd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}), &JOBU, &UPLO, &N, &P, A,
@@ -10048,7 +10048,7 @@ function tb01pd!(JOB::Char, EQUIL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tb01pd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb01pd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10074,7 +10074,7 @@ function tb01td!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01td_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb01td_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -10096,7 +10096,7 @@ function tb01ty!(MODE::Integer, IOFF::Integer, JOFF::Integer,
 
     INFO = [0]
 
-    ccall((:tb01ty_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb01ty_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}), &MODE, &IOFF,
             &JOFF, &NROW, &NCOL, &SIZE, X, &LDX, BVECT)
@@ -10120,7 +10120,7 @@ function tb01ud!(JOBZ::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01ud_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01ud_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -10146,7 +10146,7 @@ function tb01vd!(APPLY::Char, N::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:tb01vd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01vd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
@@ -10172,7 +10172,7 @@ function tb01vy!(APPLY::Char, N::Integer, M::Integer, L::Integer,
 
     INFO = [0]
 
-    ccall((:tb01vy_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01vy_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10197,7 +10197,7 @@ function tb01wd!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01wd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb01wd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -10219,7 +10219,7 @@ function tb01xd!(JOBD::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01xd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01xd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -10240,7 +10240,7 @@ function tb01xz!(JOBD::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01xz_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01xz_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
@@ -10262,7 +10262,7 @@ function tb01yd!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01yd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb01yd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &N, &M, &P, A, &LDA, B, &LDB, C, &LDC, INFO)
@@ -10283,7 +10283,7 @@ function tb01zd!(JOBZ::Char, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb01zd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb01zd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -10312,7 +10312,7 @@ function tb03ad!(LERI::Char, EQUIL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tb03ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb03ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -10339,7 +10339,7 @@ function tb03ay!(NR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 
     INFO = [0]
 
-    ccall((:tb03ay_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{Float64},
+    ccall((:tb03ay_, libslicot), Void, (Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}), &NR, A, &LDA, &INDBLK,
@@ -10366,7 +10366,7 @@ function tb04ad!(ROWCOL::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tb04ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb04ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
@@ -10398,7 +10398,7 @@ function tb04ay!(N::Integer, MWORK::Integer, PWORK::Integer,
 
     INFO = [0]
 
-    ccall((:tb04ay_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb04ay_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -10429,7 +10429,7 @@ function tb04bd!(JOBD::Char, ORDER::Char, EQUIL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tb04bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb04bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -10455,7 +10455,7 @@ function tb04bv!(ORDER::Char, P::Integer, M::Integer, MD::Integer,
 
     INFO = [0]
 
-    ccall((:tb04bv_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb04bv_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}),
@@ -10477,7 +10477,7 @@ function tb04bw!(ORDER::Char, P::Integer, M::Integer, MD::Integer,
 
     INFO = [0]
 
-    ccall((:tb04bw_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tb04bw_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &ORDER, &P,
@@ -10500,7 +10500,7 @@ function tb04bx!(IP::Integer, IZ::Integer, A::Array{FloatingPoint,2},
 
     INFO = [0]
 
-    ccall((:tb04bx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tb04bx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}), &IP, &IZ, A,
@@ -10527,7 +10527,7 @@ function tb04cd!(JOBD::Char, EQUIL::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tb04cd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb04cd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10559,7 +10559,7 @@ function tb05ad!(BALEIG::Char, INITA::Char, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tb05ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tb05ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Complex128}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10584,7 +10584,7 @@ function tc01od!(LERI::Char, M::Integer, P::Integer, INDLIM::Integer,
 
     INFO = [0]
 
-    ccall((:tc01od_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tc01od_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}), &LERI, &M, &P, &INDLIM, PCOEFF, &LDPCO1,
@@ -10609,7 +10609,7 @@ function tc04ad!(LERI::Char, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tc04ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tc04ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -10637,7 +10637,7 @@ function tc05ad!(LERI::Char, M::Integer, P::Integer, SVAL::Complex,
 
     INFO = [0]
 
-    ccall((:tc05ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tc05ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
@@ -10670,7 +10670,7 @@ function td03ad!(ROWCOL::Char, LERI::Char, EQUIL::Char, M::Integer,
 
     INFO = [0]
 
-    ccall((:td03ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:td03ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10702,7 +10702,7 @@ function td03ay!(MWORK::Integer, PWORK::Integer,
 
     INFO = [0]
 
-    ccall((:td03ay_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:td03ay_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -10729,7 +10729,7 @@ function td04ad!(ROWCOL::Char, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:td04ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:td04ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10753,7 +10753,7 @@ function td05ad!(UNITF::Char, OUTPUT::Char, NP1::Integer,
 
     INFO = [0]
 
-    ccall((:td05ad_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:td05ad_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt}),
             &UNITF, &OUTPUT, &NP1, &MP1, &W, A, B, &VALR, &VALI,
@@ -10777,7 +10777,7 @@ function tf01md!(N::Integer, M::Integer, P::Integer, NY::Integer,
 
     INFO = [0]
 
-    ccall((:tf01md_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01md_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10800,7 +10800,7 @@ function tf01mx!(N::Integer, M::Integer, P::Integer, NY::Integer,
 
     INFO = [0]
 
-    ccall((:tf01mx_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01mx_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}),
@@ -10825,7 +10825,7 @@ function tf01my!(N::Integer, M::Integer, P::Integer, NY::Integer,
 
     INFO = [0]
 
-    ccall((:tf01my_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01my_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10852,7 +10852,7 @@ function tf01nd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tf01nd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tf01nd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
@@ -10874,7 +10874,7 @@ function tf01od!(NH1::Integer, NH2::Integer, NR::Integer, NC::Integer,
 
     INFO = [0]
 
-    ccall((:tf01od_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01od_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &NH1, &NH2,
             &NR, &NC, H, &LDH, T, &LDT, INFO)
@@ -10892,7 +10892,7 @@ function tf01pd!(NH1::Integer, NH2::Integer, NR::Integer, NC::Integer,
 
     INFO = [0]
 
-    ccall((:tf01pd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01pd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &NH1, &NH2,
             &NR, &NC, H, &LDH, T, &LDT, INFO)
@@ -10911,7 +10911,7 @@ function tf01qd!(NC::Integer, NB::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:tf01qd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01qd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}), &NC, &NB, &N,
             IORD, AR, MA, H, &LDH, INFO)
@@ -10932,7 +10932,7 @@ function tf01rd!(NA::Integer, NB::Integer, NC::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:tf01rd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tf01rd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10956,7 +10956,7 @@ function tg01ad!(JOB::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tg01ad_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tg01ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -10980,7 +10980,7 @@ function tg01az!(JOB::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tg01az_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tg01az_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
@@ -11008,7 +11008,7 @@ function tg01bd!(JOBE::Char, COMPQ::Char, COMPZ::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tg01bd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01bd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11034,7 +11034,7 @@ function tg01cd!(COMPQ::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tg01cd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tg01cd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -11057,7 +11057,7 @@ function tg01dd!(COMPZ::Char, L::Integer, N::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tg01dd_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tg01dd_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
@@ -11083,7 +11083,7 @@ function tg01ed!(JOBA::Char, L::Integer, N::Integer, M::Integer,
 
     INFO = [0]
 
-    ccall((:tg01ed_, "libslicot"), Void, (Ptr{Char}, Ptr{BlasInt},
+    ccall((:tg01ed_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11112,7 +11112,7 @@ function tg01fd!(COMPQ::Char, COMPZ::Char, JOBA::Char, L::Integer,
 
     INFO = [0]
 
-    ccall((:tg01fd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01fd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11142,7 +11142,7 @@ function tg01fz!(COMPQ::Char, COMPZ::Char, JOBA::Char, L::Integer,
 
     INFO = [0]
 
-    ccall((:tg01fz_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01fz_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Complex128}, Ptr{Complex128},
             Ptr{Complex128}, Ptr{Complex128}, Ptr{Complex128},
@@ -11175,7 +11175,7 @@ function tg01hd!(JOBCON::Char, COMPQ::Char, COMPZ::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tg01hd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01hd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11206,7 +11206,7 @@ function tg01hx!(COMPQ::Char, COMPZ::Char, L::Integer, N::Integer,
 
     INFO = [0]
 
-    ccall((:tg01hx_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01hx_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11237,7 +11237,7 @@ function tg01id!(JOBOBS::Char, COMPQ::Char, COMPZ::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tg01id_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01id_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
             Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{Float64},
@@ -11266,7 +11266,7 @@ function tg01jd!(JOB::Char, SYSTYP::Char, EQUIL::Char, N::Integer,
 
     INFO = [0]
 
-    ccall((:tg01jd_, "libslicot"), Void, (Ptr{Char}, Ptr{Char},
+    ccall((:tg01jd_, libslicot), Void, (Ptr{Char}, Ptr{Char},
             Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
             Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -11295,7 +11295,7 @@ function tg01wd!(N::Integer, M::Integer, P::Integer,
 
     INFO = [0]
 
-    ccall((:tg01wd_, "libslicot"), Void, (Ptr{BlasInt}, Ptr{BlasInt},
+    ccall((:tg01wd_, libslicot), Void, (Ptr{BlasInt}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},
             Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64},

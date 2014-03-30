@@ -1,4 +1,4 @@
-[SLICOT](http://slicot.org/) wrapper for julialang.
+[SLICOT](http://slicot.org/) wrapper for JuliaLang.
 
 Status
 ------
@@ -15,11 +15,14 @@ For more up to date information, check "status.md"
 
 Installation
 ------------
-Git clone the repo into your Julia directory. Change into ./src/slicot,
-and run the makefile included there. This will build libslicot.so, and place
-it in ./src/slicot/. Move this file somewhere Julia can find it. The 
-installation procedure could use some serious work. Research into BinDeps 
-will be done in once the library is more mature.
+```
+Pkg.git("https://github.com/jcrist/Slicot.jl.git")
+Pkg.build("Slicot")
+```
+
+*Note: The build process is extremely new, and right now only works on unix/linux
+based systems, and for a small number of fortran compilers. If you find it doesn't
+work for you, please file an issue, or send a pull request to improve it.*
 
 Use
 ---
