@@ -1,5 +1,7 @@
 [SLICOT](http://slicot.org/) wrapper for JuliaLang.
 
+[![Build Status](https://travis-ci.org/jcrist/Slicot.jl.svg?branch=master)](https://travis-ci.org/jcrist/Slicot.jl)
+
 Status
 ------
 Unfinished, untested, extremely new. 

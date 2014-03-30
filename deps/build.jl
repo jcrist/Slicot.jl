@@ -3,9 +3,7 @@ using BinDeps
 
 #Define dependencies. Because blas and lapack are required for julia,
 #only the slicot source needs to be downloaded.
-libblas = library_dependency(Base.libblas_name)
-liblapack = library_dependency(Base.liblapack_name)
-libslicot = library_dependency("libslicot", depends = [libblas, liblapack])
+libslicot = library_dependency("libslicot")
 
 # Define location of source for slicot
 const slicot_version = "5.0"
@@ -45,6 +43,10 @@ if F77==false
     error("No Fortran Compiler Found")
 end
 
+xx(c) = contains(c, ".so") ? c : "$c.so"
+liblapack = xx(Base.liblapack_name)
+libblas = xx(Base.libblas_name)
+
 #Define a template for make.inc.in:
 make_inc =
 """ 
@@ -56,9 +58,9 @@ LOADOPTS = \$(ALT_XERBLALIB) \$(BLASLIB) \$(LAPACKLIB)
 ARCH     = ar
 ARCHFLAGS= r
 
-BLASLIB     = /usr/lib/$(libblas.name).so 
-LAPACKLIB    = /usr/lib/$(liblapack.name).so
-SLICOTLIB    = $(libslicotpath) 
+BLASLIB     = /usr/lib/$libblas
+LAPACKLIB    = /usr/lib/$liblapack
+SLICOTLIB    = $libslicotpath 
 ALT_XERBLALIB = ../src_alt/xerbla.a
 """
 make_inc_path = joinpath(altfildir, "make.inc")
