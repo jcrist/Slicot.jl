@@ -1,0 +1,7 @@
+all:
+	( cd src_alt; $(MAKE) )
+	( cd src; $(MAKE) )
+
+clean:
+	( cd src_alt; $(MAKE) clean )
+	( cd src; $(MAKE) clean )
