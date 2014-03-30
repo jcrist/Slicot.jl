@@ -83,5 +83,5 @@ provides(BuildProcess,
                     `make`
                     `make clean`
                 end)
-            end), libslicot, os=:unix)
+            end), libslicot, os=:Unix)
 @BinDeps.install
