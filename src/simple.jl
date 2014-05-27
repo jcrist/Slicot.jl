@@ -2,15 +2,12 @@
 
 module Simple
 
-import Slicot: SlicotException, BlasInt, libslicot
+import Slicot: SlicotException, BlasInt, libslicot, Raw
 
 export tb04ad
 
-#TODO: Slice return matrices before returning on tb04ad
-
 function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer, 
-    A::Array{FloatingPoint, 2}, B::Array{FloatingPoint, 2}, 
-    C::Array{FloatingPoint, 2}, D::Array{FloatingPoint, 2}, 
+    A::Matrix, B::Matrix, C::Matrix, D::Matrix, 
     tol1=0.0, tol2=0.0, ldwork::Integer=-1)
     ## Calculate Transfer Matrix of State Space Representation (A,B,C,D) ##
     ## INPUTS:
@@ -94,88 +91,27 @@ function tb04ad(rowcol::Char, n::Integer, m::Integer, p::Integer,
     lduc01 = max(1,porm)
     lduc02= max(1,porp)
     UCOEFF = Array(Float64, lduc01, lduc02, n+1)
-    IWORK = Array(Float64, n+max(m,p))
+    IWORK = Array(BlasInt, n+max(m,p))
     DWORK = Array(Float64, ldwork)
-    INFO = Array(BlasInt, 1)
 
-    #Create copies of arrays, to prevent change by reference
-    AR = copy(A)
-    BR = copy(B)
-    CR = copy(C)
-    DR = copy(D)
+    # Convert to float64 arrays. This also copies to prevent change 
+    # by reference
+    AR = float64(A)
+    BR = float64(B)
+    CR = float64(C)
+    DR = float64(D)
 
     #Call the subroutine
-    ccall((:tb04ad_, libslicot), Void, 
-            (Ptr{Char}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{BlasInt},
-            Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
-            Ptr{Float64}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
-            Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
-            Ptr{Float64}, Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64},
-            Ptr{Float64}, Ptr{Float64}, Ptr{Float64}, Ptr{BlasInt},
-            Ptr{BlasInt}),
-            &rowcol, &n, &m, &p, AR, &lda, BR, &ldb, CR, &ldc, DR, 
-            &ldd, NR, INDEX, DCOEFF, &lddcoe, UCOEFF, &lduc01, &lduc02,
-            &tol1, &tol2, IWORK, DWORK, &ldwork, INFO)
+    INFO = Raw.tb04ad!(rowcol, n, m, p, AR, lda, BR, ldb, CR, ldc, DR, 
+        ldd, NR, INDEX, DCOEFF, lddcoe, UCOEFF, lduc01, lduc02,
+        tol1, tol2, IWORK, DWORK, ldwork)
+
+    arglist = methods(Raw.tb04ad!).defs.sig
     
-    #Check INFO for error value:
-    if INFO[1] < 0
-        throw(SlicotException(INFO[1], @sprintf("SlicotError in TB04AD: the 
-        %dth argument had an illegal value", -INFO[1])))
-    else
-        return (AR[:NR, :NR], BR[:NR, :m], CR[:p, :NR], NR[1], INDEX, 
-        DCOEFF[:porm, :kdcoef], UCOEFF[:porm, :porp, :kdcoef], INFO[1])
-    end
+    nr = NR[1]
+    return (AR[1:nr, 1:nr], BR[1:nr, 1:m], CR[1:p, 1:nr], nr, INDEX, 
+    DCOEFF[1:porm, 1:end], UCOEFF[1:porm, 1:porp, 1:end], INFO)
 end
 
-#TODO: Finish td04ad
-#
-#function td04ad(rowcol::Char, m::Integer, p::Integer, index::Vector{Integer},
-#                dcoeff::Array{Float64, 2}, ucoeff::Array{Float64, 3},
-#                tol=0.0, ldwork=-1)
-#    ## Convert a transfer function or matrix of transfer functions to a ##
-#    ## minimum state space realization.                                 ##
-#
-#    #COPIED FROM SLICOT: TRANSLATE
-#    if ldwork < 0 
-#        n = sum(index)
-#        ldwork = max(1,n+max(n,max(3*m,3*p)))
-#    end
-#    
-#    kdcoef = max(index)+1
-#    if rowcol == 'R'
-#        porm = p
-#        if ndim(ucoeff) != 3:
-#            error("The numerator is not a 3D array!")
-#        elseif size(ucoeff) != (max(1,p), max(1,m), kdcoef)
-#            error("The numerator shape is $(size(ucoeff)), but expected $(max(1,p)), $(max(1,m)),$kdcoef")
-#        elseif size(dcoeff) != (max(1,p), kdcoef)
-#            error("The denominator shape is $(size(dcoeff)), but expected $(max(1,p)), $kdcoef")
-#        end
-#    elseif rowcol == 'C'
-#        porm = m
-#        if ndim(ucoeff) != 3:
-#            error("The numerator is not a 3D array!")
-#        elseif size(ucoeff) != (max(1,m,p), max(1,m,p), kdcoef)
-#            error("The numerator shape is $(size(ucoeff)), but expected $(max(1,m,p)), $(max(1,m,p)),$kdcoef")
-#        elseif size(dcoeff) != (max(1,m), kdcoef)
-#            error("The denominator shape is $(size(dcoeff)), but expected $(max(1,m)), $kdcoef")
-#        end
-#    else
-#        error("Parameter rowcol had an illegal value")
-#    end
-#
-#    #TODO: Call subroutine here!
-#
-#    if INFO[1] < 0
-#        error(@sprintf("SlicotError in TB04AD: The %dth argument had
-#        an illegal value", -INFO[1]))
-#    elseif INFO[1] > 0
-#        error("The leading coefficient of a denominator polynomial is nearly
-#               zero; calculations would overflow; no state-space representation
-#               was calculated. ABS(DCOEFF[$(INFO[1]),1]) = $(abs(dcoeff[INFO[1],1])) is too small.")
-#    end
-#    return Nr, A[:Nr,:Nr], B[:Nr,:m], C[:p,:Nr], D[:p,:m] 
-#end
-
-end     #module
+end    # module
 

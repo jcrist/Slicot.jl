@@ -8,24 +8,16 @@ using BinDeps
 
 if USE_BLAS64
     typealias BlasInt Int64
+    bint = int64
 else
     typealias BlasInt Int32
+    bint = int32
 end
 
 type SlicotException <:Exception
     info::BlasInt
     msg::ASCIIString
 end
-
-## SIMPLIFIED ROUTINES ##
-#
-# These are wrapped with "sugar", using defaults for many
-# inputs, and automatically creating outputs of required
-# size. For 99% of cases, you want to use these.
-#
-# These are exported, and may be called with "using", or with
-# explicit imports
-include("simple.jl")
 
 ## RAW ROUTINES ##
 #
@@ -53,5 +45,15 @@ include("simple.jl")
 # To use these, you must import them explicitly. The raw module
 # doesn't export anything, because namespaces are awesome.
 include("raw.jl")
+
+## SIMPLIFIED ROUTINES ##
+#
+# These are wrapped with "sugar", using defaults for many
+# inputs, and automatically creating outputs of required
+# size. For 99% of cases, you want to use these.
+#
+# These are exported, and may be called with "using", or with
+# explicit imports
+include("simple.jl")
 
 end     #Module
