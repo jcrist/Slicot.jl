@@ -16,11 +16,11 @@ module Raw
 
 import Slicot: SlicotException, BlasInt, libslicot
 
-function ab01md!(JOBZ::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,1}, NCONT::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    TAU::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function ab01md!(JOBZ::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,1}, NCONT::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    TAU::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -39,12 +39,12 @@ end
 
 
 function ab01nd!(JOBZ::Char, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, NCONT::Integer,
-    INDCON::Integer, NBLK::Array{Integer,1},
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    TAU::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer, NCONT::Integer,
+    INDCON::Integer, NBLK::Array{BlasInt,1},
+    Z::Array{Float64,2}, LDZ::Integer,
+    TAU::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -65,12 +65,12 @@ end
 
 
 function ab01od!(STAGES::Char, JOBU::Char, JOBV::Char, N::Integer,
-    M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer, NCONT::Integer,
-    INDCON::Integer, KSTAIR::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    V::Array{Float64,2}, LDV::Integer, NCONT::Integer,
+    INDCON::Integer, KSTAIR::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -94,11 +94,11 @@ end
 
 function ab04md!(TYPE::Char, N::Integer, M::Integer, P::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -118,19 +118,19 @@ end
 
 
 function ab05md!(UPLO::Char, OVER::Char, N1::Integer, M1::Integer,
-    P1::Integer, N2::Integer, P2::Integer, A1::Array{FloatingPoint,2},
-    LDA1::Integer, B1::Array{FloatingPoint,2}, LDB1::Integer,
-    C1::Array{FloatingPoint,2}, LDC1::Integer,
-    D1::Array{FloatingPoint,2}, LDD1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B2::Array{FloatingPoint,2}, LDB2::Integer,
-    C2::Array{FloatingPoint,2}, LDC2::Integer,
-    D2::Array{FloatingPoint,2}, LDD2::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P1::Integer, N2::Integer, P2::Integer, A1::Array{Float64,2},
+    LDA1::Integer, B1::Array{Float64,2}, LDB1::Integer,
+    C1::Array{Float64,2}, LDC1::Integer,
+    D1::Array{Float64,2}, LDD1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B2::Array{Float64,2}, LDB2::Integer,
+    C2::Array{Float64,2}, LDC2::Integer,
+    D2::Array{Float64,2}, LDD2::Integer, N::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -156,19 +156,19 @@ end
 
 
 function ab05nd!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
-    N2::Integer, ALPHA::FloatingPoint, A1::Array{FloatingPoint,2},
-    LDA1::Integer, B1::Array{FloatingPoint,2}, LDB1::Integer,
-    C1::Array{FloatingPoint,2}, LDC1::Integer,
-    D1::Array{FloatingPoint,2}, LDD1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B2::Array{FloatingPoint,2}, LDB2::Integer,
-    C2::Array{FloatingPoint,2}, LDC2::Integer,
-    D2::Array{FloatingPoint,2}, LDD2::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N2::Integer, ALPHA::FloatingPoint, A1::Array{Float64,2},
+    LDA1::Integer, B1::Array{Float64,2}, LDB1::Integer,
+    C1::Array{Float64,2}, LDC1::Integer,
+    D1::Array{Float64,2}, LDD1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B2::Array{Float64,2}, LDB2::Integer,
+    C2::Array{Float64,2}, LDC2::Integer,
+    D2::Array{Float64,2}, LDD2::Integer, N::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -195,18 +195,18 @@ end
 
 function ab05od!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
     N2::Integer, M2::Integer, ALPHA::FloatingPoint,
-    A1::Array{FloatingPoint,2}, LDA1::Integer,
-    B1::Array{FloatingPoint,2}, LDB1::Integer,
-    C1::Array{FloatingPoint,2}, LDC1::Integer,
-    D1::Array{FloatingPoint,2}, LDD1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B2::Array{FloatingPoint,2}, LDB2::Integer,
-    C2::Array{FloatingPoint,2}, LDC2::Integer,
-    D2::Array{FloatingPoint,2}, LDD2::Integer, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer)
+    A1::Array{Float64,2}, LDA1::Integer,
+    B1::Array{Float64,2}, LDB1::Integer,
+    C1::Array{Float64,2}, LDC1::Integer,
+    D1::Array{Float64,2}, LDD1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B2::Array{Float64,2}, LDB2::Integer,
+    C2::Array{Float64,2}, LDC2::Integer,
+    D2::Array{Float64,2}, LDD2::Integer, N::Integer, M::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer)
 
     INFO = [0]
 
@@ -232,18 +232,18 @@ end
 
 
 function ab05pd!(OVER::Char, N1::Integer, M::Integer, P::Integer,
-    N2::Integer, ALPHA::FloatingPoint, A1::Array{FloatingPoint,2},
-    LDA1::Integer, B1::Array{FloatingPoint,2}, LDB1::Integer,
-    C1::Array{FloatingPoint,2}, LDC1::Integer,
-    D1::Array{FloatingPoint,2}, LDD1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B2::Array{FloatingPoint,2}, LDB2::Integer,
-    C2::Array{FloatingPoint,2}, LDC2::Integer,
-    D2::Array{FloatingPoint,2}, LDD2::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer)
+    N2::Integer, ALPHA::FloatingPoint, A1::Array{Float64,2},
+    LDA1::Integer, B1::Array{Float64,2}, LDB1::Integer,
+    C1::Array{Float64,2}, LDC1::Integer,
+    D1::Array{Float64,2}, LDD1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B2::Array{Float64,2}, LDB2::Integer,
+    C2::Array{Float64,2}, LDC2::Integer,
+    D2::Array{Float64,2}, LDD2::Integer, N::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer)
 
     INFO = [0]
 
@@ -268,18 +268,18 @@ end
 
 
 function ab05qd!(OVER::Char, N1::Integer, M1::Integer, P1::Integer,
-    N2::Integer, M2::Integer, P2::Integer, A1::Array{FloatingPoint,2},
-    LDA1::Integer, B1::Array{FloatingPoint,2}, LDB1::Integer,
-    C1::Array{FloatingPoint,2}, LDC1::Integer,
-    D1::Array{FloatingPoint,2}, LDD1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B2::Array{FloatingPoint,2}, LDB2::Integer,
-    C2::Array{FloatingPoint,2}, LDC2::Integer,
-    D2::Array{FloatingPoint,2}, LDD2::Integer, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer)
+    N2::Integer, M2::Integer, P2::Integer, A1::Array{Float64,2},
+    LDA1::Integer, B1::Array{Float64,2}, LDB1::Integer,
+    C1::Array{Float64,2}, LDC1::Integer,
+    D1::Array{Float64,2}, LDD1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B2::Array{Float64,2}, LDB2::Integer,
+    C2::Array{Float64,2}, LDC2::Integer,
+    D2::Array{Float64,2}, LDD2::Integer, N::Integer, M::Integer,
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer)
 
     INFO = [0]
 
@@ -306,18 +306,18 @@ end
 
 function ab05rd!(FBTYPE::Char, JOBD::Char, N::Integer, M::Integer,
     P::Integer, MV::Integer, PZ::Integer, ALPHA::FloatingPoint,
-    BETA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    K::Array{FloatingPoint,2}, LDK::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer, RCOND::FloatingPoint,
-    BC::Array{FloatingPoint,2}, LDBC::Integer,
-    CC::Array{FloatingPoint,2}, LDCC::Integer,
-    DC::Array{FloatingPoint,2}, LDDC::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    BETA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    K::Array{Float64,2}, LDK::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    H::Array{Float64,2}, LDH::Integer, RCOND::FloatingPoint,
+    BC::Array{Float64,2}, LDBC::Integer,
+    CC::Array{Float64,2}, LDCC::Integer,
+    DC::Array{Float64,2}, LDDC::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -345,12 +345,12 @@ end
 
 
 function ab05sd!(FBTYPE::Char, JOBD::Char, N::Integer, M::Integer,
-    P::Integer, ALPHA::FloatingPoint, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer, RCOND::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    P::Integer, ALPHA::FloatingPoint, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    F::Array{Float64,2}, LDF::Integer, RCOND::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -372,10 +372,10 @@ end
 
 
 function ab07md!(JOBD::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer)
 
     INFO = [0]
 
@@ -392,11 +392,11 @@ function ab07md!(JOBD::Char, N::Integer, M::Integer, P::Integer,
 end
 
 
-function ab07nd!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, RCOND::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+function ab07nd!(N::Integer, M::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, RCOND::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -416,12 +416,12 @@ end
 
 
 function ab08md!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, RANK::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, RANK::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -444,8 +444,8 @@ function ab08mz!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
     A::Array{Complex,2}, LDA::Integer, B::Array{Complex,2},
     LDB::Integer, C::Array{Complex,2}, LDC::Integer,
     D::Array{Complex,2}, LDD::Integer, RANK::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1},
     LZWORK::Integer)
 
     INFO = [0]
@@ -468,16 +468,16 @@ end
 
 
 function ab08nd!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NU::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NU::Integer,
     RANK::Integer, DINFZ::Integer, NKROR::Integer, NKROL::Integer,
-    INFZ::Array{Integer,1}, KRONR::Array{Integer,1},
-    KRONL::Array{Integer,1}, AF::Array{FloatingPoint,2},
-    LDAF::Integer, BF::Array{FloatingPoint,2}, LDBF::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    INFZ::Array{BlasInt,1}, KRONR::Array{BlasInt,1},
+    KRONL::Array{BlasInt,1}, AF::Array{Float64,2},
+    LDAF::Integer, BF::Array{Float64,2}, LDBF::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -502,10 +502,10 @@ end
 
 function ab08nx!(N::Integer, M::Integer, P::Integer, RO::Integer,
     SIGMA::Integer, SVLMAX::FloatingPoint,
-    ABCD::Array{FloatingPoint,2}, LDABCD::Integer, NINFZ::Integer,
-    INFZ::Array{Integer,1}, KRONL::Array{Integer,1}, MU::Integer,
+    ABCD::Array{Float64,2}, LDABCD::Integer, NINFZ::Integer,
+    INFZ::Array{BlasInt,1}, KRONL::Array{BlasInt,1}, MU::Integer,
     NU::Integer, NKROL::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -531,10 +531,10 @@ function ab08nz!(EQUIL::Char, N::Integer, M::Integer, P::Integer,
     LDB::Integer, C::Array{Complex,2}, LDC::Integer,
     D::Array{Complex,2}, LDD::Integer, NU::Integer, RANK::Integer,
     DINFZ::Integer, NKROR::Integer, NKROL::Integer,
-    INFZ::Array{Integer,1}, KRONR::Array{Integer,1},
-    KRONL::Array{Integer,1}, AF::Array{Complex,2}, LDAF::Integer,
+    INFZ::Array{BlasInt,1}, KRONR::Array{BlasInt,1},
+    KRONL::Array{BlasInt,1}, AF::Array{Complex,2}, LDAF::Integer,
     BF::Array{Complex,2}, LDBF::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     ZWORK::Array{Complex,1}, LZWORK::Integer)
 
     INFO = [0]
@@ -562,11 +562,11 @@ end
 
 function ab09ad!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    HSV::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    HSV::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -588,13 +588,13 @@ end
 
 
 function ab09ax!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
-    M::Integer, P::Integer, NR::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    HSV::Array{FloatingPoint,1}, T::Array{FloatingPoint,2},
-    LDT::Integer, TI::Array{FloatingPoint,2}, LDTI::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    M::Integer, P::Integer, NR::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    HSV::Array{Float64,1}, T::Array{Float64,2},
+    LDT::Integer, TI::Array{Float64,2}, LDTI::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -617,13 +617,13 @@ end
 
 function ab09bd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -646,14 +646,14 @@ end
 
 
 function ab09bx!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
-    M::Integer, P::Integer, NR::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    HSV::Array{FloatingPoint,1}, T::Array{FloatingPoint,2},
-    LDT::Integer, TI::Array{FloatingPoint,2}, LDTI::Integer,
-    TOL1::FloatingPoint, TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    M::Integer, P::Integer, NR::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    HSV::Array{Float64,1}, T::Array{Float64,2},
+    LDT::Integer, TI::Array{Float64,2}, LDTI::Integer,
+    TOL1::FloatingPoint, TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -677,13 +677,13 @@ end
 
 
 function ab09cd!(DICO::Char, EQUIL::Char, ORDSEL::Char, N::Integer,
-    M::Integer, P::Integer, NR::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    M::Integer, P::Integer, NR::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -705,13 +705,13 @@ end
 
 
 function ab09cx!(DICO::Char, ORDSEL::Char, N::Integer, M::Integer,
-    P::Integer, NR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    P::Integer, NR::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -733,11 +733,11 @@ end
 
 
 function ab09dd!(DICO::Char, N::Integer, M::Integer, P::Integer,
-    NR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, RCOND::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    NR::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, RCOND::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -758,13 +758,13 @@ end
 
 function ab09ed!(DICO::Char, EQUIL::Char, ORDSEL::Char, N::Integer,
     M::Integer, P::Integer, NR::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -788,12 +788,12 @@ end
 
 function ab09fd!(DICO::Char, JOBCF::Char, FACT::Char, JOBMR::Char,
     EQUIL::Char, ORDSEL::Char, N::Integer, M::Integer, P::Integer,
-    NR::Integer, ALPHA::FloatingPoint, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NQ::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    NR::Integer, ALPHA::FloatingPoint, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NQ::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -817,13 +817,13 @@ end
 
 function ab09gd!(DICO::Char, JOBCF::Char, FACT::Char, JOBMR::Char,
     EQUIL::Char, ORDSEL::Char, N::Integer, M::Integer, P::Integer,
-    NR::Integer, ALPHA::FloatingPoint, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NQ::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, TOL3::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    NR::Integer, ALPHA::FloatingPoint, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NQ::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, TOL3::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -850,13 +850,13 @@ end
 function ab09hd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1}, IWARN::Integer)
 
     INFO = [0]
@@ -881,14 +881,14 @@ end
 
 
 function ab09hx!(DICO::Char, JOB::Char, ORDSEL::Char, N::Integer,
-    M::Integer, P::Integer, NR::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    HSV::Array{FloatingPoint,1}, T::Array{FloatingPoint,2},
-    LDT::Integer, TI::Array{FloatingPoint,2}, LDTI::Integer,
-    TOL1::FloatingPoint, TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    M::Integer, P::Integer, NR::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    HSV::Array{Float64,1}, T::Array{Float64,2},
+    LDT::Integer, TI::Array{Float64,2}, LDTI::Integer,
+    TOL1::FloatingPoint, TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1}, IWARN::Integer)
 
     INFO = [0]
@@ -913,13 +913,13 @@ end
 
 
 function ab09hy!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, SCALEC::FloatingPoint,
-    SCALEO::FloatingPoint, S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, SCALEC::FloatingPoint,
+    SCALEO::FloatingPoint, S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -945,21 +945,21 @@ function ab09id!(DICO::Char, JOBC::Char, JOBO::Char, JOB::Char,
     WEIGHT::Char, EQUIL::Char, ORDSEL::Char, N::Integer, M::Integer,
     P::Integer, NV::Integer, PV::Integer, NW::Integer, MW::Integer,
     NR::Integer, ALPHA::FloatingPoint, ALPHAC::FloatingPoint,
-    ALPHAO::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    ALPHAO::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -993,15 +993,15 @@ end
 function ab09ix!(DICO::Char, JOB::Char, FACT::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
     SCALEC::FloatingPoint, SCALEO::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    TI::Array{FloatingPoint,2}, LDTI::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer, NMINR::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    TI::Array{Float64,2}, LDTI::Integer,
+    T::Array{Float64,2}, LDT::Integer, NMINR::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1028,20 +1028,20 @@ end
 function ab09iy!(DICO::Char, JOBC::Char, JOBO::Char, WEIGHT::Char,
     N::Integer, M::Integer, P::Integer, NV::Integer, PV::Integer,
     NW::Integer, MW::Integer, ALPHAC::FloatingPoint,
-    ALPHAO::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer, SCALEC::FloatingPoint,
-    SCALEO::FloatingPoint, S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    ALPHAO::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer, SCALEC::FloatingPoint,
+    SCALEO::FloatingPoint, S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -1073,21 +1073,21 @@ end
 function ab09jd!(JOBV::Char, JOBW::Char, JOBINV::Char, DICO::Char,
     EQUIL::Char, ORDSEL::Char, N::Integer, NV::Integer, NW::Integer,
     M::Integer, P::Integer, NR::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1118,16 +1118,16 @@ end
 
 function ab09jv!(JOB::Char, DICO::Char, JOBEV::Char, STBCHK::Char,
     N::Integer, M::Integer, P::Integer, NV::Integer, PV::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    EV::Array{FloatingPoint,2}, LDEV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    EV::Array{Float64,2}, LDEV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1154,16 +1154,16 @@ end
 
 function ab09jw!(JOB::Char, DICO::Char, JOBEW::Char, STBCHK::Char,
     N::Integer, M::Integer, P::Integer, NW::Integer, MW::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    EW::Array{FloatingPoint,2}, LDEW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    EW::Array{Float64,2}, LDEW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1189,8 +1189,8 @@ end
 
 
 function ab09jx!(DICO::Char, STDOM::Char, EVTYPE::Char, N::Integer,
-    ALPHA::FloatingPoint, ER::Array{FloatingPoint,1},
-    EI::Array{FloatingPoint,1}, ED::Array{FloatingPoint,1},
+    ALPHA::FloatingPoint, ER::Array{Float64,1},
+    EI::Array{Float64,1}, ED::Array{Float64,1},
     TOLINF::FloatingPoint)
 
     INFO = [0]
@@ -1211,21 +1211,21 @@ end
 function ab09kd!(JOB::Char, DICO::Char, WEIGHT::Char, EQUIL::Char,
     ORDSEL::Char, N::Integer, NV::Integer, NW::Integer, M::Integer,
     P::Integer, NR::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1256,19 +1256,19 @@ end
 
 function ab09kx!(JOB::Char, DICO::Char, WEIGHT::Char, N::Integer,
     NV::Integer, NW::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AV::Array{FloatingPoint,2}, LDAV::Integer,
-    BV::Array{FloatingPoint,2}, LDBV::Integer,
-    CV::Array{FloatingPoint,2}, LDCV::Integer,
-    DV::Array{FloatingPoint,2}, LDDV::Integer,
-    AW::Array{FloatingPoint,2}, LDAW::Integer,
-    BW::Array{FloatingPoint,2}, LDBW::Integer,
-    CW::Array{FloatingPoint,2}, LDCW::Integer,
-    DW::Array{FloatingPoint,2}, LDDW::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AV::Array{Float64,2}, LDAV::Integer,
+    BV::Array{Float64,2}, LDBV::Integer,
+    CV::Array{Float64,2}, LDCV::Integer,
+    DV::Array{Float64,2}, LDDV::Integer,
+    AW::Array{Float64,2}, LDAW::Integer,
+    BW::Array{Float64,2}, LDBW::Integer,
+    CW::Array{Float64,2}, LDCW::Integer,
+    DW::Array{Float64,2}, LDDW::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1296,11 +1296,11 @@ end
 
 function ab09md!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
-    ALPHA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    ALPHA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -1324,13 +1324,13 @@ end
 
 function ab09nd!(DICO::Char, JOB::Char, EQUIL::Char, ORDSEL::Char,
     N::Integer, M::Integer, P::Integer, NR::Integer,
-    ALPHA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NS::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    ALPHA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NS::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1353,14 +1353,14 @@ end
 
 
 function ab13dd!(DICO::Char, JOBE::Char, EQUIL::Char, JOBD::Char,
-    N::Integer, M::Integer, P::Integer, FPEAK::Array{FloatingPoint,1},
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    GPEAK::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    N::Integer, M::Integer, P::Integer, FPEAK::Array{Float64,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    GPEAK::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, CWORK::Array{Complex,1}, LCWORK::Integer)
 
     INFO = [0]
@@ -1384,9 +1384,9 @@ function ab13dd!(DICO::Char, JOBE::Char, EQUIL::Char, JOBD::Char,
 end
 
 
-function ab13ed!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
+function ab13ed!(N::Integer, A::Array{Float64,2}, LDA::Integer,
     LOW::FloatingPoint, HIGH::FloatingPoint, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -1402,9 +1402,9 @@ function ab13ed!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 end
 
 
-function ab13fd!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
+function ab13fd!(N::Integer, A::Array{Float64,2}, LDA::Integer,
     BETA::FloatingPoint, OMEGA::FloatingPoint, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     CWORK::Array{Complex,1}, LCWORK::Integer)
 
     INFO = [0]
@@ -1423,11 +1423,11 @@ end
 
 
 function ab13md!(FACT::Char, N::Integer, Z::Array{Complex,1},
-    LDZ::Complex, M::Integer, NBLOCK::Array{Integer,1},
-    ITYPE::Array{Integer,1}, X::Array{FloatingPoint,1},
-    BOUND::FloatingPoint, D::Array{FloatingPoint,1},
-    G::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    LDZ::Complex, M::Integer, NBLOCK::Array{BlasInt,1},
+    ITYPE::Array{BlasInt,1}, X::Array{Float64,1},
+    BOUND::FloatingPoint, D::Array{Float64,1},
+    G::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     ZWORK::Array{Complex,1}, LZWORK::Integer)
 
     INFO = [0]
@@ -1450,10 +1450,10 @@ end
 
 function ab8nxz!(N::Integer, M::Integer, P::Integer, RO::Integer,
     SIGMA::Integer, SVLMAX::FloatingPoint, ABCD::Array{Complex,2},
-    LDABCD::Integer, NINFZ::Integer, INFZ::Array{Integer,1},
-    KRONL::Array{Integer,1}, MU::Integer, NU::Integer, NKROL::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1},
+    LDABCD::Integer, NINFZ::Integer, INFZ::Array{BlasInt,1},
+    KRONL::Array{BlasInt,1}, MU::Integer, NU::Integer, NKROL::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1},
     LZWORK::Integer)
 
     INFO = [0]
@@ -1476,16 +1476,16 @@ end
 
 
 function ag07bd!(JOBE::Char, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AI::Array{FloatingPoint,2}, LDAI::Integer,
-    EI::Array{FloatingPoint,2}, LDEI::Integer,
-    BI::Array{FloatingPoint,2}, LDBI::Integer,
-    CI::Array{FloatingPoint,2}, LDCI::Integer,
-    DI::Array{FloatingPoint,2}, LDDI::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AI::Array{Float64,2}, LDAI::Integer,
+    EI::Array{Float64,2}, LDEI::Integer,
+    BI::Array{Float64,2}, LDBI::Integer,
+    CI::Array{Float64,2}, LDCI::Integer,
+    DI::Array{Float64,2}, LDDI::Integer)
 
     INFO = [0]
 
@@ -1507,16 +1507,16 @@ end
 
 
 function ag08bd!(EQUIL::Char, L::Integer, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NFZ::Integer,
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NFZ::Integer,
     NRANK::Integer, NIZ::Integer, DINFZ::Integer, NKROR::Integer,
-    NINFE::Integer, NKROL::Integer, INFZ::Array{Integer,1},
-    KRONR::Array{Integer,1}, INFE::Array{Integer,1},
-    KRONL::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NINFE::Integer, NKROL::Integer, INFZ::Array{BlasInt,1},
+    KRONR::Array{BlasInt,1}, INFE::Array{BlasInt,1},
+    KRONL::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1542,12 +1542,12 @@ end
 
 
 function ag08by!(FIRST::Bool, N::Integer, M::Integer, P::Integer,
-    SVLMAX::FloatingPoint, ABCD::Array{FloatingPoint,1},
-    LDABCD::FloatingPoint, E::Array{FloatingPoint,1},
+    SVLMAX::FloatingPoint, ABCD::Array{Float64,1},
+    LDABCD::FloatingPoint, E::Array{Float64,1},
     LDE::FloatingPoint, NR::Integer, PR::Integer, NINFZ::Integer,
-    DINFZ::Integer, NKRONL::Integer, INFZ::Array{Integer,1},
-    KRONL::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    DINFZ::Integer, NKRONL::Integer, INFZ::Array{BlasInt,1},
+    KRONL::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1575,10 +1575,10 @@ function ag08bz!(EQUIL::Char, L::Integer, N::Integer, M::Integer,
     LDB::Integer, C::Array{Complex,2}, LDC::Integer,
     D::Array{Complex,2}, LDD::Integer, NFZ::Integer, NRANK::Integer,
     NIZ::Integer, DINFZ::Integer, NKROR::Integer, NINFE::Integer,
-    NKROL::Integer, INFZ::Array{Integer,1}, KRONR::Array{Integer,1},
-    INFE::Array{Integer,1}, KRONL::Array{Integer,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1},
+    NKROL::Integer, INFZ::Array{BlasInt,1}, KRONR::Array{BlasInt,1},
+    INFE::Array{BlasInt,1}, KRONL::Array{BlasInt,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1},
     LZWORK::Integer)
 
     INFO = [0]
@@ -1609,9 +1609,9 @@ function ag8byz!(FIRST::Bool, N::Integer, M::Integer, P::Integer,
     SVLMAX::FloatingPoint, ABCD::Array{Complex,1}, LDABCD::Complex,
     E::Array{Complex,1}, LDE::Complex, NR::Integer, PR::Integer,
     NINFZ::Integer, DINFZ::Integer, NKRONL::Integer,
-    INFZ::Array{Integer,1}, KRONL::Array{Integer,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1},
+    INFZ::Array{BlasInt,1}, KRONL::Array{BlasInt,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1},
     LZWORK::Integer)
 
     INFO = [0]
@@ -1634,8 +1634,8 @@ function ag8byz!(FIRST::Bool, N::Integer, M::Integer, P::Integer,
 end
 
 
-function de01od!(CONV::Char, N::Integer, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1})
+function de01od!(CONV::Char, N::Integer, A::Array{Float64,1},
+    B::Array{Float64,1})
 
     INFO = [0]
 
@@ -1651,8 +1651,8 @@ end
 
 
 function de01pd!(CONV::Char, WGHT::Char, N::Integer,
-    A::Array{FloatingPoint,1}, B::Array{FloatingPoint,1},
-    W::Array{FloatingPoint,1})
+    A::Array{Float64,1}, B::Array{Float64,1},
+    W::Array{Float64,1})
 
     INFO = [0]
 
@@ -1668,7 +1668,7 @@ end
 
 
 function df01md!(SICO::Char, N::Integer, DT::FloatingPoint,
-    A::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -1683,8 +1683,8 @@ function df01md!(SICO::Char, N::Integer, DT::FloatingPoint,
 end
 
 
-function dg01md!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
-    XI::Array{FloatingPoint,1})
+function dg01md!(INDI::Char, N::Integer, XR::Array{Float64,1},
+    XI::Array{Float64,1})
 
     INFO = [0]
 
@@ -1699,8 +1699,8 @@ function dg01md!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
 end
 
 
-function dg01nd!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
-    XI::Array{FloatingPoint,1})
+function dg01nd!(INDI::Char, N::Integer, XR::Array{Float64,1},
+    XI::Array{Float64,1})
 
     INFO = [0]
 
@@ -1715,8 +1715,8 @@ function dg01nd!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
 end
 
 
-function dg01ny!(INDI::Char, N::Integer, XR::Array{FloatingPoint,1},
-    XI::Array{FloatingPoint,1})
+function dg01ny!(INDI::Char, N::Integer, XR::Array{Float64,1},
+    XI::Array{Float64,1})
 
     INFO = [0]
 
@@ -1731,7 +1731,7 @@ end
 
 
 function dg01od!(SCR::Char, WGHT::Char, N::Integer,
-    A::Array{FloatingPoint,1}, W::Array{FloatingPoint,1})
+    A::Array{Float64,1}, W::Array{Float64,1})
 
     INFO = [0]
 
@@ -1746,7 +1746,7 @@ function dg01od!(SCR::Char, WGHT::Char, N::Integer,
 end
 
 
-function dk01md!(TYPE::Char, N::Integer, A::Array{FloatingPoint,1})
+function dk01md!(TYPE::Char, N::Integer, A::Array{Float64,1})
 
     INFO = [0]
 
@@ -1761,14 +1761,14 @@ end
 
 
 function fb01qd!(JOBK::Char, MULTBQ::Char, N::Integer, M::Integer,
-    P::Integer, S::Array{FloatingPoint,2}, LDS::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    K::Array{FloatingPoint,2}, LDK::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    P::Integer, S::Array{Float64,2}, LDS::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    K::Array{Float64,2}, LDK::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1791,14 +1791,14 @@ end
 
 
 function fb01rd!(JOBK::Char, MULTBQ::Char, N::Integer, M::Integer,
-    P::Integer, S::Array{FloatingPoint,2}, LDS::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    K::Array{FloatingPoint,2}, LDK::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    P::Integer, S::Array{Float64,2}, LDS::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    K::Array{Float64,2}, LDK::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1821,16 +1821,16 @@ end
 
 
 function fb01sd!(JOBX::Char, MULTAB::Char, MULTRC::Char, N::Integer,
-    M::Integer, P::Integer, SINV::Array{FloatingPoint,2},
-    LDSINV::Integer, AINV::Array{FloatingPoint,2}, LDAINV::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    RINV::Array{FloatingPoint,2}, LDRINV::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    QINV::Array{FloatingPoint,2}, LDQINV::Integer,
-    X::Array{FloatingPoint,1}, RINVY::Array{FloatingPoint,1},
-    Z::Array{FloatingPoint,1}, E::Array{FloatingPoint,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    M::Integer, P::Integer, SINV::Array{Float64,2},
+    LDSINV::Integer, AINV::Array{Float64,2}, LDAINV::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    RINV::Array{Float64,2}, LDRINV::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    QINV::Array{Float64,2}, LDQINV::Integer,
+    X::Array{Float64,1}, RINVY::Array{Float64,1},
+    Z::Array{Float64,1}, E::Array{Float64,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -1854,16 +1854,16 @@ end
 
 
 function fb01td!(JOBX::Char, MULTRC::Char, N::Integer, M::Integer,
-    P::Integer, SINV::Array{FloatingPoint,2}, LDSINV::Integer,
-    AINV::Array{FloatingPoint,2}, LDAINV::Integer,
-    AINVB::Array{FloatingPoint,2}, LDAINB::Integer,
-    RINV::Array{FloatingPoint,2}, LDRINV::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    QINV::Array{FloatingPoint,2}, LDQINV::Integer,
-    X::Array{FloatingPoint,1}, RINVY::Array{FloatingPoint,1},
-    Z::Array{FloatingPoint,1}, E::Array{FloatingPoint,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Integer, SINV::Array{Float64,2}, LDSINV::Integer,
+    AINV::Array{Float64,2}, LDAINV::Integer,
+    AINVB::Array{Float64,2}, LDAINB::Integer,
+    RINV::Array{Float64,2}, LDRINV::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    QINV::Array{Float64,2}, LDQINV::Integer,
+    X::Array{Float64,1}, RINVY::Array{Float64,1},
+    Z::Array{Float64,1}, E::Array{Float64,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -1887,14 +1887,14 @@ end
 
 
 function fb01vd!(N::Integer, M::Integer, L::Integer,
-    P::Array{FloatingPoint,2}, LDP::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    K::Array{FloatingPoint,2}, LDK::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    P::Array{Float64,2}, LDP::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    K::Array{Float64,2}, LDK::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -1917,10 +1917,10 @@ end
 
 function fd01ad!(JP::Char, L::Integer, LAMBDA::FloatingPoint,
     XIN::FloatingPoint, YIN::FloatingPoint, EFOR::FloatingPoint,
-    XF::Array{FloatingPoint,1}, EPSBCK::Array{FloatingPoint,1},
-    CTETA::Array{FloatingPoint,1}, STETA::Array{FloatingPoint,1},
-    YQ::Array{FloatingPoint,1}, EPOS::FloatingPoint,
-    EOUT::FloatingPoint, SALPH::Array{FloatingPoint,1},
+    XF::Array{Float64,1}, EPSBCK::Array{Float64,1},
+    CTETA::Array{Float64,1}, STETA::Array{Float64,1},
+    YQ::Array{Float64,1}, EPOS::FloatingPoint,
+    EOUT::FloatingPoint, SALPH::Array{Float64,1},
     IWARN::Integer)
 
     INFO = [0]
@@ -1942,12 +1942,12 @@ end
 
 function ib01ad!(METH::Char, ALG::Char, JOBD::Char, BATCH::Char,
     CONCT::Char, CTRL::Char, NOBR::Integer, M::Integer, L::Integer,
-    NSMP::Integer, U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer, N::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer,
-    SV::Array{FloatingPoint,1}, RCOND::FloatingPoint,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    NSMP::Integer, U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer, N::Integer,
+    R::Array{Float64,1}, LDR::Integer,
+    SV::Array{Float64,1}, RCOND::FloatingPoint,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -1971,16 +1971,16 @@ end
 
 function ib01bd!(METH::Char, JOB::Char, JOBCK::Char, NOBR::Integer,
     N::Integer, M::Integer, L::Integer, NSMPL::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer,
-    A::Array{FloatingPoint,1}, LDA::Integer,
-    C::Array{FloatingPoint,1}, LDC::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer,
-    Q::Array{FloatingPoint,1}, LDQ::Integer,
-    RY::Array{FloatingPoint,1}, LDRY::Integer,
-    S::Array{FloatingPoint,1}, LDS::Integer,
-    K::Array{FloatingPoint,1}, LDK::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    R::Array{Float64,1}, LDR::Integer,
+    A::Array{Float64,1}, LDA::Integer,
+    C::Array{Float64,1}, LDC::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    D::Array{Float64,1}, LDD::Integer,
+    Q::Array{Float64,1}, LDQ::Integer,
+    RY::Array{Float64,1}, LDRY::Integer,
+    S::Array{Float64,1}, LDS::Integer,
+    K::Array{Float64,1}, LDK::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1}, IWARN::Integer)
 
     INFO = [0]
@@ -2006,15 +2006,15 @@ end
 
 
 function ib01cd!(JOBX0::Char, COMUSE::Char, JOB::Char, N::Integer,
-    M::Integer, L::Integer, NSMP::Integer, A::Array{FloatingPoint,1},
-    LDA::Integer, B::Array{FloatingPoint,1}, LDB::Integer,
-    C::Array{FloatingPoint,1}, LDC::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer,
-    U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer,
-    X0::Array{FloatingPoint,1}, V::Array{FloatingPoint,1},
-    LDV::Integer, TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    M::Integer, L::Integer, NSMP::Integer, A::Array{Float64,1},
+    LDA::Integer, B::Array{Float64,1}, LDB::Integer,
+    C::Array{Float64,1}, LDC::Integer,
+    D::Array{Float64,1}, LDD::Integer,
+    U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer,
+    X0::Array{Float64,1}, V::Array{Float64,1},
+    LDV::Integer, TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2039,10 +2039,10 @@ end
 
 function ib01md!(METH::Char, ALG::Char, BATCH::Char, CONCT::Char,
     NOBR::Integer, M::Integer, L::Integer, NSMP::Integer,
-    U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer,
+    R::Array{Float64,1}, LDR::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2063,10 +2063,10 @@ end
 
 
 function ib01my!(METH::Char, BATCH::Char, CONCT::Char, NOBR::Integer,
-    M::Integer, L::Integer, NSMP::Integer, U::Array{FloatingPoint,1},
-    LDU::Integer, Y::Array{FloatingPoint,1}, LDY::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    M::Integer, L::Integer, NSMP::Integer, U::Array{Float64,1},
+    LDU::Integer, Y::Array{Float64,1}, LDY::Integer,
+    R::Array{Float64,1}, LDR::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2086,9 +2086,9 @@ end
 
 
 function ib01nd!(METH::Char, JOBD::Char, NOBR::Integer, M::Integer,
-    L::Integer, R::Array{FloatingPoint,1}, LDR::Integer,
-    SV::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    L::Integer, R::Array{Float64,1}, LDR::Integer,
+    SV::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -2108,7 +2108,7 @@ end
 
 
 function ib01od!(CTRL::Char, NOBR::Integer, L::Integer,
-    SV::Array{FloatingPoint,1}, N::Integer, TOL::FloatingPoint,
+    SV::Array{Float64,1}, N::Integer, TOL::FloatingPoint,
     IWARN::Integer)
 
     INFO = [0]
@@ -2126,7 +2126,7 @@ end
 
 
 function ib01oy!(NS::Integer, NMAX::Integer, N::Integer,
-    SV::Array{FloatingPoint,1})
+    SV::Array{Float64,1})
 
     INFO = [0]
 
@@ -2143,16 +2143,16 @@ end
 
 function ib01pd!(METH::Char, JOB::Char, JOBCV::Char, NOBR::Integer,
     N::Integer, M::Integer, L::Integer, NSMPL::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer,
-    A::Array{FloatingPoint,1}, LDA::Integer,
-    C::Array{FloatingPoint,1}, LDC::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer,
-    Q::Array{FloatingPoint,1}, LDQ::Integer,
-    RY::Array{FloatingPoint,1}, LDRY::Integer,
-    S::Array{FloatingPoint,1}, LDS::Integer,
-    O::Array{FloatingPoint,1}, LDO::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    R::Array{Float64,1}, LDR::Integer,
+    A::Array{Float64,1}, LDA::Integer,
+    C::Array{Float64,1}, LDC::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    D::Array{Float64,1}, LDD::Integer,
+    Q::Array{Float64,1}, LDQ::Integer,
+    RY::Array{Float64,1}, LDRY::Integer,
+    S::Array{Float64,1}, LDS::Integer,
+    O::Array{Float64,1}, LDO::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -2178,16 +2178,16 @@ end
 
 
 function ib01px!(JOB::Char, NOBR::Integer, N::Integer, M::Integer,
-    L::Integer, UF::Array{FloatingPoint,1}, LDUF::Integer,
-    UN::Array{FloatingPoint,1}, LDUN::Integer,
-    UL::Array{FloatingPoint,1}, LDUL::Integer,
-    PGAL::Array{FloatingPoint,1}, LDPGAL::Integer,
-    K::Array{FloatingPoint,1}, LDK::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer,
-    X::Array{FloatingPoint,1}, B::Array{FloatingPoint,1},
-    LDB::Integer, D::Array{FloatingPoint,1}, LDD::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    L::Integer, UF::Array{Float64,1}, LDUF::Integer,
+    UN::Array{Float64,1}, LDUN::Integer,
+    UL::Array{Float64,1}, LDUL::Integer,
+    PGAL::Array{Float64,1}, LDPGAL::Integer,
+    K::Array{Float64,1}, LDK::Integer,
+    R::Array{Float64,1}, LDR::Integer,
+    X::Array{Float64,1}, B::Array{Float64,1},
+    LDB::Integer, D::Array{Float64,1}, LDD::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2212,15 +2212,15 @@ end
 
 function ib01py!(METH::Char, JOB::Char, NOBR::Integer, N::Integer,
     M::Integer, L::Integer, RANKR1::Integer,
-    UL::Array{FloatingPoint,1}, LDUL::Integer,
-    R1::Array{FloatingPoint,1}, LDR1::Integer,
-    TAU1::Array{FloatingPoint,1}, PGAL::Array{FloatingPoint,1},
-    LDPGAL::Integer, K::Array{FloatingPoint,1}, LDK::Integer,
-    R::Array{FloatingPoint,1}, LDR::Integer,
-    H::Array{FloatingPoint,1}, LDH::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    UL::Array{Float64,1}, LDUL::Integer,
+    R1::Array{Float64,1}, LDR1::Integer,
+    TAU1::Array{Float64,1}, PGAL::Array{Float64,1},
+    LDPGAL::Integer, K::Array{Float64,1}, LDK::Integer,
+    R::Array{Float64,1}, LDR::Integer,
+    H::Array{Float64,1}, LDH::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    D::Array{Float64,1}, LDD::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -2246,14 +2246,14 @@ end
 
 
 function ib01qd!(JOBX0::Char, JOB::Char, N::Integer, M::Integer,
-    L::Integer, NSMP::Integer, A::Array{FloatingPoint,1},
-    LDA::Integer, C::Array{FloatingPoint,1}, LDC::Integer,
-    U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer,
-    X0::Array{FloatingPoint,1}, B::Array{FloatingPoint,1},
-    LDB::Integer, D::Array{FloatingPoint,1}, LDD::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    L::Integer, NSMP::Integer, A::Array{Float64,1},
+    LDA::Integer, C::Array{Float64,1}, LDC::Integer,
+    U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer,
+    X0::Array{Float64,1}, B::Array{Float64,1},
+    LDB::Integer, D::Array{Float64,1}, LDD::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2276,14 +2276,14 @@ end
 
 
 function ib01rd!(JOB::Char, N::Integer, M::Integer, L::Integer,
-    NSMP::Integer, A::Array{FloatingPoint,1}, LDA::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    C::Array{FloatingPoint,1}, LDC::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer,
-    U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer,
-    X0::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NSMP::Integer, A::Array{Float64,1}, LDA::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    C::Array{Float64,1}, LDC::Integer,
+    D::Array{Float64,1}, LDD::Integer,
+    U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer,
+    X0::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -2308,11 +2308,11 @@ end
 function ib03ad!(INIT::Char, ALG::Char, STOR::Char, NOBR::Integer,
     M::Integer, L::Integer, NSMP::Integer, N::Integer, NN::Integer,
     ITMAX1::Integer, ITMAX2::Integer, NPRINT::Integer,
-    U::Array{FloatingPoint,1}, LDU::Integer,
-    Y::Array{FloatingPoint,1}, LDY::Integer,
-    X::Array{FloatingPoint,1}, LX::Integer, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    U::Array{Float64,1}, LDU::Integer,
+    Y::Array{Float64,1}, LDY::Integer,
+    X::Array{Float64,1}, LX::Integer, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2336,11 +2336,11 @@ end
 
 function ib03bd!(INIT::Char, NOBR::Integer, M::Integer, L::Integer,
     NSMP::Integer, N::Integer, NN::Integer, ITMAX1::Integer,
-    ITMAX2::Integer, NPRINT::Integer, U::Array{FloatingPoint,1},
-    LDU::Integer, Y::Array{FloatingPoint,1}, LDY::Integer,
-    X::Array{FloatingPoint,1}, LX::Integer, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    ITMAX2::Integer, NPRINT::Integer, U::Array{Float64,1},
+    LDU::Integer, Y::Array{Float64,1}, LDY::Integer,
+    X::Array{Float64,1}, LX::Integer, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -2377,7 +2377,7 @@ end
 
 
 function ma01bd!(BASE::FloatingPoint, LGBAS::FloatingPoint,
-    K::Integer, S::Array{Integer,1}, A::Array{FloatingPoint,1},
+    K::Integer, S::Array{BlasInt,1}, A::Array{Float64,1},
     INCA::Integer, ALPHA::FloatingPoint, BETA::FloatingPoint,
     SCAL::Integer)
 
@@ -2396,8 +2396,8 @@ end
 
 
 function ma02ad!(JOB::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer)
 
     INFO = [0]
 
@@ -2413,7 +2413,7 @@ end
 
 
 function ma02bd!(SIDE::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer)
+    A::Array{Float64,2}, LDA::Integer)
 
     INFO = [0]
 
@@ -2445,7 +2445,7 @@ end
 
 
 function ma02cd!(N::Integer, KL::Integer, KU::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer)
+    A::Array{Float64,2}, LDA::Integer)
 
     INFO = [0]
 
@@ -2477,8 +2477,8 @@ end
 
 
 function ma02dd!(JOB::Char, UPLO::Char, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    AP::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    AP::Array{Float64,1})
 
     INFO = [0]
 
@@ -2493,7 +2493,7 @@ function ma02dd!(JOB::Char, UPLO::Char, N::Integer,
 end
 
 
-function ma02ed!(UPLO::Char, N::Integer, A::Array{FloatingPoint,2},
+function ma02ed!(UPLO::Char, N::Integer, A::Array{Float64,2},
     LDA::Integer)
 
     INFO = [0]
@@ -2524,9 +2524,9 @@ function ma02fd!(X1::FloatingPoint, X2::FloatingPoint,
 end
 
 
-function ma02gd!(N::Integer, A::Array{FloatingPoint,1},
+function ma02gd!(N::Integer, A::Array{Float64,1},
     LDA::FloatingPoint, K1::Integer, K2::Integer,
-    IPIV::Array{Integer,1}, INCX::Integer)
+    IPIV::Array{BlasInt,1}, INCX::Integer)
 
     INFO = [0]
 
@@ -2542,9 +2542,9 @@ end
 
 
 function mb01kd!(UPLO::Char, TRANS::Char, N::Integer, K::Integer,
-    ALPHA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, BETA::FloatingPoint,
-    C::Array{FloatingPoint,2}, LDC::Integer)
+    ALPHA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer, BETA::FloatingPoint,
+    C::Array{Float64,2}, LDC::Integer)
 
     INFO = [0]
 
@@ -2564,10 +2564,10 @@ end
 
 function mb01ld!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,2}, LDX::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -2586,9 +2586,9 @@ end
 
 
 function mb01md!(UPLO::Char, N::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,1}, INCX::Integer, BETA::FloatingPoint,
-    Y::Array{FloatingPoint,1}, INCY::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,1}, INCX::Integer, BETA::FloatingPoint,
+    Y::Array{Float64,1}, INCY::Integer)
 
     INFO = [0]
 
@@ -2605,9 +2605,9 @@ end
 
 
 function mb01nd!(UPLO::Char, N::Integer, ALPHA::FloatingPoint,
-    X::Array{FloatingPoint,1}, INCX::Integer,
-    Y::Array{FloatingPoint,1}, INCY::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint)
+    X::Array{Float64,1}, INCX::Integer,
+    Y::Array{Float64,1}, INCY::Integer,
+    A::Array{Float64,1}, LDA::FloatingPoint)
 
     INFO = [0]
 
@@ -2625,7 +2625,7 @@ end
 
 function mb01pd!(SCUN::Char, TYPE::Char, M::Integer, N::Integer,
     KL::Integer, KU::Integer, ANRM::FloatingPoint, NBL::Integer,
-    NROWS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint)
+    NROWS::Integer, A::Array{Float64,1}, LDA::FloatingPoint)
 
     INFO = [0]
 
@@ -2644,7 +2644,7 @@ end
 
 function mb01qd!(TYPE::Char, M::Integer, N::Integer, KL::Integer,
     KU::Integer, CFROM::FloatingPoint, CTO::FloatingPoint,
-    NBL::Integer, NROWS::Integer, A::Array{FloatingPoint,1},
+    NBL::Integer, NROWS::Integer, A::Array{Float64,1},
     LDA::FloatingPoint)
 
     INFO = [0]
@@ -2664,10 +2664,10 @@ end
 
 function mb01rd!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,2}, LDX::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -2687,10 +2687,10 @@ end
 
 function mb01ru!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,2}, LDX::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -2709,9 +2709,9 @@ end
 
 
 function mb01rw!(UPLO::Char, TRANS::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -2729,9 +2729,9 @@ end
 
 function mb01rx!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
     N::Integer, ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer)
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer)
 
     INFO = [0]
 
@@ -2751,10 +2751,10 @@ end
 
 function mb01ry!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
     ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    DWORK::Array{FloatingPoint,1})
+    R::Array{Float64,2}, LDR::Integer,
+    H::Array{Float64,2}, LDH::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -2773,8 +2773,8 @@ end
 
 
 function mb01sd!(JOBS::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    R::Array{FloatingPoint,1}, C::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    R::Array{Float64,1}, C::Array{Float64,1})
 
     INFO = [0]
 
@@ -2789,9 +2789,9 @@ function mb01sd!(JOBS::Char, M::Integer, N::Integer,
 end
 
 
-function mb01td!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    DWORK::Array{FloatingPoint,1})
+function mb01td!(N::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -2807,9 +2807,9 @@ end
 
 
 function mb01ud!(SIDE::Char, TRANS::Char, M::Integer, N::Integer,
-    ALPHA::FloatingPoint, H::Array{FloatingPoint,2}, LDH::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer)
+    ALPHA::FloatingPoint, H::Array{Float64,2}, LDH::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer)
 
     INFO = [0]
 
@@ -2827,9 +2827,9 @@ end
 
 
 function mb01uw!(SIDE::Char, TRANS::Char, M::Integer, N::Integer,
-    ALPHA::FloatingPoint, H::Array{FloatingPoint,2}, LDH::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    ALPHA::FloatingPoint, H::Array{Float64,2}, LDH::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -2847,9 +2847,9 @@ end
 
 
 function mb01ux!(SIDE::Char, UPLO::Char, TRANS::Char, M::Integer,
-    N::Integer, ALPHA::FloatingPoint, T::Array{FloatingPoint,2},
-    LDT::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, ALPHA::FloatingPoint, T::Array{Float64,2},
+    LDT::Integer, A::Array{Float64,2}, LDA::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -2869,9 +2869,9 @@ end
 
 function mb01vd!(TRANA::Char, TRANB::Char, MA::Integer, NA::Integer,
     MB::Integer, NB::Integer, ALPHA::FloatingPoint,
-    BETA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, MC::Integer, NC::Integer)
+    BETA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, MC::Integer, NC::Integer)
 
     INFO = [0]
 
@@ -2892,9 +2892,9 @@ end
 
 function mb01wd!(DICO::Char, UPLO::Char, TRANS::Char, HESS::Char,
     N::Integer, ALPHA::FloatingPoint, BETA::FloatingPoint,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer)
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    T::Array{Float64,2}, LDT::Integer)
 
     INFO = [0]
 
@@ -2912,7 +2912,7 @@ function mb01wd!(DICO::Char, UPLO::Char, TRANS::Char, HESS::Char,
 end
 
 
-function mb01xd!(UPLO::Char, N::Integer, A::Array{FloatingPoint,1},
+function mb01xd!(UPLO::Char, N::Integer, A::Array{Float64,1},
     LDA::FloatingPoint)
 
     INFO = [0]
@@ -2928,7 +2928,7 @@ function mb01xd!(UPLO::Char, N::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function mb01xy!(UPLO::Char, N::Integer, A::Array{FloatingPoint,1},
+function mb01xy!(UPLO::Char, N::Integer, A::Array{Float64,1},
     LDA::FloatingPoint)
 
     INFO = [0]
@@ -2946,8 +2946,8 @@ end
 
 function mb01yd!(UPLO::Char, TRANS::Char, N::Integer, K::Integer,
     L::Integer, ALPHA::FloatingPoint, BETA::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint)
 
     INFO = [0]
 
@@ -2966,8 +2966,8 @@ end
 
 function mb01zd!(SIDE::Char, UPLO::Char, TRANST::Char, DIAG::Char,
     M::Integer, N::Integer, L::Integer, ALPHA::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint)
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    H::Array{Float64,1}, LDH::FloatingPoint)
 
     INFO = [0]
 
@@ -2986,12 +2986,12 @@ end
 
 
 function mb02cd!(JOB::Char, TYPET::Char, K::Integer, N::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    G::Array{FloatingPoint,1}, LDG::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer,
-    CS::Array{FloatingPoint,1}, LCS::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    T::Array{Float64,2}, LDT::Integer,
+    G::Array{Float64,1}, LDG::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer,
+    CS::Array{Float64,1}, LCS::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3011,11 +3011,11 @@ end
 
 
 function mb02cu!(TYPEG::Char, K::Integer, P::Integer, Q::Integer,
-    NB::Integer, A1::Array{FloatingPoint,2}, LDA1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, RNK::Integer,
-    IPVT::Array{Integer,1}, CS::Array{FloatingPoint,1},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    NB::Integer, A1::Array{Float64,2}, LDA1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B::Array{Float64,2}, LDB::Integer, RNK::Integer,
+    IPVT::Array{BlasInt,1}, CS::Array{Float64,1},
+    TOL::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -3037,13 +3037,13 @@ end
 
 function mb02cv!(TYPEG::Char, STRUCG::Char, K::Integer, N::Integer,
     P::Integer, Q::Integer, NB::Integer, RNK::Integer,
-    A1::Array{FloatingPoint,2}, LDA1::Integer,
-    A2::Array{FloatingPoint,2}, LDA2::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    F1::Array{FloatingPoint,2}, LDF1::Integer,
-    F2::Array{FloatingPoint,2}, LDF2::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    CS::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A1::Array{Float64,2}, LDA1::Integer,
+    A2::Array{Float64,2}, LDA2::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    F1::Array{Float64,2}, LDF1::Integer,
+    F2::Array{Float64,2}, LDF2::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    CS::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -3066,10 +3066,10 @@ end
 
 
 function mb02cx!(TYPET::Char, P::Integer, Q::Integer, K::Integer,
-    A::Array{FloatingPoint,1}, LDA::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    CS::Array{FloatingPoint,1}, LCS::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    CS::Array{Float64,1}, LCS::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3088,11 +3088,11 @@ end
 
 
 function mb02cy!(TYPET::Char, STRUCG::Char, P::Integer, Q::Integer,
-    N::Integer, K::Integer, A::Array{FloatingPoint,1}, LDA::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer,
-    CS::Array{FloatingPoint,1}, LCS::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, K::Integer, A::Array{Float64,1}, LDA::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    H::Array{Float64,2}, LDH::Integer,
+    CS::Array{Float64,1}, LCS::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3112,13 +3112,13 @@ end
 
 
 function mb02dd!(JOB::Char, TYPET::Char, K::Integer, M::Integer,
-    N::Integer, TA::Array{FloatingPoint,2}, LDTA::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    G::Array{FloatingPoint,1}, LDG::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer,
-    CS::Array{FloatingPoint,1}, LCS::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, TA::Array{Float64,2}, LDTA::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    G::Array{Float64,1}, LDG::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer,
+    CS::Array{Float64,1}, LCS::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3139,9 +3139,9 @@ end
 
 
 function mb02ed!(TYPET::Char, K::Integer, N::Integer, NRHS::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    T::Array{Float64,2}, LDT::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3159,9 +3159,9 @@ end
 
 
 function mb02fd!(TYPET::Char, K::Integer, N::Integer, P::Integer,
-    S::Integer, T::Array{FloatingPoint,2}, LDT::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    S::Integer, T::Array{Float64,2}, LDT::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3179,9 +3179,9 @@ end
 
 
 function mb02gd!(TYPET::Char, TRIU::Char, K::Integer, N::Integer,
-    NL::Integer, P::Integer, S::Integer, T::Array{FloatingPoint,2},
-    LDT::Integer, RB::Array{FloatingPoint,2}, LDRB::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    NL::Integer, P::Integer, S::Integer, T::Array{Float64,2},
+    LDT::Integer, RB::Array{Float64,2}, LDRB::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3201,10 +3201,10 @@ end
 
 function mb02hd!(TRIU::Char, K::Integer, L::Integer, M::Integer,
     ML::Integer, N::Integer, NU::Integer, P::Integer, S::Integer,
-    TC::Array{FloatingPoint,2}, LDTC::Integer,
-    TR::Array{FloatingPoint,2}, LDTR::Integer,
-    RB::Array{FloatingPoint,2}, LDRB::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    TC::Array{Float64,2}, LDTC::Integer,
+    TR::Array{Float64,2}, LDTR::Integer,
+    RB::Array{Float64,2}, LDRB::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3224,11 +3224,11 @@ end
 
 
 function mb02id!(JOB::Char, K::Integer, L::Integer, M::Integer,
-    N::Integer, RB::Integer, RC::Integer, TC::Array{FloatingPoint,2},
-    LDTC::Integer, TR::Array{FloatingPoint,2}, LDTR::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, RB::Integer, RC::Integer, TC::Array{Float64,2},
+    LDTC::Integer, TR::Array{Float64,2}, LDTR::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3248,11 +3248,11 @@ end
 
 
 function mb02jd!(JOB::Char, K::Integer, L::Integer, M::Integer,
-    N::Integer, P::Integer, S::Integer, TC::Array{FloatingPoint,2},
-    LDTC::Integer, TR::Array{FloatingPoint,2}, LDTR::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, P::Integer, S::Integer, TC::Array{Float64,2},
+    LDTC::Integer, TR::Array{Float64,2}, LDTR::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3272,12 +3272,12 @@ end
 
 
 function mb02jx!(JOB::Char, K::Integer, L::Integer, M::Integer,
-    N::Integer, TC::Array{FloatingPoint,2}, LDTC::Integer,
-    TR::Array{FloatingPoint,2}, LDTR::Integer, RNK::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer, JPVT::Array{Integer,1},
+    N::Integer, TC::Array{Float64,2}, LDTC::Integer,
+    TR::Array{Float64,2}, LDTR::Integer, RNK::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer, JPVT::Array{BlasInt,1},
     TOL1::FloatingPoint, TOL2::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3299,11 +3299,11 @@ end
 
 function mb02kd!(LDBLK::Char, TRANS::Char, K::Integer, L::Integer,
     M::Integer, N::Integer, R::Integer, ALPHA::FloatingPoint,
-    BETA::FloatingPoint, TC::Array{FloatingPoint,2}, LDTC::Integer,
-    TR::Array{FloatingPoint,2}, LDTR::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    BETA::FloatingPoint, TC::Array{Float64,2}, LDTC::Integer,
+    TR::Array{Float64,2}, LDTR::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3324,10 +3324,10 @@ end
 
 
 function mb02md!(JOB::Char, M::Integer, N::Integer, L::Integer,
-    RANK::Integer, C::Array{FloatingPoint,2}, LDC::Integer,
-    S::Array{FloatingPoint,1}, X::Array{FloatingPoint,2},
-    LDX::Integer, TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    RANK::Integer, C::Array{Float64,2}, LDC::Integer,
+    S::Array{Float64,1}, X::Array{Float64,2},
+    LDX::Integer, TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -3347,11 +3347,11 @@ end
 
 
 function mb02nd!(M::Integer, N::Integer, L::Integer, RANK::Integer,
-    THETA::FloatingPoint, C::Array{FloatingPoint,2}, LDC::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    Q::Array{FloatingPoint,1}, INUL::Array{Bool,1},
+    THETA::FloatingPoint, C::Array{Float64,2}, LDC::Integer,
+    X::Array{Float64,2}, LDX::Integer,
+    Q::Array{Float64,1}, INUL::Array{Bool,1},
     TOL::FloatingPoint, RELTOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1}, IWARN::Integer)
 
     INFO = [0]
@@ -3373,10 +3373,10 @@ end
 
 
 function mb02ny!(UPDATU::Bool, UPDATV::Bool, M::Integer, N::Integer,
-    I::Integer, K::Integer, Q::Array{FloatingPoint,1},
-    E::Array{FloatingPoint,1}, U::Array{FloatingPoint,2},
-    LDU::Integer, V::Array{FloatingPoint,2}, LDV::Integer,
-    DWORK::Array{FloatingPoint,1})
+    I::Integer, K::Integer, Q::Array{Float64,1},
+    E::Array{Float64,1}, U::Array{Float64,2},
+    LDU::Integer, V::Array{Float64,2}, LDV::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3395,10 +3395,10 @@ end
 
 function mb02od!(SIDE::Char, UPLO::Char, TRANS::Char, DIAG::Char,
     NORM::Char, M::Integer, N::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, RCOND::FloatingPoint,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer, RCOND::FloatingPoint,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3418,14 +3418,14 @@ end
 
 
 function mb02pd!(FACT::Char, TRANS::Char, N::Integer, NRHS::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    AF::Array{FloatingPoint,1}, LDAF::FloatingPoint,
-    IPIV::Array{Integer,1}, EQUED::Char, R::Array{FloatingPoint,1},
-    C::Array{FloatingPoint,1}, B::Array{FloatingPoint,1},
-    LDB::FloatingPoint, X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    RCOND::FloatingPoint, FERR::Array{FloatingPoint,1},
-    BERR::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    AF::Array{Float64,1}, LDAF::FloatingPoint,
+    IPIV::Array{BlasInt,1}, EQUED::Char, R::Array{Float64,1},
+    C::Array{Float64,1}, B::Array{Float64,1},
+    LDB::FloatingPoint, X::Array{Float64,1}, LDX::FloatingPoint,
+    RCOND::FloatingPoint, FERR::Array{Float64,1},
+    BERR::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3448,10 +3448,10 @@ end
 
 function mb02qd!(JOB::Char, INIPER::Char, M::Integer, N::Integer,
     NRHS::Integer, RCOND::FloatingPoint, SVLMAX::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint, Y::FloatingPoint,
-    JPVT::Array{Integer,1}, RANK::Integer,
-    SVAL::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint, Y::FloatingPoint,
+    JPVT::Array{BlasInt,1}, RANK::Integer,
+    SVAL::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -3472,10 +3472,10 @@ end
 
 
 function mb02qy!(M::Integer, N::Integer, NRHS::Integer, RANK::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    JPVT::Array{Integer,1}, B::Array{FloatingPoint,1},
-    LDB::FloatingPoint, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    JPVT::Array{BlasInt,1}, B::Array{Float64,1},
+    LDB::FloatingPoint, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3494,8 +3494,8 @@ end
 
 
 function mb02rd!(TRANS::Char, N::Integer, NRHS::Integer,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    IPIV::Array{Integer,1}, B::Array{FloatingPoint,1},
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    IPIV::Array{BlasInt,1}, B::Array{Float64,1},
     LDB::FloatingPoint)
 
     INFO = [0]
@@ -3513,7 +3513,7 @@ end
 
 
 function mb02rz!(TRANS::Char, N::Integer, NRHS::Integer,
-    H::Array{Complex,1}, LDH::Complex, IPIV::Array{Integer,1},
+    H::Array{Complex,1}, LDH::Complex, IPIV::Array{BlasInt,1},
     B::Array{Complex,1}, LDB::Complex)
 
     INFO = [0]
@@ -3531,8 +3531,8 @@ function mb02rz!(TRANS::Char, N::Integer, NRHS::Integer,
 end
 
 
-function mb02sd!(N::Integer, H::Array{FloatingPoint,2}, LDH::Integer,
-    IPIV::Array{Integer,1})
+function mb02sd!(N::Integer, H::Array{Float64,2}, LDH::Integer,
+    IPIV::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -3548,7 +3548,7 @@ end
 
 
 function mb02sz!(N::Integer, H::Array{Complex,2}, LDH::Integer,
-    IPIV::Array{Integer,1})
+    IPIV::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -3564,9 +3564,9 @@ end
 
 
 function mb02td!(NORM::Char, N::Integer, HNORM::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    IPIV::Array{Integer,1}, RCOND::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    IPIV::Array{BlasInt,1}, RCOND::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3584,8 +3584,8 @@ end
 
 
 function mb02tz!(NORM::Char, N::Integer, HNORM::FloatingPoint,
-    H::Array{Complex,1}, LDH::Complex, IPIV::Array{Integer,1},
-    RCOND::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    H::Array{Complex,1}, LDH::Complex, IPIV::Array{BlasInt,1},
+    RCOND::FloatingPoint, DWORK::Array{Float64,1},
     ZWORK::Array{Complex,1})
 
     INFO = [0]
@@ -3605,11 +3605,11 @@ end
 
 function mb02ud!(FACT::Char, SIDE::Char, TRANS::Char, JOBP::Char,
     M::Integer, N::Integer, ALPHA::FloatingPoint,
-    RCOND::FloatingPoint, RANK::Integer, R::Array{FloatingPoint,2},
-    LDR::Integer, Q::Array{FloatingPoint,2}, LDQ::Integer,
-    SV::Array{FloatingPoint,1}, B::Array{FloatingPoint,2},
-    LDB::Integer, RP::Array{FloatingPoint,2}, LDRP::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    RCOND::FloatingPoint, RANK::Integer, R::Array{Float64,2},
+    LDR::Integer, Q::Array{Float64,2}, LDQ::Integer,
+    SV::Array{Float64,1}, B::Array{Float64,2},
+    LDB::Integer, RP::Array{Float64,2}, LDRP::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3629,9 +3629,9 @@ function mb02ud!(FACT::Char, SIDE::Char, TRANS::Char, JOBP::Char,
 end
 
 
-function mb02uu!(N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, RHS::Array{FloatingPoint,1},
-    IPIV::Array{Integer,1}, JPIV::Array{Integer,1},
+function mb02uu!(N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, RHS::Array{Float64,1},
+    IPIV::Array{BlasInt,1}, JPIV::Array{BlasInt,1},
     SCALE::FloatingPoint)
 
     INFO = [0]
@@ -3647,9 +3647,9 @@ function mb02uu!(N::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function mb02uv!(N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, IPIV::Array{Integer,1},
-    JPIV::Array{Integer,1})
+function mb02uv!(N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, IPIV::Array{BlasInt,1},
+    JPIV::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -3665,8 +3665,8 @@ end
 
 
 function mb02uw!(LTRANS::Bool, N::Integer, M::Integer,
-    PAR::Array{FloatingPoint,1}, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
+    PAR::Array{Float64,1}, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
     SCALE::FloatingPoint, IWARN::Integer)
 
     INFO = [0]
@@ -3684,8 +3684,8 @@ end
 
 
 function mb02vd!(TRANS::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    IPIV::Array{Integer,1}, B::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    IPIV::Array{BlasInt,1}, B::Array{Float64,1},
     LDB::FloatingPoint)
 
     INFO = [0]
@@ -3702,11 +3702,11 @@ function mb02vd!(TRANS::Char, M::Integer, N::Integer,
 end
 
 
-function mb02yd!(COND::Char, N::Integer, R::Array{FloatingPoint,2},
-    LDR::Integer, IPVT::Array{Integer,1},
-    DIAG::Array{FloatingPoint,1}, QTB::Array{FloatingPoint,1},
-    RANK::Integer, X::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb02yd!(COND::Char, N::Integer, R::Array{Float64,2},
+    LDR::Integer, IPVT::Array{BlasInt,1},
+    DIAG::Array{Float64,1}, QTB::Array{Float64,1},
+    RANK::Integer, X::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3725,8 +3725,8 @@ end
 
 
 function mb03ad!(SHFT::Char, K::Integer, N::Integer,
-    AMAP::Array{Integer,1}, S::Array{Integer,1}, SINV::Integer,
-    A::Array{FloatingPoint,3}, LDA1::Integer, LDA2::Integer,
+    AMAP::Array{BlasInt,1}, S::Array{BlasInt,1}, SINV::Integer,
+    A::Array{Float64,3}, LDA1::Integer, LDA2::Integer,
     C1::FloatingPoint, S1::FloatingPoint, C2::FloatingPoint,
     S2::FloatingPoint)
 
@@ -3745,8 +3745,8 @@ function mb03ad!(SHFT::Char, K::Integer, N::Integer,
 end
 
 
-function mb03ba!(K::Integer, H::Integer, S::Array{Integer,1},
-    SMULT::Integer, AMAP::Array{Integer,1}, QMAP::Array{Integer,1})
+function mb03ba!(K::Integer, H::Integer, S::Array{BlasInt,1},
+    SMULT::Integer, AMAP::Array{BlasInt,1}, QMAP::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -3762,11 +3762,11 @@ end
 
 
 function mb03bb!(BASE::FloatingPoint, LGBAS::FloatingPoint,
-    ULP::FloatingPoint, K::Integer, AMAP::Array{Integer,1},
-    S::Array{Integer,1}, SINV::Integer, A::Array{FloatingPoint,3},
-    LDA1::Integer, LDA2::Integer, ALPHAR::Array{FloatingPoint,1},
-    ALPHAI::Array{FloatingPoint,1}, BETA::Array{FloatingPoint,1},
-    SCAL::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    ULP::FloatingPoint, K::Integer, AMAP::Array{BlasInt,1},
+    S::Array{BlasInt,1}, SINV::Integer, A::Array{Float64,3},
+    LDA1::Integer, LDA2::Integer, ALPHAR::Array{Float64,1},
+    ALPHAI::Array{Float64,1}, BETA::Array{Float64,1},
+    SCAL::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3785,11 +3785,11 @@ function mb03bb!(BASE::FloatingPoint, LGBAS::FloatingPoint,
 end
 
 
-function mb03bc!(K::Integer, AMAP::Array{Integer,1},
-    S::Array{Integer,1}, SINV::Integer, A::Array{FloatingPoint,3},
-    LDA1::Integer, LDA2::Integer, MACPAR::Array{FloatingPoint,1},
-    CV::Array{FloatingPoint,1}, SV::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+function mb03bc!(K::Integer, AMAP::Array{BlasInt,1},
+    S::Array{BlasInt,1}, SINV::Integer, A::Array{Float64,3},
+    LDA1::Integer, LDA2::Integer, MACPAR::Array{Float64,1},
+    CV::Array{Float64,1}, SV::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3807,14 +3807,14 @@ end
 
 
 function mb03bd!(JOB::Char, DEFL::Char, COMPQ::Char,
-    QIND::Array{Integer,1}, K::Integer, N::Integer, H::Integer,
-    ILO::Integer, IHI::Integer, S::Array{Integer,1},
-    A::Array{FloatingPoint,3}, LDA1::Integer, LDA2::Integer,
-    Q::Array{FloatingPoint,3}, LDQ1::Integer, LDQ2::Integer,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, SCAL::Array{Integer,1},
-    IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    QIND::Array{BlasInt,1}, K::Integer, N::Integer, H::Integer,
+    ILO::Integer, IHI::Integer, S::Array{BlasInt,1},
+    A::Array{Float64,3}, LDA1::Integer, LDA2::Integer,
+    Q::Array{Float64,3}, LDQ1::Integer, LDQ2::Integer,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, SCAL::Array{BlasInt,1},
+    IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -3836,8 +3836,8 @@ function mb03bd!(JOB::Char, DEFL::Char, COMPQ::Char,
 end
 
 
-function mb03be!(K::Integer, AMAP::Array{Integer,1},
-    S::Array{Integer,1}, SINV::Integer, A::Array{FloatingPoint,3},
+function mb03be!(K::Integer, AMAP::Array{BlasInt,1},
+    S::Array{BlasInt,1}, SINV::Integer, A::Array{Float64,3},
     LDA1::Integer, LDA2::Integer)
 
     INFO = [0]
@@ -3854,13 +3854,13 @@ end
 
 
 function mb03cd!(UPLO::Char, N1::Integer, N2::Integer,
-    PREC::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    Q3::Array{FloatingPoint,1}, LDQ3::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    PREC::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    Q3::Array{Float64,1}, LDQ3::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3881,11 +3881,11 @@ end
 
 
 function mb03dd!(UPLO::Char, N1::Integer, N2::Integer,
-    PREC::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    PREC::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3904,13 +3904,13 @@ end
 
 
 function mb03ed!(N::Integer, PREC::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    Q3::Array{FloatingPoint,1}, LDQ3::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    Q3::Array{Float64,1}, LDQ3::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3930,11 +3930,11 @@ end
 
 
 function mb03fd!(N::Integer, PREC::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3952,11 +3952,11 @@ function mb03fd!(N::Integer, PREC::FloatingPoint,
 end
 
 
-function mb03gd!(N::Integer, B::Array{FloatingPoint,1},
-    LDB::FloatingPoint, D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    MACPAR::Array{FloatingPoint,1}, Q::Array{FloatingPoint,1},
-    LDQ::FloatingPoint, U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb03gd!(N::Integer, B::Array{Float64,1},
+    LDB::FloatingPoint, D::Array{Float64,1}, LDD::FloatingPoint,
+    MACPAR::Array{Float64,1}, Q::Array{Float64,1},
+    LDQ::FloatingPoint, U::Array{Float64,1}, LDU::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -3973,10 +3973,10 @@ function mb03gd!(N::Integer, B::Array{FloatingPoint,1},
 end
 
 
-function mb03hd!(N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    MACPAR::Array{FloatingPoint,1}, Q::Array{FloatingPoint,1},
-    LDQ::FloatingPoint, DWORK::Array{FloatingPoint,1})
+function mb03hd!(N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    MACPAR::Array{Float64,1}, Q::Array{Float64,1},
+    LDQ::FloatingPoint, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -3993,16 +3993,16 @@ end
 
 
 function mb03id!(COMPQ::Char, COMPU::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    U1::Array{FloatingPoint,1}, LDU1::FloatingPoint,
-    U2::Array{FloatingPoint,1}, LDU2::FloatingPoint, NEIG::Integer,
-    IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    U1::Array{Float64,1}, LDU1::FloatingPoint,
+    U2::Array{Float64,1}, LDU2::FloatingPoint, NEIG::Integer,
+    IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4024,13 +4024,13 @@ function mb03id!(COMPQ::Char, COMPU::Char, N::Integer,
 end
 
 
-function mb03jd!(COMPQ::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint, NEIG::Integer,
-    IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb03jd!(COMPQ::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, D::Array{Float64,1}, LDD::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint, NEIG::Integer,
+    IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4049,14 +4049,14 @@ function mb03jd!(COMPQ::Char, N::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function mb03ka!(COMPQ::Char, WHICHQ::Array{Integer,1}, WS::Bool,
+function mb03ka!(COMPQ::Char, WHICHQ::Array{BlasInt,1}, WS::Bool,
     K::Integer, NC::Integer, KSCHUR::Integer, IFST::Integer,
-    ILST::Integer, N::Array{Integer,1}, NI::Array{Integer,1},
-    S::Array{Integer,1}, T::Array{FloatingPoint,1},
-    LDT::Array{Integer,1}, IXT::Array{Integer,1},
-    Q::Array{FloatingPoint,1}, LDQ::Array{Integer,1},
-    IXQ::Array{Integer,1}, TOL::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    ILST::Integer, N::Array{BlasInt,1}, NI::Array{BlasInt,1},
+    S::Array{BlasInt,1}, T::Array{Float64,1},
+    LDT::Array{BlasInt,1}, IXT::Array{BlasInt,1},
+    Q::Array{Float64,1}, LDQ::Array{BlasInt,1},
+    IXQ::Array{BlasInt,1}, TOL::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4078,15 +4078,15 @@ function mb03ka!(COMPQ::Char, WHICHQ::Array{Integer,1}, WS::Bool,
 end
 
 
-function mb03kb!(COMPQ::Char, WHICHQ::Array{Integer,1}, WS::Bool,
+function mb03kb!(COMPQ::Char, WHICHQ::Array{BlasInt,1}, WS::Bool,
     K::Integer, NC::Integer, KSCHUR::Integer, J1::Integer,
-    N1::Integer, N2::Integer, N::Array{Integer,1},
-    NI::Array{Integer,1}, S::Array{Integer,1},
-    T::Array{FloatingPoint,1}, LDT::Array{Integer,1},
-    IXT::Array{Integer,1}, Q::Array{FloatingPoint,1},
-    LDQ::Array{Integer,1}, IXQ::Array{Integer,1},
-    TOL::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N1::Integer, N2::Integer, N::Array{BlasInt,1},
+    NI::Array{BlasInt,1}, S::Array{BlasInt,1},
+    T::Array{Float64,1}, LDT::Array{BlasInt,1},
+    IXT::Array{BlasInt,1}, Q::Array{Float64,1},
+    LDQ::Array{BlasInt,1}, IXQ::Array{BlasInt,1},
+    TOL::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4108,8 +4108,8 @@ end
 
 
 function mb03kc!(K::Integer, KHESS::Integer, N::Integer, R::Integer,
-    S::Array{Integer,1}, A::Array{FloatingPoint,1}, LDA::Integer,
-    V::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1})
+    S::Array{BlasInt,1}, A::Array{Float64,1}, LDA::Integer,
+    V::Array{Float64,1}, TAU::Array{Float64,1})
 
     INFO = [0]
 
@@ -4125,14 +4125,14 @@ function mb03kc!(K::Integer, KHESS::Integer, N::Integer, R::Integer,
 end
 
 
-function mb03kd!(COMPQ::Char, WHICHQ::Array{Integer,1}, STRONG::Char,
-    K::Integer, NC::Integer, KSCHUR::Integer, N::Array{Integer,1},
-    NI::Array{Integer,1}, S::Array{Integer,1}, SELECT::Array{Bool,1},
-    T::Array{FloatingPoint,1}, LDT::Array{Integer,1},
-    IXT::Array{Integer,1}, Q::Array{FloatingPoint,1},
-    LDQ::Array{Integer,1}, IXQ::Array{Integer,1}, M::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb03kd!(COMPQ::Char, WHICHQ::Array{BlasInt,1}, STRONG::Char,
+    K::Integer, NC::Integer, KSCHUR::Integer, N::Array{BlasInt,1},
+    NI::Array{BlasInt,1}, S::Array{BlasInt,1}, SELECT::Array{Bool,1},
+    T::Array{Float64,1}, LDT::Array{BlasInt,1},
+    IXT::Array{BlasInt,1}, Q::Array{Float64,1},
+    LDQ::Array{BlasInt,1}, IXQ::Array{BlasInt,1}, M::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4155,9 +4155,9 @@ end
 
 function mb03ke!(TRANA::Bool, TRANB::Bool, ISGN::Integer, K::Integer,
     M::Integer, N::Integer, PREC::FloatingPoint, SMIN::FloatingPoint,
-    S::Array{Integer,1}, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1}, C::Array{FloatingPoint,1},
-    SCALE::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    S::Array{BlasInt,1}, A::Array{Float64,1},
+    B::Array{Float64,1}, C::Array{Float64,1},
+    SCALE::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4178,15 +4178,15 @@ end
 
 
 function mb03ld!(COMPQ::Char, ORTH::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    DE::Array{FloatingPoint,1}, LDDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    FG::Array{FloatingPoint,1}, LDFG::FloatingPoint, NEIG::Integer,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, BWORK::Array{Bool,1},
-    IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    DE::Array{Float64,1}, LDDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    FG::Array{Float64,1}, LDFG::FloatingPoint, NEIG::Integer,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, BWORK::Array{Bool,1},
+    IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4208,8 +4208,8 @@ end
 
 
 function mb03md!(N::Integer, L::Integer, THETA::FloatingPoint,
-    Q::Array{FloatingPoint,1}, E::Array{FloatingPoint,1},
-    Q2::Array{FloatingPoint,1}, E2::Array{FloatingPoint,1},
+    Q::Array{Float64,1}, E::Array{Float64,1},
+    Q2::Array{Float64,1}, E2::Array{Float64,1},
     PIVMIN::FloatingPoint, TOL::FloatingPoint, RELTOL::FloatingPoint,
     IWARN::Integer)
 
@@ -4229,10 +4229,10 @@ end
 
 
 function mb03od!(JOBQR::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    JPVT::Array{Integer,1}, RCOND::FloatingPoint,
-    SVLMAX::FloatingPoint, TAU::Array{FloatingPoint,1}, RANK::Integer,
-    SVAL::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    JPVT::Array{BlasInt,1}, RCOND::FloatingPoint,
+    SVLMAX::FloatingPoint, TAU::Array{Float64,1}, RANK::Integer,
+    SVAL::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4251,11 +4251,11 @@ function mb03od!(JOBQR::Char, M::Integer, N::Integer,
 end
 
 
-function mb03oy!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
+function mb03oy!(M::Integer, N::Integer, A::Array{Float64,1},
     LDA::FloatingPoint, RCOND::FloatingPoint, SVLMAX::FloatingPoint,
-    RANK::Integer, SVAL::Array{FloatingPoint,1},
-    JPVT::Array{Integer,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    RANK::Integer, SVAL::Array{Float64,1},
+    JPVT::Array{BlasInt,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4273,10 +4273,10 @@ end
 
 
 function mb03pd!(JOBRQ::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    JPVT::Array{Integer,1}, RCOND::FloatingPoint,
-    SVLMAX::FloatingPoint, TAU::Array{FloatingPoint,1}, RANK::Integer,
-    SVAL::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    JPVT::Array{BlasInt,1}, RCOND::FloatingPoint,
+    SVLMAX::FloatingPoint, TAU::Array{Float64,1}, RANK::Integer,
+    SVAL::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4294,11 +4294,11 @@ function mb03pd!(JOBRQ::Char, M::Integer, N::Integer,
 end
 
 
-function mb03py!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
+function mb03py!(M::Integer, N::Integer, A::Array{Float64,1},
     LDA::FloatingPoint, RCOND::FloatingPoint, SVLMAX::FloatingPoint,
-    RANK::Integer, SVAL::Array{FloatingPoint,1},
-    JPVT::Array{Integer,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    RANK::Integer, SVAL::Array{Float64,1},
+    JPVT::Array{BlasInt,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4317,9 +4317,9 @@ end
 
 function mb03qd!(DICO::Char, STDOM::Char, JOBU::Char, N::Integer,
     NLOW::Integer, NSUP::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer, NDIM::Integer,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    U::Array{Float64,2}, LDU::Integer, NDIM::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4337,8 +4337,8 @@ function mb03qd!(DICO::Char, STDOM::Char, JOBU::Char, N::Integer,
 end
 
 
-function mb03qx!(N::Integer, T::Array{FloatingPoint,1}, LDT::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1})
+function mb03qx!(N::Integer, T::Array{Float64,1}, LDT::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1})
 
     INFO = [0]
 
@@ -4353,8 +4353,8 @@ function mb03qx!(N::Integer, T::Array{FloatingPoint,1}, LDT::Integer,
 end
 
 
-function mb03qy!(N::Integer, L::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, U::Array{FloatingPoint,2}, LDU::Integer,
+function mb03qy!(N::Integer, L::Integer, A::Array{Float64,2},
+    LDA::Integer, U::Array{Float64,2}, LDU::Integer,
     E1::FloatingPoint, E2::FloatingPoint)
 
     INFO = [0]
@@ -4372,11 +4372,11 @@ end
 
 
 function mb03rd!(JOBX::Char, SORT::Char, N::Integer,
-    PMAX::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, NBLCKS::Integer,
-    BLSIZE::Array{Integer,1}, WR::Array{FloatingPoint,1},
-    WI::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+    PMAX::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,2}, LDX::Integer, NBLCKS::Integer,
+    BLSIZE::Array{BlasInt,1}, WR::Array{Float64,1},
+    WI::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4395,10 +4395,10 @@ end
 
 
 function mb03rx!(JOBV::Char, N::Integer, KL::Integer, KU::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,2}, LDX::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4416,9 +4416,9 @@ end
 
 
 function mb03ry!(M::Integer, N::Integer, PMAX::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer)
 
     INFO = [0]
 
@@ -4434,10 +4434,10 @@ function mb03ry!(M::Integer, N::Integer, PMAX::FloatingPoint,
 end
 
 
-function mb03sd!(JOBSCL::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb03sd!(JOBSCL::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4455,12 +4455,12 @@ end
 
 
 function mb03td!(TYP::Char, COMPU::Char, SELECT::Array{Bool,1},
-    LOWER::Array{Bool,1}, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, G::Array{FloatingPoint,2}, LDG::Integer,
-    U1::Array{FloatingPoint,2}, LDU1::Integer,
-    U2::Array{FloatingPoint,2}, LDU2::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    M::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    LOWER::Array{Bool,1}, N::Integer, A::Array{Float64,2},
+    LDA::Integer, G::Array{Float64,2}, LDG::Integer,
+    U1::Array{Float64,2}, LDU1::Integer,
+    U2::Array{Float64,2}, LDU2::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    M::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4481,11 +4481,11 @@ end
 
 
 function mb03ts!(ISHAM::Bool, WANTU::Bool, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    U1::Array{FloatingPoint,2}, LDU1::Integer,
-    U2::Array{FloatingPoint,2}, LDU2::Integer, J1::Integer,
-    N1::Integer, N2::Integer, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    U1::Array{Float64,2}, LDU1::Integer,
+    U2::Array{Float64,2}, LDU2::Integer, J1::Integer,
+    N1::Integer, N2::Integer, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4505,9 +4505,9 @@ end
 
 
 function mb03ud!(JOBQ::Char, JOBP::Char, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    SV::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    SV::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4526,9 +4526,9 @@ end
 
 
 function mb03vd!(N::Integer, P::Integer, ILO::Integer, IHI::Integer,
-    A::Array{FloatingPoint,1}, LDA1::FloatingPoint,
-    LDA2::FloatingPoint, TAU::Array{FloatingPoint,1},
-    LDTAU::FloatingPoint, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,1}, LDA1::FloatingPoint,
+    LDA2::FloatingPoint, TAU::Array{Float64,1},
+    LDTAU::FloatingPoint, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4546,9 +4546,9 @@ end
 
 
 function mb03vy!(N::Integer, P::Integer, ILO::Integer, IHI::Integer,
-    A::Array{FloatingPoint,1}, LDA1::FloatingPoint,
-    LDA2::FloatingPoint, TAU::Array{FloatingPoint,1},
-    LDTAU::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA1::FloatingPoint,
+    LDA2::FloatingPoint, TAU::Array{Float64,1},
+    LDTAU::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4567,10 +4567,10 @@ end
 
 
 function mb03wa!(WANTQ::Bool, WANTZ::Bool, N1::Integer, N2::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer)
 
     INFO = [0]
 
@@ -4590,11 +4590,11 @@ end
 
 function mb03wd!(JOB::Char, COMPZ::Char, N::Integer, P::Integer,
     ILO::Integer, IHI::Integer, ILOZ::Integer, IHIZ::Integer,
-    H::Array{FloatingPoint,1}, LDH1::FloatingPoint,
-    LDH2::FloatingPoint, Z::Array{FloatingPoint,1},
+    H::Array{Float64,1}, LDH1::FloatingPoint,
+    LDH2::FloatingPoint, Z::Array{Float64,1},
     LDZ1::FloatingPoint, LDZ2::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4614,9 +4614,9 @@ function mb03wd!(JOB::Char, COMPZ::Char, N::Integer, P::Integer,
 end
 
 
-function mb03wx!(N::Integer, P::Integer, T::Array{FloatingPoint,1},
+function mb03wx!(N::Integer, P::Integer, T::Array{Float64,1},
     LDT1::FloatingPoint, LDT2::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1})
+    WR::Array{Float64,1}, WI::Array{Float64,1})
 
     INFO = [0]
 
@@ -4633,16 +4633,16 @@ end
 
 
 function mb03xd!(BALANC::Char, JOB::Char, JOBU::Char, JOBV::Char,
-    N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    QG::Array{FloatingPoint,2}, LDQG::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    U1::Array{FloatingPoint,2}, LDU1::Integer,
-    U2::Array{FloatingPoint,2}, LDU2::Integer,
-    V1::Array{FloatingPoint,2}, LDV1::Integer,
-    V2::Array{FloatingPoint,2}, LDV2::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    ILO::Integer, SCALE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, A::Array{Float64,2}, LDA::Integer,
+    QG::Array{Float64,2}, LDQG::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    U1::Array{Float64,2}, LDU1::Integer,
+    U2::Array{Float64,2}, LDU2::Integer,
+    V1::Array{Float64,2}, LDV1::Integer,
+    V2::Array{Float64,2}, LDV2::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    ILO::Integer, SCALE::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4665,12 +4665,12 @@ end
 
 
 function mb03xp!(JOB::Char, COMPQ::Char, COMPZ::Char, N::Integer,
-    ILO::Integer, IHI::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    ILO::Integer, IHI::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4692,21 +4692,21 @@ end
 
 
 function mb03xu!(LTRA::Bool, LTRB::Bool, N::Integer, K::Integer,
-    NB::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    XA::Array{FloatingPoint,2}, LDXA::Integer,
-    XB::Array{FloatingPoint,2}, LDXB::Integer,
-    XG::Array{FloatingPoint,2}, LDXG::Integer,
-    XQ::Array{FloatingPoint,2}, LDXQ::Integer,
-    YA::Array{FloatingPoint,2}, LDYA::Integer,
-    YB::Array{FloatingPoint,2}, LDYB::Integer,
-    YG::Array{FloatingPoint,2}, LDYG::Integer,
-    YQ::Array{FloatingPoint,2}, LDYQ::Integer,
-    CSL::Array{FloatingPoint,1}, CSR::Array{FloatingPoint,1},
-    TAUL::Array{FloatingPoint,1}, TAUR::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    NB::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    XA::Array{Float64,2}, LDXA::Integer,
+    XB::Array{Float64,2}, LDXB::Integer,
+    XG::Array{Float64,2}, LDXG::Integer,
+    XQ::Array{Float64,2}, LDXQ::Integer,
+    YA::Array{Float64,2}, LDYA::Integer,
+    YB::Array{Float64,2}, LDYB::Integer,
+    YG::Array{Float64,2}, LDYG::Integer,
+    YQ::Array{Float64,2}, LDYQ::Integer,
+    CSL::Array{Float64,1}, CSR::Array{Float64,1},
+    TAUL::Array{Float64,1}, TAUR::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -4733,10 +4733,10 @@ end
 
 function mb03ya!(WANTT::Bool, WANTQ::Bool, WANTZ::Bool, N::Integer,
     ILO::Integer, IHI::Integer, ILOQ::Integer, IHIQ::Integer,
-    POS::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer)
+    POS::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer)
 
     INFO = [0]
 
@@ -4757,12 +4757,12 @@ end
 
 function mb03yd!(WANTT::Bool, WANTQ::Bool, WANTZ::Bool, N::Integer,
     ILO::Integer, IHI::Integer, ILOQ::Integer, IHIQ::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4784,10 +4784,10 @@ function mb03yd!(WANTT::Bool, WANTQ::Bool, WANTZ::Bool, N::Integer,
 end
 
 
-function mb03yt!(A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, CSL::FloatingPoint,
+function mb03yt!(A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, CSL::FloatingPoint,
     SNL::FloatingPoint, CSR::FloatingPoint, SNR::FloatingPoint)
 
     INFO = [0]
@@ -4807,16 +4807,16 @@ end
 
 function mb03za!(COMPC::Char, COMPU::Char, COMPV::Char, COMPW::Char,
     WHICH::Char, SELECT::Array{Bool,1}, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    U1::Array{FloatingPoint,2}, LDU1::Integer,
-    U2::Array{FloatingPoint,2}, LDU2::Integer,
-    V1::Array{FloatingPoint,2}, LDV1::Integer,
-    V2::Array{FloatingPoint,2}, LDV2::Integer,
-    W::Array{FloatingPoint,2}, LDW::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    M::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    U1::Array{Float64,2}, LDU1::Integer,
+    U2::Array{Float64,2}, LDU2::Integer,
+    V1::Array{Float64,2}, LDV1::Integer,
+    V2::Array{Float64,2}, LDV2::Integer,
+    W::Array{Float64,2}, LDW::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    M::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4841,18 +4841,18 @@ end
 
 function mb03zd!(WHICH::Char, METH::Char, STAB::Char, BALANC::Char,
     ORTBAL::Char, SELECT::Array{Bool,1}, N::Integer, MM::Integer,
-    ILO::Integer, SCALE::Array{FloatingPoint,1},
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    U1::Array{FloatingPoint,2}, LDU1::Integer,
-    U2::Array{FloatingPoint,2}, LDU2::Integer,
-    V1::Array{FloatingPoint,2}, LDV1::Integer,
-    V2::Array{FloatingPoint,2}, LDV2::Integer, M::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    US::Array{FloatingPoint,2}, LDUS::Integer,
-    UU::Array{FloatingPoint,2}, LDUU::Integer, LWORK::Array{Bool,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    ILO::Integer, SCALE::Array{Float64,1},
+    S::Array{Float64,2}, LDS::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    U1::Array{Float64,2}, LDU1::Integer,
+    U2::Array{Float64,2}, LDU2::Integer,
+    V1::Array{Float64,2}, LDV1::Integer,
+    V2::Array{Float64,2}, LDV2::Integer, M::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    US::Array{Float64,2}, LDUS::Integer,
+    UU::Array{Float64,2}, LDUU::Integer, LWORK::Array{Bool,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -4880,18 +4880,18 @@ end
 
 
 function mb04ad!(JOB::Char, COMPQ1::Char, COMPQ2::Char, COMPU1::Char,
-    COMPU2::Char, N::Integer, Z::Array{FloatingPoint,1},
-    LDZ::FloatingPoint, H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    U11::Array{FloatingPoint,1}, LDU11::FloatingPoint,
-    U12::Array{FloatingPoint,1}, LDU12::FloatingPoint,
-    U21::Array{FloatingPoint,1}, LDU21::FloatingPoint,
-    U22::Array{FloatingPoint,1}, LDU22::FloatingPoint,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    LIWORK::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    COMPU2::Char, N::Integer, Z::Array{Float64,1},
+    LDZ::FloatingPoint, H::Array{Float64,1}, LDH::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    U11::Array{Float64,1}, LDU11::FloatingPoint,
+    U12::Array{Float64,1}, LDU12::FloatingPoint,
+    U21::Array{Float64,1}, LDU21::FloatingPoint,
+    U22::Array{Float64,1}, LDU22::FloatingPoint,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    LIWORK::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4917,18 +4917,18 @@ end
 
 
 function mb04bd!(JOB::Char, COMPQ1::Char, COMPQ2::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    DE::Array{FloatingPoint,1}, LDDE::FloatingPoint,
-    C1::Array{FloatingPoint,1}, LDC1::FloatingPoint,
-    VW::Array{FloatingPoint,1}, LDVW::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    C2::Array{FloatingPoint,1}, LDC2::FloatingPoint,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    LIWORK::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    DE::Array{Float64,1}, LDDE::FloatingPoint,
+    C1::Array{Float64,1}, LDC1::FloatingPoint,
+    VW::Array{Float64,1}, LDVW::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    C2::Array{Float64,1}, LDC2::FloatingPoint,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    LIWORK::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -4952,9 +4952,9 @@ function mb04bd!(JOB::Char, COMPQ1::Char, COMPQ2::Char, N::Integer,
 end
 
 
-function mb04dd!(JOB::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    ILO::Integer, SCALE::Array{FloatingPoint,1})
+function mb04dd!(JOB::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    ILO::Integer, SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -4971,9 +4971,9 @@ end
 
 
 function mb04di!(JOB::Char, SGN::Char, N::Integer, ILO::Integer,
-    SCALE::Array{FloatingPoint,1}, M::Integer,
-    V1::Array{FloatingPoint,2}, LDV1::Integer,
-    V2::Array{FloatingPoint,2}, LDV2::Integer)
+    SCALE::Array{Float64,1}, M::Integer,
+    V1::Array{Float64,2}, LDV1::Integer,
+    V2::Array{Float64,2}, LDV2::Integer)
 
     INFO = [0]
 
@@ -4990,9 +4990,9 @@ function mb04di!(JOB::Char, SGN::Char, N::Integer, ILO::Integer,
 end
 
 
-function mb04ds!(JOB::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    ILO::Integer, SCALE::Array{FloatingPoint,1})
+function mb04ds!(JOB::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    ILO::Integer, SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -5008,9 +5008,9 @@ function mb04ds!(JOB::Char, N::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function mb04dy!(JOBSCL::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    D::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+function mb04dy!(JOBSCL::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    D::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5026,9 +5026,9 @@ function mb04dy!(JOBSCL::Char, N::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function mb04gd!(M::Integer, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, JPVT::Array{Integer,1},
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+function mb04gd!(M::Integer, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, JPVT::Array{BlasInt,1},
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5045,12 +5045,12 @@ end
 
 
 function mb04hd!(COMPQ1::Char, COMPQ2::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    Q1::Array{FloatingPoint,1}, LDQ1::FloatingPoint,
-    Q2::Array{FloatingPoint,1}, LDQ2::FloatingPoint,
-    BWORK::Array{Bool,1}, IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    Q1::Array{Float64,1}, LDQ1::FloatingPoint,
+    Q2::Array{Float64,1}, LDQ2::FloatingPoint,
+    BWORK::Array{Bool,1}, IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5070,9 +5070,9 @@ end
 
 
 function mb04id!(N::Integer, M::Integer, P::Integer, L::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -5091,10 +5091,10 @@ end
 
 
 function mb04iy!(SIDE::Char, TRANS::Char, N::Integer, M::Integer,
-    K::Integer, P::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, TAU::Array{FloatingPoint,1},
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    K::Integer, P::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, TAU::Array{Float64,1},
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5134,9 +5134,9 @@ end
 
 
 function mb04jd!(N::Integer, M::Integer, P::Integer, L::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -5155,11 +5155,11 @@ end
 
 
 function mb04kd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5178,11 +5178,11 @@ end
 
 
 function mb04ld!(UPLO::Char, N::Integer, M::Integer, P::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    L::Array{Float64,2}, LDL::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5201,8 +5201,8 @@ end
 
 
 function mb04md!(N::Integer, MAXRED::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    SCALE::Array{FloatingPoint,1})
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -5218,11 +5218,11 @@ end
 
 
 function mb04nd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5240,10 +5240,10 @@ function mb04nd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
 end
 
 
-function mb04ny!(M::Integer, N::Integer, V::Array{FloatingPoint,1},
-    INCV::Integer, TAU::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+function mb04ny!(M::Integer, N::Integer, V::Array{Float64,1},
+    INCV::Integer, TAU::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5260,11 +5260,11 @@ end
 
 
 function mb04od!(UPLO::Char, N::Integer, M::Integer, P::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    TAU::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    TAU::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5283,12 +5283,12 @@ end
 
 
 function mb04ow!(M::Integer, N::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    X::Array{FloatingPoint,1}, INCX::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,1}, INCD::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    X::Array{Float64,1}, INCX::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,1}, INCD::Integer)
 
     INFO = [0]
 
@@ -5306,8 +5306,8 @@ function mb04ow!(M::Integer, N::Integer, P::Integer,
 end
 
 
-function mb04ox!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    X::Array{FloatingPoint,1}, INCX::Integer)
+function mb04ox!(N::Integer, A::Array{Float64,2}, LDA::Integer,
+    X::Array{Float64,1}, INCX::Integer)
 
     INFO = [0]
 
@@ -5322,10 +5322,10 @@ function mb04ox!(N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
 end
 
 
-function mb04oy!(M::Integer, N::Integer, V::Array{FloatingPoint,1},
-    TAU::FloatingPoint, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+function mb04oy!(M::Integer, N::Integer, V::Array{Float64,1},
+    TAU::FloatingPoint, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5342,14 +5342,14 @@ end
 
 
 function mb04pa!(LHAM::Bool, N::Integer, K::Integer, NB::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    QG::Array{FloatingPoint,2}, LDQG::Integer,
-    XA::Array{FloatingPoint,2}, LDXA::Integer,
-    XG::Array{FloatingPoint,2}, LDXG::Integer,
-    XQ::Array{FloatingPoint,2}, LDXQ::Integer,
-    YA::Array{FloatingPoint,2}, LDYA::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    QG::Array{Float64,2}, LDQG::Integer,
+    XA::Array{Float64,2}, LDXA::Integer,
+    XG::Array{Float64,2}, LDXG::Integer,
+    XQ::Array{Float64,2}, LDXQ::Integer,
+    YA::Array{Float64,2}, LDYA::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5369,10 +5369,10 @@ function mb04pa!(LHAM::Bool, N::Integer, K::Integer, NB::Integer,
 end
 
 
-function mb04pb!(N::Integer, ILO::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb04pb!(N::Integer, ILO::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5389,10 +5389,10 @@ function mb04pb!(N::Integer, ILO::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function mb04pu!(N::Integer, ILO::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb04pu!(N::Integer, ILO::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5410,9 +5410,9 @@ end
 
 
 function mb04py!(SIDE::Char, M::Integer, N::Integer,
-    V::Array{FloatingPoint,1}, TAU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+    V::Array{Float64,1}, TAU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5430,12 +5430,12 @@ end
 
 function mb04qb!(TRANC::Char, TRAND::Char, TRANQ::Char, STOREV::Char,
     STOREW::Char, M::Integer, N::Integer, K::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer,
-    W::Array{FloatingPoint,2}, LDW::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    V::Array{Float64,2}, LDV::Integer,
+    W::Array{Float64,2}, LDW::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5458,13 +5458,13 @@ end
 
 function mb04qc!(STRUCT::Char, TRANA::Char, TRANB::Char, TRANQ::Char,
     DIRECT::Char, STOREV::Char, STOREW::Char, M::Integer, N::Integer,
-    K::Integer, V::Array{FloatingPoint,2}, LDV::Integer,
-    W::Array{FloatingPoint,2}, LDW::Integer,
-    RS::Array{FloatingPoint,2}, LDRS::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    DWORK::Array{FloatingPoint,1})
+    K::Integer, V::Array{Float64,2}, LDV::Integer,
+    W::Array{Float64,2}, LDW::Integer,
+    RS::Array{Float64,2}, LDRS::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5486,12 +5486,12 @@ end
 
 
 function mb04qf!(DIRECT::Char, STOREV::Char, STOREW::Char, N::Integer,
-    K::Integer, V::Array{FloatingPoint,2}, LDV::Integer,
-    W::Array{FloatingPoint,2}, LDW::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    RS::Array{FloatingPoint,2}, LDRS::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    DWORK::Array{FloatingPoint,1})
+    K::Integer, V::Array{Float64,2}, LDV::Integer,
+    W::Array{Float64,2}, LDW::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    RS::Array{Float64,2}, LDRS::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5512,12 +5512,12 @@ end
 
 function mb04qu!(TRANC::Char, TRAND::Char, TRANQ::Char, STOREV::Char,
     STOREW::Char, M::Integer, N::Integer, K::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer,
-    W::Array{FloatingPoint,2}, LDW::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    V::Array{Float64,2}, LDV::Integer,
+    W::Array{Float64,2}, LDW::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5538,10 +5538,10 @@ function mb04qu!(TRANC::Char, TRAND::Char, TRANQ::Char, STOREV::Char,
 end
 
 
-function mb04su!(M::Integer, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb04su!(M::Integer, N::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5559,13 +5559,13 @@ end
 
 
 function mb04tb!(TRANA::Char, TRANB::Char, N::Integer, ILO::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    CSL::Array{FloatingPoint,1}, CSR::Array{FloatingPoint,1},
-    TAUL::Array{FloatingPoint,1}, TAUR::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    CSL::Array{Float64,1}, CSR::Array{Float64,1},
+    TAUL::Array{Float64,1}, TAUR::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5586,13 +5586,13 @@ end
 
 
 function mb04ts!(TRANA::Char, TRANB::Char, N::Integer, ILO::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    CSL::Array{FloatingPoint,1}, CSR::Array{FloatingPoint,1},
-    TAUL::Array{FloatingPoint,1}, TAUR::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    CSL::Array{Float64,1}, CSR::Array{Float64,1},
+    TAUL::Array{Float64,1}, TAUR::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5614,11 +5614,11 @@ end
 
 function mb04tt!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
     IFIRA::Integer, IFICA::Integer, NCA::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, ISTAIR::Array{Integer,1},
-    RANK::Integer, TOL::FloatingPoint, IWORK::Array{Integer,1})
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, ISTAIR::Array{BlasInt,1},
+    RANK::Integer, TOL::FloatingPoint, IWORK::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -5638,8 +5638,8 @@ function mb04tt!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
 end
 
 
-function mb04tu!(N::Integer, X::Array{FloatingPoint,1}, INCX::Integer,
-    Y::Array{FloatingPoint,1}, INCY::Integer, C::FloatingPoint,
+function mb04tu!(N::Integer, X::Array{Float64,1}, INCX::Integer,
+    Y::Array{Float64,1}, INCY::Integer, C::FloatingPoint,
     S::FloatingPoint)
 
     INFO = [0]
@@ -5656,9 +5656,9 @@ end
 
 
 function mb04tv!(UPDATZ::Bool, N::Integer, NRA::Integer, NCA::Integer,
-    IFIRA::Integer, IFICA::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer)
+    IFIRA::Integer, IFICA::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    Z::Array{Float64,2}, LDZ::Integer)
 
     INFO = [0]
 
@@ -5677,9 +5677,9 @@ end
 
 function mb04tw!(UPDATQ::Bool, M::Integer, N::Integer, NRE::Integer,
     NCE::Integer, IFIRE::Integer, IFICE::Integer, IFICA::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer)
 
     INFO = [0]
 
@@ -5698,11 +5698,11 @@ end
 
 
 function mb04tx!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
-    NBLCKS::Integer, INUK::Array{Integer,1}, IMUK::Array{Integer,1},
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, MNEI::Array{Integer,1})
+    NBLCKS::Integer, INUK::Array{BlasInt,1}, IMUK::Array{BlasInt,1},
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, MNEI::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -5722,11 +5722,11 @@ end
 
 
 function mb04ty!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
-    NBLCKS::Integer, INUK::Array{Integer,1}, IMUK::Array{Integer,1},
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer)
+    NBLCKS::Integer, INUK::Array{BlasInt,1}, IMUK::Array{BlasInt,1},
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer)
 
     INFO = [0]
 
@@ -5746,12 +5746,12 @@ end
 
 
 function mb04ud!(JOBQ::Char, JOBZ::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, RANKE::Integer,
-    ISTAIR::Array{Integer,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, RANKE::Integer,
+    ISTAIR::Array{BlasInt,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -5771,14 +5771,14 @@ end
 
 
 function mb04vd!(MODE::Char, JOBQ::Char, JOBZ::Char, M::Integer,
-    N::Integer, RANKE::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, ISTAIR::Array{Integer,1},
-    NBLCKS::Integer, NBLCKI::Integer, IMUK::Array{Integer,1},
-    INUK::Array{Integer,1}, IMUK0::Array{Integer,1},
-    MNEI::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1})
+    N::Integer, RANKE::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, ISTAIR::Array{BlasInt,1},
+    NBLCKS::Integer, NBLCKI::Integer, IMUK::Array{BlasInt,1},
+    INUK::Array{BlasInt,1}, IMUK0::Array{BlasInt,1},
+    MNEI::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -5801,11 +5801,11 @@ end
 
 
 function mb04vx!(UPDATQ::Bool, UPDATZ::Bool, M::Integer, N::Integer,
-    NBLCKS::Integer, INUK::Array{Integer,1}, IMUK::Array{Integer,1},
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, MNEI::Array{Integer,1})
+    NBLCKS::Integer, INUK::Array{BlasInt,1}, IMUK::Array{BlasInt,1},
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, MNEI::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -5825,10 +5825,10 @@ end
 
 
 function mb04wd!(TRANQ1::Char, TRANQ2::Char, M::Integer, N::Integer,
-    K::Integer, Q1::Array{FloatingPoint,2}, LDQ1::Integer,
-    Q2::Array{FloatingPoint,2}, LDQ2::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    K::Integer, Q1::Array{Float64,2}, LDQ1::Integer,
+    Q2::Array{Float64,2}, LDQ2::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5846,10 +5846,10 @@ function mb04wd!(TRANQ1::Char, TRANQ2::Char, M::Integer, N::Integer,
 end
 
 
-function mb04wp!(N::Integer, ILO::Integer, U1::Array{FloatingPoint,2},
-    LDU1::Integer, U2::Array{FloatingPoint,2}, LDU2::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb04wp!(N::Integer, ILO::Integer, U1::Array{Float64,2},
+    LDU1::Integer, U2::Array{Float64,2}, LDU2::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5867,10 +5867,10 @@ end
 
 
 function mb04wr!(JOB::Char, TRANS::Char, N::Integer, ILO::Integer,
-    Q1::Array{FloatingPoint,2}, LDQ1::Integer,
-    Q2::Array{FloatingPoint,2}, LDQ2::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    Q1::Array{Float64,2}, LDQ1::Integer,
+    Q2::Array{Float64,2}, LDQ2::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5889,10 +5889,10 @@ end
 
 
 function mb04wu!(TRANQ1::Char, TRANQ2::Char, M::Integer, N::Integer,
-    K::Integer, Q1::Array{FloatingPoint,2}, LDQ1::Integer,
-    Q2::Array{FloatingPoint,2}, LDQ2::Integer,
-    CS::Array{FloatingPoint,1}, TAU::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    K::Integer, Q1::Array{Float64,2}, LDQ1::Integer,
+    Q2::Array{Float64,2}, LDQ2::Integer,
+    CS::Array{Float64,1}, TAU::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -5911,12 +5911,12 @@ end
 
 
 function mb04xd!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
-    RANK::Integer, THETA::FloatingPoint, A::Array{FloatingPoint,2},
-    LDA::Integer, U::Array{FloatingPoint,2}, LDU::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer,
-    Q::Array{FloatingPoint,1}, INUL::Array{Bool,1},
+    RANK::Integer, THETA::FloatingPoint, A::Array{Float64,2},
+    LDA::Integer, U::Array{Float64,2}, LDU::Integer,
+    V::Array{Float64,2}, LDV::Integer,
+    Q::Array{Float64,1}, INUL::Array{Bool,1},
     TOL::FloatingPoint, RELTOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -5937,10 +5937,10 @@ end
 
 
 function mb04xy!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    TAUP::Array{FloatingPoint,1}, TAUQ::Array{FloatingPoint,1},
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer, INUL::Array{Bool,1})
+    X::Array{Float64,2}, LDX::Integer,
+    TAUP::Array{Float64,1}, TAUQ::Array{Float64,1},
+    U::Array{Float64,2}, LDU::Integer,
+    V::Array{Float64,2}, LDV::Integer, INUL::Array{Bool,1})
 
     INFO = [0]
 
@@ -5959,11 +5959,11 @@ end
 
 
 function mb04yd!(JOBU::Char, JOBV::Char, M::Integer, N::Integer,
-    RANK::Integer, THETA::FloatingPoint, Q::Array{FloatingPoint,1},
-    E::Array{FloatingPoint,1}, U::Array{FloatingPoint,2},
-    LDU::Integer, V::Array{FloatingPoint,2}, LDV::Integer,
+    RANK::Integer, THETA::FloatingPoint, Q::Array{Float64,1},
+    E::Array{Float64,1}, U::Array{Float64,2},
+    LDU::Integer, V::Array{Float64,2}, LDV::Integer,
     INUL::Array{Bool,1}, TOL::FloatingPoint, RELTOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -5985,10 +5985,10 @@ end
 
 function mb04yw!(QRIT::Bool, UPDATU::Bool, UPDATV::Bool, M::Integer,
     N::Integer, L::Integer, K::Integer, SHIFT::FloatingPoint,
-    D::Array{FloatingPoint,1}, E::Array{FloatingPoint,1},
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    V::Array{FloatingPoint,1}, LDV::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+    D::Array{Float64,1}, E::Array{Float64,1},
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    V::Array{Float64,1}, LDV::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6006,10 +6006,10 @@ function mb04yw!(QRIT::Bool, UPDATU::Bool, UPDATV::Bool, M::Integer,
 end
 
 
-function mb04zd!(COMPU::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, QG::Array{FloatingPoint,2}, LDQG::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    DWORK::Array{FloatingPoint,1})
+function mb04zd!(COMPU::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, QG::Array{Float64,2}, LDQG::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6026,11 +6026,11 @@ end
 
 
 function mb05md!(BALANC::Char, N::Integer, DELTA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer,
-    Y::Array{FloatingPoint,2}, LDY::Integer,
-    VALR::Array{FloatingPoint,1}, VALI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    V::Array{Float64,2}, LDV::Integer,
+    Y::Array{Float64,2}, LDY::Integer,
+    VALR::Array{Float64,1}, VALI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -6049,11 +6049,11 @@ function mb05md!(BALANC::Char, N::Integer, DELTA::FloatingPoint,
 end
 
 
-function mb05my!(BALANC::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, WR::Array{FloatingPoint,1},
-    WI::Array{FloatingPoint,1}, R::Array{FloatingPoint,1},
-    LDR::FloatingPoint, Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function mb05my!(BALANC::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, WR::Array{Float64,1},
+    WI::Array{Float64,1}, R::Array{Float64,1},
+    LDR::FloatingPoint, Q::Array{Float64,1}, LDQ::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6071,11 +6071,11 @@ end
 
 
 function mb05nd!(N::Integer, DELTA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    EX::Array{FloatingPoint,2}, LDEX::Integer,
-    EXINT::Array{FloatingPoint,2}, LDEXIN::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    EX::Array{Float64,2}, LDEX::Integer,
+    EXINT::Array{Float64,2}, LDEXIN::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6094,9 +6094,9 @@ end
 
 
 function mb05od!(BALANC::Char, N::Integer, NDIAG::Integer,
-    DELTA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    MDIG::Integer, IDIG::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    DELTA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    MDIG::Integer, IDIG::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -6115,8 +6115,8 @@ end
 
 
 function mb05oy!(JOB::Char, N::Integer, LOW::Integer, IGH::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    SCALE::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -6134,9 +6134,9 @@ end
 
 function mb3oyz!(M::Integer, N::Integer, A::Array{Complex,1},
     LDA::Complex, RCOND::FloatingPoint, SVLMAX::FloatingPoint,
-    RANK::Integer, SVAL::Array{FloatingPoint,1},
-    JPVT::Array{Integer,1}, TAU::Array{Complex,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1})
+    RANK::Integer, SVAL::Array{Float64,1},
+    JPVT::Array{BlasInt,1}, TAU::Array{Complex,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1})
 
     INFO = [0]
 
@@ -6156,9 +6156,9 @@ end
 
 function mb3pyz!(M::Integer, N::Integer, A::Array{Complex,1},
     LDA::Complex, RCOND::FloatingPoint, SVLMAX::FloatingPoint,
-    RANK::Integer, SVAL::Array{FloatingPoint,1},
-    JPVT::Array{Integer,1}, TAU::Array{Complex,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1})
+    RANK::Integer, SVAL::Array{Float64,1},
+    JPVT::Array{BlasInt,1}, TAU::Array{Complex,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1})
 
     INFO = [0]
 
@@ -6177,7 +6177,7 @@ end
 
 
 function mc01md!(DP::Integer, ALPHA::FloatingPoint, K::Integer,
-    P::Array{FloatingPoint,1}, Q::Array{FloatingPoint,1})
+    P::Array{Float64,1}, Q::Array{Float64,1})
 
     INFO = [0]
 
@@ -6193,7 +6193,7 @@ end
 
 
 function mc01nd!(DP::Integer, XR::FloatingPoint, XI::FloatingPoint,
-    P::Array{FloatingPoint,1}, VR::FloatingPoint, VI::FloatingPoint)
+    P::Array{Float64,1}, VR::FloatingPoint, VI::FloatingPoint)
 
     INFO = [0]
 
@@ -6208,9 +6208,9 @@ function mc01nd!(DP::Integer, XR::FloatingPoint, XI::FloatingPoint,
 end
 
 
-function mc01od!(K::Integer, REZ::Array{FloatingPoint,1},
-    IMZ::Array{FloatingPoint,1}, REP::Array{FloatingPoint,1},
-    IMP::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+function mc01od!(K::Integer, REZ::Array{Float64,1},
+    IMZ::Array{Float64,1}, REP::Array{Float64,1},
+    IMP::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6225,9 +6225,9 @@ function mc01od!(K::Integer, REZ::Array{FloatingPoint,1},
 end
 
 
-function mc01pd!(K::Integer, REZ::Array{FloatingPoint,1},
-    IMZ::Array{FloatingPoint,1}, P::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+function mc01pd!(K::Integer, REZ::Array{Float64,1},
+    IMZ::Array{Float64,1}, P::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6242,9 +6242,9 @@ function mc01pd!(K::Integer, REZ::Array{FloatingPoint,1},
 end
 
 
-function mc01py!(K::Integer, REZ::Array{FloatingPoint,1},
-    IMZ::Array{FloatingPoint,1}, P::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+function mc01py!(K::Integer, REZ::Array{Float64,1},
+    IMZ::Array{Float64,1}, P::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6259,8 +6259,8 @@ function mc01py!(K::Integer, REZ::Array{FloatingPoint,1},
 end
 
 
-function mc01qd!(DA::Integer, DB::Integer, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1}, RQ::Array{FloatingPoint,1},
+function mc01qd!(DA::Integer, DB::Integer, A::Array{Float64,1},
+    B::Array{Float64,1}, RQ::Array{Float64,1},
     IWARN::Integer)
 
     INFO = [0]
@@ -6277,8 +6277,8 @@ end
 
 
 function mc01rd!(DP1::Integer, DP2::Integer, DP3::Integer,
-    ALPHA::FloatingPoint, P1::Array{FloatingPoint,1},
-    P2::Array{FloatingPoint,1}, P3::Array{FloatingPoint,1})
+    ALPHA::FloatingPoint, P1::Array{Float64,1},
+    P2::Array{Float64,1}, P3::Array{Float64,1})
 
     INFO = [0]
 
@@ -6294,9 +6294,9 @@ function mc01rd!(DP1::Integer, DP2::Integer, DP3::Integer,
 end
 
 
-function mc01sd!(DP::Integer, P::Array{FloatingPoint,1}, S::Integer,
-    T::Integer, MANT::Array{FloatingPoint,1}, E::Array{Integer,1},
-    IWORK::Array{Integer,1})
+function mc01sd!(DP::Integer, P::Array{Float64,1}, S::Integer,
+    T::Integer, MANT::Array{Float64,1}, E::Array{BlasInt,1},
+    IWORK::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -6343,8 +6343,8 @@ function mc01sy!(M::FloatingPoint, E::Integer, B::Integer,
 end
 
 
-function mc01td!(DICO::Char, DP::Integer, P::Array{FloatingPoint,1},
-    STABLE::Bool, NZ::Integer, DWORK::Array{FloatingPoint,1},
+function mc01td!(DICO::Char, DP::Integer, P::Array{Float64,1},
+    STABLE::Bool, NZ::Integer, DWORK::Array{Float64,1},
     IWARN::Integer)
 
     INFO = [0]
@@ -6379,8 +6379,8 @@ function mc01vd!(A::FloatingPoint, B::FloatingPoint, C::FloatingPoint,
 end
 
 
-function mc01wd!(DP::Integer, P::Array{FloatingPoint,1},
-    U1::FloatingPoint, U2::FloatingPoint, Q::Array{FloatingPoint,1})
+function mc01wd!(DP::Integer, P::Array{Float64,1},
+    U1::FloatingPoint, U2::FloatingPoint, Q::Array{Float64,1})
 
     INFO = [0]
 
@@ -6397,10 +6397,10 @@ end
 
 function mc03md!(RP1::Integer, CP1::Integer, CP2::Integer,
     DP1::Integer, DP2::Integer, DP3::Integer, ALPHA::FloatingPoint,
-    P1::Array{FloatingPoint,3}, LDP11::Integer, LDP12::Integer,
-    P2::Array{FloatingPoint,3}, LDP21::Integer, LDP22::Integer,
-    P3::Array{FloatingPoint,3}, LDP31::Integer, LDP32::Integer,
-    DWORK::Array{FloatingPoint,1})
+    P1::Array{Float64,3}, LDP11::Integer, LDP12::Integer,
+    P2::Array{Float64,3}, LDP21::Integer, LDP22::Integer,
+    P3::Array{Float64,3}, LDP31::Integer, LDP32::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -6421,12 +6421,12 @@ end
 
 
 function mc03nd!(MP::Integer, NP::Integer, DP::Integer,
-    P::Array{FloatingPoint,3}, LDP1::Integer, LDP2::Integer,
-    DK::Integer, GAM::Array{Integer,1},
-    NULLSP::Array{FloatingPoint,2}, LDNULL::Integer,
-    KER::Array{FloatingPoint,3}, LDKER1::Integer, LDKER2::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Array{Float64,3}, LDP1::Integer, LDP2::Integer,
+    DK::Integer, GAM::Array{BlasInt,1},
+    NULLSP::Array{Float64,2}, LDNULL::Integer,
+    KER::Array{Float64,3}, LDKER1::Integer, LDKER2::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6447,9 +6447,9 @@ end
 
 
 function mc03nx!(MP::Integer, NP::Integer, DP::Integer,
-    P::Array{FloatingPoint,3}, LDP1::Integer, LDP2::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer)
+    P::Array{Float64,3}, LDP1::Integer, LDP2::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer)
 
     INFO = [0]
 
@@ -6466,9 +6466,9 @@ end
 
 
 function mc03ny!(NBLCKS::Integer, NRA::Integer, NCA::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer, IMUK::Array{Integer,1},
-    INUK::Array{Integer,1}, VEPS::Array{FloatingPoint,2},
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer, IMUK::Array{BlasInt,1},
+    INUK::Array{BlasInt,1}, VEPS::Array{Float64,2},
     LDVEPS::Integer)
 
     INFO = [0]
@@ -6486,11 +6486,11 @@ function mc03ny!(NBLCKS::Integer, NRA::Integer, NCA::Integer,
 end
 
 
-function md03ba!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
-    FNORM::FloatingPoint, J::Array{FloatingPoint,1}, LDJ::Integer,
-    E::Array{FloatingPoint,1}, JNORMS::Array{FloatingPoint,1},
-    GNORM::FloatingPoint, IPVT::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function md03ba!(N::Integer, IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    FNORM::FloatingPoint, J::Array{Float64,1}, LDJ::Integer,
+    E::Array{Float64,1}, JNORMS::Array{Float64,1},
+    GNORM::FloatingPoint, IPVT::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6508,13 +6508,13 @@ function md03ba!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 end
 
 
-function md03bb!(COND::Char, N::Integer, IPAR::Array{Integer,1},
-    LIPAR::Integer, R::Array{FloatingPoint,2}, LDR::Integer,
-    IPVT::Array{Integer,1}, DIAG::Array{FloatingPoint,1},
-    QTB::Array{FloatingPoint,1}, DELTA::FloatingPoint,
-    PAR::FloatingPoint, RANKS::Array{Integer,1},
-    X::Array{FloatingPoint,1}, RX::Array{FloatingPoint,1},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1},
+function md03bb!(COND::Char, N::Integer, IPAR::Array{BlasInt,1},
+    LIPAR::Integer, R::Array{Float64,2}, LDR::Integer,
+    IPVT::Array{BlasInt,1}, DIAG::Array{Float64,1},
+    QTB::Array{Float64,1}, DELTA::FloatingPoint,
+    PAR::FloatingPoint, RANKS::Array{BlasInt,1},
+    X::Array{Float64,1}, RX::Array{Float64,1},
+    TOL::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -6535,12 +6535,12 @@ end
 
 
 function md03bf!(IFLAG::Integer, M::Integer, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer,
-    DPAR1::Array{FloatingPoint,1}, LDPAR1::Integer,
-    DPAR2::Array{FloatingPoint,1}, LDPAR2::Integer,
-    X::Array{FloatingPoint,1}, NFEVL::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    DPAR1::Array{Float64,1}, LDPAR1::Integer,
+    DPAR2::Array{Float64,1}, LDPAR2::Integer,
+    X::Array{Float64,1}, NFEVL::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6560,10 +6560,10 @@ end
 
 
 function md03bx!(M::Integer, N::Integer, FNORM::FloatingPoint,
-    J::Array{FloatingPoint,1}, LDJ::Integer,
-    E::Array{FloatingPoint,1}, JNORMS::Array{FloatingPoint,1},
-    GNORM::FloatingPoint, IPVT::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    J::Array{Float64,1}, LDJ::Integer,
+    E::Array{Float64,1}, JNORMS::Array{Float64,1},
+    GNORM::FloatingPoint, IPVT::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6580,12 +6580,12 @@ function md03bx!(M::Integer, N::Integer, FNORM::FloatingPoint,
 end
 
 
-function md03by!(COND::Char, N::Integer, R::Array{FloatingPoint,2},
-    LDR::Integer, IPVT::Array{Integer,1},
-    DIAG::Array{FloatingPoint,1}, QTB::Array{FloatingPoint,1},
+function md03by!(COND::Char, N::Integer, R::Array{Float64,2},
+    LDR::Integer, IPVT::Array{BlasInt,1},
+    DIAG::Array{Float64,1}, QTB::Array{Float64,1},
     DELTA::FloatingPoint, PAR::FloatingPoint, RANK::Integer,
-    X::Array{FloatingPoint,1}, RX::Array{FloatingPoint,1},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    X::Array{Float64,1}, RX::Array{Float64,1},
+    TOL::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -6606,10 +6606,10 @@ end
 
 
 function nf01ad!(NSMP::Integer, M::Integer, L::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, X::Array{FloatingPoint,1},
-    LX::Integer, U::Array{FloatingPoint,2}, LDU::Integer,
-    Y::Array{FloatingPoint,2}, LDY::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, X::Array{Float64,1},
+    LX::Integer, U::Array{Float64,2}, LDU::Integer,
+    Y::Array{Float64,2}, LDY::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6628,11 +6628,11 @@ end
 
 
 function nf01ay!(NSMP::Integer, NZ::Integer, L::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer,
-    WB::Array{FloatingPoint,1}, LWB::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    Y::Array{FloatingPoint,2}, LDY::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    WB::Array{Float64,1}, LWB::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    Y::Array{Float64,2}, LDY::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6651,12 +6651,12 @@ end
 
 
 function nf01ba!(IFLAG::Integer, NSMP::Integer, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, Z::Array{FloatingPoint,2},
-    LDZ::Integer, Y::Array{FloatingPoint,2}, LDY::Integer,
-    X::Array{FloatingPoint,1}, NFEVL::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, JTE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, Z::Array{Float64,2},
+    LDZ::Integer, Y::Array{Float64,2}, LDY::Integer,
+    X::Array{Float64,1}, NFEVL::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, JTE::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6676,12 +6676,12 @@ end
 
 
 function nf01bb!(IFLAG::Integer, NFUN::Integer, LX::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, U::Array{FloatingPoint,2},
-    LDU::Integer, Y::Array{FloatingPoint,2}, LDY::Integer,
-    X::Array{FloatingPoint,1}, NFEVL::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, JTE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, U::Array{Float64,2},
+    LDU::Integer, Y::Array{Float64,2}, LDY::Integer,
+    X::Array{Float64,1}, NFEVL::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, JTE::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6701,11 +6701,11 @@ end
 
 
 function nf01bd!(CJTE::Char, NSMP::Integer, M::Integer, L::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, X::Array{FloatingPoint,1},
-    LX::Integer, U::Array{FloatingPoint,2}, LDU::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,1},
-    LDJ::Integer, JTE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, X::Array{Float64,1},
+    LX::Integer, U::Array{Float64,2}, LDU::Integer,
+    E::Array{Float64,1}, J::Array{Float64,1},
+    LDJ::Integer, JTE::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6725,11 +6725,11 @@ end
 
 
 function nf01be!(IFLAG::Integer, NSMP::Integer, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, Z::Array{FloatingPoint,2},
-    LDZ::Integer, Y::Array{FloatingPoint,2}, LDY::Integer,
-    X::Array{FloatingPoint,1}, NFEVL::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, Z::Array{Float64,2},
+    LDZ::Integer, Y::Array{Float64,2}, LDY::Integer,
+    X::Array{Float64,1}, NFEVL::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6749,11 +6749,11 @@ end
 
 
 function nf01bf!(IFLAG::Integer, NFUN::Integer, LX::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, U::Array{FloatingPoint,2},
-    LDU::Integer, Y::Array{FloatingPoint,2}, LDY::Integer,
-    X::Array{FloatingPoint,1}, NFEVL::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, U::Array{Float64,2},
+    LDU::Integer, Y::Array{Float64,2}, LDY::Integer,
+    X::Array{Float64,1}, NFEVL::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6772,13 +6772,13 @@ function nf01bf!(IFLAG::Integer, NFUN::Integer, LX::Integer,
 end
 
 
-function nf01bp!(COND::Char, N::Integer, IPAR::Array{Integer,1},
-    LIPAR::Integer, R::Array{FloatingPoint,2}, LDR::Integer,
-    IPVT::Array{Integer,1}, DIAG::Array{FloatingPoint,1},
-    QTB::Array{FloatingPoint,1}, DELTA::FloatingPoint,
-    PAR::FloatingPoint, RANKS::Array{Integer,1},
-    X::Array{FloatingPoint,1}, RX::Array{FloatingPoint,1},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1},
+function nf01bp!(COND::Char, N::Integer, IPAR::Array{BlasInt,1},
+    LIPAR::Integer, R::Array{Float64,2}, LDR::Integer,
+    IPVT::Array{BlasInt,1}, DIAG::Array{Float64,1},
+    QTB::Array{Float64,1}, DELTA::FloatingPoint,
+    PAR::FloatingPoint, RANKS::Array{BlasInt,1},
+    X::Array{Float64,1}, RX::Array{Float64,1},
+    TOL::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -6798,12 +6798,12 @@ function nf01bp!(COND::Char, N::Integer, IPAR::Array{Integer,1},
 end
 
 
-function nf01bq!(COND::Char, N::Integer, IPAR::Array{Integer,1},
-    LIPAR::Integer, R::Array{FloatingPoint,2}, LDR::Integer,
-    IPVT::Array{Integer,1}, DIAG::Array{FloatingPoint,1},
-    QTB::Array{FloatingPoint,1}, RANKS::Array{Integer,1},
-    X::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function nf01bq!(COND::Char, N::Integer, IPAR::Array{BlasInt,1},
+    LIPAR::Integer, R::Array{Float64,2}, LDR::Integer,
+    IPVT::Array{BlasInt,1}, DIAG::Array{Float64,1},
+    QTB::Array{Float64,1}, RANKS::Array{BlasInt,1},
+    X::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6822,11 +6822,11 @@ end
 
 
 function nf01br!(COND::Char, UPLO::Char, TRANS::Char, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer, R::Array{FloatingPoint,2},
-    LDR::Integer, SDIAG::Array{FloatingPoint,1},
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    B::Array{FloatingPoint,1}, RANKS::Array{Integer,1},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    IPAR::Array{BlasInt,1}, LIPAR::Integer, R::Array{Float64,2},
+    LDR::Integer, SDIAG::Array{Float64,1},
+    S::Array{Float64,2}, LDS::Integer,
+    B::Array{Float64,1}, RANKS::Array{BlasInt,1},
+    TOL::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -6846,11 +6846,11 @@ function nf01br!(COND::Char, UPLO::Char, TRANS::Char, N::Integer,
 end
 
 
-function nf01bs!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
-    FNORM::FloatingPoint, J::Array{FloatingPoint,1}, LDJ::Integer,
-    E::Array{FloatingPoint,1}, JNORMS::Array{FloatingPoint,1},
-    GNORM::FloatingPoint, IPVT::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function nf01bs!(N::Integer, IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    FNORM::FloatingPoint, J::Array{Float64,1}, LDJ::Integer,
+    E::Array{Float64,1}, JNORMS::Array{Float64,1},
+    GNORM::FloatingPoint, IPVT::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6869,11 +6869,11 @@ end
 
 
 function nf01bu!(STOR::Char, UPLO::Char, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer,
-    DPAR::Array{FloatingPoint,1}, LDPAR::Integer,
-    J::Array{FloatingPoint,2}, LDJ::Integer,
-    JTJ::Array{FloatingPoint,1}, LDJTJ::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    DPAR::Array{Float64,1}, LDPAR::Integer,
+    J::Array{Float64,2}, LDJ::Integer,
+    JTJ::Array{Float64,1}, LDJTJ::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6892,11 +6892,11 @@ end
 
 
 function nf01bv!(STOR::Char, UPLO::Char, N::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer,
-    DPAR::Array{FloatingPoint,1}, LDPAR::Integer,
-    J::Array{FloatingPoint,2}, LDJ::Integer,
-    JTJ::Array{FloatingPoint,1}, LDJTJ::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    DPAR::Array{Float64,1}, LDPAR::Integer,
+    J::Array{Float64,2}, LDJ::Integer,
+    JTJ::Array{Float64,1}, LDJTJ::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6914,11 +6914,11 @@ function nf01bv!(STOR::Char, UPLO::Char, N::Integer,
 end
 
 
-function nf01bw!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
-    DPAR::Array{FloatingPoint,1}, LDPAR::Integer,
-    J::Array{FloatingPoint,2}, LDJ::Integer,
-    X::Array{FloatingPoint,1}, INCX::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function nf01bw!(N::Integer, IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    DPAR::Array{Float64,1}, LDPAR::Integer,
+    J::Array{Float64,2}, LDJ::Integer,
+    X::Array{Float64,1}, INCX::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6935,11 +6935,11 @@ function nf01bw!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
 end
 
 
-function nf01bx!(N::Integer, IPAR::Array{Integer,1}, LIPAR::Integer,
-    DPAR::Array{FloatingPoint,1}, LDPAR::Integer,
-    J::Array{FloatingPoint,2}, LDJ::Integer,
-    X::Array{FloatingPoint,1}, INCX::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function nf01bx!(N::Integer, IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    DPAR::Array{Float64,1}, LDPAR::Integer,
+    J::Array{Float64,2}, LDJ::Integer,
+    X::Array{Float64,1}, INCX::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6957,12 +6957,12 @@ end
 
 
 function nf01by!(CJTE::Char, NSMP::Integer, NZ::Integer, L::Integer,
-    IPAR::Array{Integer,1}, LIPAR::Integer,
-    WB::Array{FloatingPoint,1}, LWB::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    E::Array{FloatingPoint,1}, J::Array{FloatingPoint,2},
-    LDJ::Integer, JTE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    IPAR::Array{BlasInt,1}, LIPAR::Integer,
+    WB::Array{Float64,1}, LWB::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    E::Array{Float64,1}, J::Array{Float64,2},
+    LDJ::Integer, JTE::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -6982,13 +6982,13 @@ end
 
 
 function sb01bd!(DICO::Char, N::Integer, M::Integer, NP::Integer,
-    ALPHA::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
+    ALPHA::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
     NFP::Integer, NAP::Integer, NUP::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    F::Array{Float64,2}, LDF::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -7010,8 +7010,8 @@ end
 
 
 function sb01bx!(REIG::Bool, N::Integer, XR::FloatingPoint,
-    XI::FloatingPoint, WR::Array{FloatingPoint,1},
-    WI::Array{FloatingPoint,1}, S::FloatingPoint, P::FloatingPoint)
+    XI::FloatingPoint, WR::Array{Float64,1},
+    WI::Array{Float64,1}, S::FloatingPoint, P::FloatingPoint)
 
     INFO = [0]
 
@@ -7028,9 +7028,9 @@ end
 
 
 function sb01by!(N::Integer, M::Integer, S::FloatingPoint,
-    P::FloatingPoint, A::Array{FloatingPoint,2},
-    B::Array{FloatingPoint,2}, F::Array{FloatingPoint,2},
-    TOL::FloatingPoint, DWORK::Array{FloatingPoint,1})
+    P::FloatingPoint, A::Array{Float64,2},
+    B::Array{Float64,2}, F::Array{Float64,2},
+    TOL::FloatingPoint, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -7047,13 +7047,13 @@ end
 
 
 function sb01dd!(N::Integer, M::Integer, INDCON::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    NBLK::Array{Integer,1}, WR::Array{FloatingPoint,1},
-    WI::Array{FloatingPoint,1}, Z::Array{FloatingPoint,1},
-    LDZ::FloatingPoint, Y::Array{FloatingPoint,1}, COUNT::Integer,
-    G::Array{FloatingPoint,1}, LDG::FloatingPoint, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    NBLK::Array{BlasInt,1}, WR::Array{Float64,1},
+    WI::Array{Float64,1}, Z::Array{Float64,1},
+    LDZ::FloatingPoint, Y::Array{Float64,1}, COUNT::Integer,
+    G::Array{Float64,1}, LDG::FloatingPoint, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7075,10 +7075,10 @@ end
 
 
 function sb01fy!(DISCR::Bool, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    V::Array{Float64,2}, LDV::Integer)
 
     INFO = [0]
 
@@ -7096,11 +7096,11 @@ end
 
 
 function sb01md!(NCONT::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,1}, WR::Array{FloatingPoint,1},
-    WI::Array{FloatingPoint,1}, Z::Array{FloatingPoint,2},
-    LDZ::Integer, G::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,1}, WR::Array{Float64,1},
+    WI::Array{Float64,1}, Z::Array{Float64,2},
+    LDZ::Integer, G::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -7118,13 +7118,13 @@ end
 
 
 function sb02md!(DICO::Char, HINV::Char, UPLO::Char, SCAL::Char,
-    SORT::Char, N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer, RCOND::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    SORT::Char, N::Integer, A::Array{Float64,2}, LDA::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer, RCOND::FloatingPoint,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    S::Array{Float64,2}, LDS::Integer,
+    U::Array{Float64,2}, LDU::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -7147,13 +7147,13 @@ end
 
 
 function sb02mt!(JOBG::Char, JOBL::Char, FACT::Char, UPLO::Char,
-    N::Integer, M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer, IPIV::Array{Integer,1},
-    OUFACT::Integer, G::Array{FloatingPoint,2}, LDG::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    N::Integer, M::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer, IPIV::Array{BlasInt,1},
+    OUFACT::Integer, G::Array{Float64,2}, LDG::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7176,11 +7176,11 @@ end
 
 
 function sb02mu!(DICO::Char, HINV::Char, UPLO::Char, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    S::Array{FloatingPoint,2}, LDS::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    S::Array{Float64,2}, LDS::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7200,13 +7200,13 @@ end
 
 
 function sb02nd!(DICO::Char, FACT::Char, UPLO::Char, JOBL::Char,
-    N::Integer, M::Integer, P::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer, IPIV::Array{Integer,1},
-    L::Array{FloatingPoint,2}, LDL::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, RNORM::FloatingPoint,
-    F::Array{FloatingPoint,2}, LDF::Integer, OUFACT::Array{Integer,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    N::Integer, M::Integer, P::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    R::Array{Float64,2}, LDR::Integer, IPIV::Array{BlasInt,1},
+    L::Array{Float64,2}, LDL::Integer,
+    X::Array{Float64,2}, LDX::Integer, RNORM::FloatingPoint,
+    F::Array{Float64,2}, LDF::Integer, OUFACT::Array{BlasInt,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7231,17 +7231,17 @@ end
 
 function sb02od!(DICO::Char, JOBB::Char, FACT::Char, UPLO::Char,
     JOBL::Char, SORT::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer, RCOND::FloatingPoint,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    ALFAR::Array{FloatingPoint,1}, ALFAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, S::Array{FloatingPoint,2},
-    LDS::Integer, T::Array{FloatingPoint,2}, LDT::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer, RCOND::FloatingPoint,
+    X::Array{Float64,2}, LDX::Integer,
+    ALFAR::Array{Float64,1}, ALFAI::Array{Float64,1},
+    BETA::Array{Float64,1}, S::Array{Float64,2},
+    LDS::Integer, T::Array{Float64,2}, LDT::Integer,
+    U::Array{Float64,2}, LDU::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -7270,15 +7270,15 @@ end
 
 function sb02oy!(TYPE::Char, DICO::Char, JOBB::Char, FACT::Char,
     UPLO::Char, JOBL::Char, JOBE::Char, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    AF::Array{FloatingPoint,2}, LDAF::Integer,
-    BF::Array{FloatingPoint,2}, LDBF::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    AF::Array{Float64,2}, LDAF::Integer,
+    BF::Array{Float64,2}, LDBF::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7304,13 +7304,13 @@ end
 
 
 function sb02pd!(JOB::Char, TRANA::Char, UPLO::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    G::Array{FloatingPoint,1}, LDG::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    G::Array{Float64,1}, LDG::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     RCOND::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7332,14 +7332,14 @@ end
 
 
 function sb02qd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
-    LYAPUN::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    G::Array{FloatingPoint,1}, LDG::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint, SEP::FloatingPoint,
+    LYAPUN::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    G::Array{Float64,1}, LDG::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint, SEP::FloatingPoint,
     RCOND::FloatingPoint, FERR::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7364,16 +7364,16 @@ end
 
 function sb02rd!(JOB::Char, DICO::Char, HINV::Char, TRANA::Char,
     UPLO::Char, SCAL::Char, SORT::Char, FACT::Char, LYAPUN::Char,
-    N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, SEP::FloatingPoint,
+    N::Integer, A::Array{Float64,2}, LDA::Integer,
+    T::Array{Float64,2}, LDT::Integer,
+    V::Array{Float64,2}, LDV::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    X::Array{Float64,2}, LDX::Integer, SEP::FloatingPoint,
     RCOND::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    S::Array{FloatingPoint,2}, LDS::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    S::Array{Float64,2}, LDS::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -7400,11 +7400,11 @@ end
 
 
 function sb02ru!(DICO::Char, HINV::Char, TRANA::Char, UPLO::Char,
-    N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    S::Array{FloatingPoint,2}, LDS::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, A::Array{Float64,2}, LDA::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    S::Array{Float64,2}, LDS::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7424,14 +7424,14 @@ end
 
 
 function sb02sd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
-    LYAPUN::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    G::Array{FloatingPoint,1}, LDG::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    LYAPUN::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    G::Array{Float64,1}, LDG::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     SEPD::FloatingPoint, RCOND::FloatingPoint, FERR::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7455,12 +7455,12 @@ end
 
 
 function sb03md!(DICO::Char, JOB::Char, FACT::Char, TRANA::Char,
-    N::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
+    N::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
     SCALE::FloatingPoint, SEP::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7482,11 +7482,11 @@ end
 
 
 function sb03mu!(LTRANL::Bool, LTRANR::Bool, ISGN::Integer,
-    N1::Integer, N2::Integer, TL::Array{FloatingPoint,1},
-    LDTL::FloatingPoint, TR::Array{FloatingPoint,1},
-    LDTR::FloatingPoint, B::Array{FloatingPoint,1},
+    N1::Integer, N2::Integer, TL::Array{Float64,1},
+    LDTL::FloatingPoint, TR::Array{Float64,1},
+    LDTR::FloatingPoint, B::Array{Float64,1},
     LDB::FloatingPoint, SCALE::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     XNORM::FloatingPoint)
 
     INFO = [0]
@@ -7506,9 +7506,9 @@ function sb03mu!(LTRANL::Bool, LTRANR::Bool, ISGN::Integer,
 end
 
 
-function sb03mv!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
-    LDT::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    SCALE::FloatingPoint, X::Array{FloatingPoint,1},
+function sb03mv!(LTRAN::Bool, LUPPER::Bool, T::Array{Float64,1},
+    LDT::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    SCALE::FloatingPoint, X::Array{Float64,1},
     LDX::FloatingPoint, XNORM::FloatingPoint)
 
     INFO = [0]
@@ -7526,9 +7526,9 @@ function sb03mv!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
 end
 
 
-function sb03mw!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
-    LDT::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    SCALE::FloatingPoint, X::Array{FloatingPoint,1},
+function sb03mw!(LTRAN::Bool, LUPPER::Bool, T::Array{Float64,1},
+    LDT::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    SCALE::FloatingPoint, X::Array{Float64,1},
     LDX::FloatingPoint, XNORM::FloatingPoint)
 
     INFO = [0]
@@ -7546,9 +7546,9 @@ function sb03mw!(LTRAN::Bool, LUPPER::Bool, T::Array{FloatingPoint,1},
 end
 
 
-function sb03mx!(TRANA::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    SCALE::FloatingPoint, DWORK::Array{FloatingPoint,1})
+function sb03mx!(TRANA::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, C::Array{Float64,1}, LDC::FloatingPoint,
+    SCALE::FloatingPoint, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -7564,8 +7564,8 @@ function sb03mx!(TRANA::Char, N::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function sb03my!(TRANA::Char, N::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, C::Array{FloatingPoint,1}, LDC::FloatingPoint,
+function sb03my!(TRANA::Char, N::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, C::Array{Float64,1}, LDC::FloatingPoint,
     SCALE::FloatingPoint)
 
     INFO = [0]
@@ -7583,11 +7583,11 @@ end
 
 
 function sb03od!(DICO::Char, FACT::Char, TRANS::Char, N::Integer,
-    M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, SCALE::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    M::Integer, A::Array{Float64,2}, LDA::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    B::Array{Float64,2}, LDB::Integer, SCALE::FloatingPoint,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7607,9 +7607,9 @@ end
 
 
 function sb03or!(DISCR::Bool, LTRANS::Bool, N::Integer, M::Integer,
-    S::Array{FloatingPoint,1}, LDS::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
+    S::Array{Float64,1}, LDS::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
     SCALE::FloatingPoint)
 
     INFO = [0]
@@ -7628,9 +7628,9 @@ end
 
 
 function sb03ot!(DISCR::Bool, LTRANS::Bool, N::Integer,
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer, SCALE::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+    S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer, SCALE::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -7648,10 +7648,10 @@ end
 
 
 function sb03ou!(DISCR::Bool, LTRANS::Bool, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    TAU::Array{FloatingPoint,1}, U::Array{FloatingPoint,2},
-    LDU::Integer, SCALE::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    TAU::Array{Float64,1}, U::Array{Float64,2},
+    LDU::Integer, SCALE::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7670,8 +7670,8 @@ function sb03ou!(DISCR::Bool, LTRANS::Bool, N::Integer, M::Integer,
 end
 
 
-function sb03ov!(A::Array{FloatingPoint,1}, B::FloatingPoint,
-    C::Array{FloatingPoint,1}, S::FloatingPoint)
+function sb03ov!(A::Array{Float64,1}, B::FloatingPoint,
+    C::Array{Float64,1}, S::FloatingPoint)
 
     INFO = [0]
 
@@ -7686,9 +7686,9 @@ end
 
 
 function sb03oy!(DISCR::Bool, LTRANS::Bool, ISGN::Integer,
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer, SCALE::FloatingPoint)
+    S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    A::Array{Float64,2}, LDA::Integer, SCALE::FloatingPoint)
 
     INFO = [0]
 
@@ -7706,12 +7706,12 @@ end
 
 
 function sb03pd!(JOB::Char, FACT::Char, TRANA::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
     SCALE::FloatingPoint, SEPD::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7734,13 +7734,13 @@ end
 
 function sb03qd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
     LYAPUN::Char, N::Integer, SCALE::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint, SEP::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint, SEP::FloatingPoint,
     RCOND::FloatingPoint, FERR::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7764,11 +7764,11 @@ end
 
 
 function sb03qx!(TRANA::Char, UPLO::Char, LYAPUN::Char, N::Integer,
-    XANORM::FloatingPoint, T::Array{FloatingPoint,1},
-    LDT::FloatingPoint, U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    R::Array{FloatingPoint,1}, LDR::FloatingPoint,
-    FERR::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    XANORM::FloatingPoint, T::Array{Float64,1},
+    LDT::FloatingPoint, U::Array{Float64,1}, LDU::FloatingPoint,
+    R::Array{Float64,1}, LDR::FloatingPoint,
+    FERR::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7788,11 +7788,11 @@ end
 
 
 function sb03qy!(JOB::Char, TRANA::Char, LYAPUN::Char, N::Integer,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint, SEP::FloatingPoint,
-    THNORM::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint, SEP::FloatingPoint,
+    THNORM::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7812,12 +7812,12 @@ end
 
 
 function sb03rd!(JOB::Char, FACT::Char, TRANA::Char, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
     SCALE::FloatingPoint, SEP::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7840,13 +7840,13 @@ end
 
 function sb03sd!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
     LYAPUN::Char, N::Integer, SCALE::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     SEPD::FloatingPoint, RCOND::FloatingPoint, FERR::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7870,11 +7870,11 @@ end
 
 
 function sb03sx!(TRANA::Char, UPLO::Char, LYAPUN::Char, N::Integer,
-    XANORM::FloatingPoint, T::Array{FloatingPoint,1},
-    LDT::FloatingPoint, U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    R::Array{FloatingPoint,1}, LDR::FloatingPoint,
-    FERR::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    XANORM::FloatingPoint, T::Array{Float64,1},
+    LDT::FloatingPoint, U::Array{Float64,1}, LDU::FloatingPoint,
+    R::Array{Float64,1}, LDR::FloatingPoint,
+    FERR::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -7894,11 +7894,11 @@ end
 
 
 function sb03sy!(JOB::Char, TRANA::Char, LYAPUN::Char, N::Integer,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    XA::Array{FloatingPoint,1}, LDXA::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    XA::Array{Float64,1}, LDXA::FloatingPoint,
     SEPD::FloatingPoint, THNORM::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7920,14 +7920,14 @@ end
 
 function sb03td!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
     LYAPUN::Char, N::Integer, SCALE::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint, SEP::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint, SEP::FloatingPoint,
     RCOND::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7952,14 +7952,14 @@ end
 
 function sb03ud!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
     LYAPUN::Char, N::Integer, SCALE::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    T::Array{FloatingPoint,1}, LDT::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    T::Array{Float64,1}, LDT::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     SEPD::FloatingPoint, RCOND::FloatingPoint, FERR::FloatingPoint,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -7982,11 +7982,11 @@ function sb03ud!(JOB::Char, FACT::Char, TRANA::Char, UPLO::Char,
 end
 
 
-function sb04md!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function sb04md!(N::Integer, M::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -8004,8 +8004,8 @@ function sb04md!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function sb04mr!(M::Integer, D::Array{FloatingPoint,1},
-    IPR::Array{Integer,1})
+function sb04mr!(M::Integer, D::Array{Float64,1},
+    IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8020,10 +8020,10 @@ end
 
 
 function sb04mu!(N::Integer, M::Integer, IND::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,1}, IPR::Array{Integer,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,1}, IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8040,8 +8040,8 @@ function sb04mu!(N::Integer, M::Integer, IND::Integer,
 end
 
 
-function sb04mw!(M::Integer, D::Array{FloatingPoint,1},
-    IPR::Array{Integer,1})
+function sb04mw!(M::Integer, D::Array{Float64,1},
+    IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8056,10 +8056,10 @@ end
 
 
 function sb04my!(N::Integer, M::Integer, IND::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,1}, IPR::Array{Integer,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,1}, IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8077,10 +8077,10 @@ end
 
 
 function sb04nd!(ABSCHU::Char, ULA::Char, ULB::Char, N::Integer,
-    M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -8101,9 +8101,9 @@ end
 
 
 function sb04nv!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, INDX::Integer,
-    AB::Array{FloatingPoint,2}, LDAB::Integer,
-    D::Array{FloatingPoint,1})
+    C::Array{Float64,2}, LDC::Integer, INDX::Integer,
+    AB::Array{Float64,2}, LDAB::Integer,
+    D::Array{Float64,1})
 
     INFO = [0]
 
@@ -8120,9 +8120,9 @@ end
 
 
 function sb04nw!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, INDX::Integer,
-    AB::Array{FloatingPoint,2}, LDAB::Integer,
-    D::Array{FloatingPoint,1})
+    C::Array{Float64,2}, LDC::Integer, INDX::Integer,
+    AB::Array{Float64,2}, LDAB::Integer,
+    D::Array{Float64,1})
 
     INFO = [0]
 
@@ -8139,11 +8139,11 @@ end
 
 
 function sb04nx!(RC::Char, UL::Char, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer, LAMBD1::FloatingPoint,
+    A::Array{Float64,2}, LDA::Integer, LAMBD1::FloatingPoint,
     LAMBD2::FloatingPoint, LAMBD3::FloatingPoint,
-    LAMBD4::FloatingPoint, D::Array{FloatingPoint,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,2}, LDDWOR::Integer)
+    LAMBD4::FloatingPoint, D::Array{Float64,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,2}, LDDWOR::Integer)
 
     INFO = [0]
 
@@ -8162,9 +8162,9 @@ end
 
 
 function sb04ny!(RC::Char, UL::Char, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer, LAMBDA::FloatingPoint,
-    D::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,2},
+    A::Array{Float64,2}, LDA::Integer, LAMBDA::FloatingPoint,
+    D::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,2},
     LDDWOR::Integer)
 
     INFO = [0]
@@ -8183,17 +8183,17 @@ end
 
 
 function sb04od!(REDUCE::Char, TRANS::Char, JOBD::Char, M::Integer,
-    N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer, SCALE::FloatingPoint,
-    DIF::FloatingPoint, P::Array{FloatingPoint,2}, LDP::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    V::Array{FloatingPoint,2}, LDV::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    F::Array{Float64,2}, LDF::Integer, SCALE::FloatingPoint,
+    DIF::FloatingPoint, P::Array{Float64,2}, LDP::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    V::Array{Float64,2}, LDV::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -8217,13 +8217,13 @@ function sb04od!(REDUCE::Char, TRANS::Char, JOBD::Char, M::Integer,
 end
 
 
-function sb04ow!(M::Integer, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer, SCALE::FloatingPoint,
-    IWORK::Array{Integer,1})
+function sb04ow!(M::Integer, N::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    F::Array{Float64,2}, LDF::Integer, SCALE::FloatingPoint,
+    IWORK::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8244,12 +8244,12 @@ end
 
 function sb04pd!(DICO::Char, FACTA::Char, FACTB::Char, TRANA::Char,
     TRANB::Char, ISGN::Integer, M::Integer, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    U::Array{FloatingPoint,1}, LDU::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    V::Array{FloatingPoint,1}, LDV::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    SCALE::FloatingPoint, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    U::Array{Float64,1}, LDU::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    V::Array{Float64,1}, LDV::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    SCALE::FloatingPoint, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -8272,11 +8272,11 @@ end
 
 
 function sb04px!(LTRANL::Bool, LTRANR::Bool, ISGN::Integer,
-    N1::Integer, N2::Integer, TL::Array{FloatingPoint,1},
-    LDTL::FloatingPoint, TR::Array{FloatingPoint,1},
-    LDTR::FloatingPoint, B::Array{FloatingPoint,1},
+    N1::Integer, N2::Integer, TL::Array{Float64,1},
+    LDTL::FloatingPoint, TR::Array{Float64,1},
+    LDTR::FloatingPoint, B::Array{Float64,1},
     LDB::FloatingPoint, SCALE::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
     XNORM::FloatingPoint)
 
     INFO = [0]
@@ -8297,10 +8297,10 @@ end
 
 
 function sb04py!(TRANA::Char, TRANB::Char, ISGN::Integer, M::Integer,
-    N::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    SCALE::FloatingPoint, DWORK::Array{FloatingPoint,1})
+    N::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    SCALE::FloatingPoint, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8318,11 +8318,11 @@ function sb04py!(TRANA::Char, TRANB::Char, ISGN::Integer, M::Integer,
 end
 
 
-function sb04qd!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function sb04qd!(N::Integer, M::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    Z::Array{Float64,2}, LDZ::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -8340,8 +8340,8 @@ function sb04qd!(N::Integer, M::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function sb04qr!(M::Integer, D::Array{FloatingPoint,1},
-    IPR::Array{Integer,1})
+function sb04qr!(M::Integer, D::Array{Float64,1},
+    IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8356,10 +8356,10 @@ end
 
 
 function sb04qu!(N::Integer, M::Integer, IND::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,1}, IPR::Array{Integer,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,1}, IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8377,10 +8377,10 @@ end
 
 
 function sb04qy!(N::Integer, M::Integer, IND::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,1}, IPR::Array{Integer,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,1}, IPR::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -8398,10 +8398,10 @@ end
 
 
 function sb04rd!(ABSCHU::Char, ULA::Char, ULB::Char, N::Integer,
-    M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -8422,10 +8422,10 @@ end
 
 
 function sb04rv!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, INDX::Integer,
-    AB::Array{FloatingPoint,2}, LDAB::Integer,
-    BA::Array{FloatingPoint,2}, LDBA::Integer,
-    D::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    C::Array{Float64,2}, LDC::Integer, INDX::Integer,
+    AB::Array{Float64,2}, LDAB::Integer,
+    BA::Array{Float64,2}, LDBA::Integer,
+    D::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8443,10 +8443,10 @@ end
 
 
 function sb04rw!(ABSCHR::Char, UL::Char, N::Integer, M::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, INDX::Integer,
-    AB::Array{FloatingPoint,2}, LDAB::Integer,
-    BA::Array{FloatingPoint,2}, LDBA::Integer,
-    D::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    C::Array{Float64,2}, LDC::Integer, INDX::Integer,
+    AB::Array{Float64,2}, LDAB::Integer,
+    BA::Array{Float64,2}, LDBA::Integer,
+    D::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8464,11 +8464,11 @@ end
 
 
 function sb04rx!(RC::Char, UL::Char, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer, LAMBD1::FloatingPoint,
+    A::Array{Float64,2}, LDA::Integer, LAMBD1::FloatingPoint,
     LAMBD2::FloatingPoint, LAMBD3::FloatingPoint,
-    LAMBD4::FloatingPoint, D::Array{FloatingPoint,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,2}, LDDWOR::Integer)
+    LAMBD4::FloatingPoint, D::Array{Float64,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,2}, LDDWOR::Integer)
 
     INFO = [0]
 
@@ -8487,9 +8487,9 @@ end
 
 
 function sb04ry!(RC::Char, UL::Char, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer, LAMBDA::FloatingPoint,
-    D::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,2},
+    A::Array{Float64,2}, LDA::Integer, LAMBDA::FloatingPoint,
+    D::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,2},
     LDDWOR::Integer)
 
     INFO = [0]
@@ -8508,11 +8508,11 @@ end
 
 
 function sb06nd!(N::Integer, M::Integer, KMAX::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, KSTAIR::Array{Integer,1},
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer, KSTAIR::Array{BlasInt,1},
+    U::Array{Float64,2}, LDU::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8531,13 +8531,13 @@ end
 
 
 function sb08cd!(DICO::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NQ::Integer, NR::Integer,
-    BR::Array{FloatingPoint,2}, LDBR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NQ::Integer, NR::Integer,
+    BR::Array{Float64,2}, LDBR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -8559,13 +8559,13 @@ end
 
 
 function sb08dd!(DICO::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NQ::Integer, NR::Integer,
-    CR::Array{FloatingPoint,2}, LDCR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NQ::Integer, NR::Integer,
+    CR::Array{Float64,2}, LDCR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -8587,13 +8587,13 @@ end
 
 
 function sb08ed!(DICO::Char, N::Integer, M::Integer, P::Integer,
-    ALPHA::Array{FloatingPoint,1}, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NQ::Integer, NR::Integer,
-    BR::Array{FloatingPoint,2}, LDBR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    ALPHA::Array{Float64,1}, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NQ::Integer, NR::Integer,
+    BR::Array{Float64,2}, LDBR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -8615,13 +8615,13 @@ end
 
 
 function sb08fd!(DICO::Char, N::Integer, M::Integer, P::Integer,
-    ALPHA::Array{FloatingPoint,1}, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NQ::Integer, NR::Integer,
-    CR::Array{FloatingPoint,2}, LDCR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    ALPHA::Array{Float64,1}, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NQ::Integer, NR::Integer,
+    CR::Array{Float64,2}, LDCR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -8643,13 +8643,13 @@ end
 
 
 function sb08gd!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    BR::Array{FloatingPoint,2}, LDBR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    BR::Array{Float64,2}, LDBR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8669,13 +8669,13 @@ end
 
 
 function sb08hd!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    CR::Array{FloatingPoint,2}, LDCR::Integer,
-    DR::Array{FloatingPoint,2}, LDDR::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    CR::Array{Float64,2}, LDCR::Integer,
+    DR::Array{Float64,2}, LDDR::Integer,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -8694,9 +8694,9 @@ function sb08hd!(N::Integer, M::Integer, P::Integer,
 end
 
 
-function sb08md!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
-    RES::FloatingPoint, E::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function sb08md!(ACONA::Char, DA::Integer, A::Array{Float64,1},
+    RES::FloatingPoint, E::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -8712,8 +8712,8 @@ function sb08md!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function sb08my!(DA::Integer, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1}, EPSB::FloatingPoint)
+function sb08my!(DA::Integer, A::Array{Float64,1},
+    B::Array{Float64,1}, EPSB::FloatingPoint)
 
     INFO = [0]
 
@@ -8727,9 +8727,9 @@ function sb08my!(DA::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function sb08nd!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
-    RES::FloatingPoint, E::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+function sb08nd!(ACONA::Char, DA::Integer, A::Array{Float64,1},
+    RES::FloatingPoint, E::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -8745,8 +8745,8 @@ function sb08nd!(ACONA::Char, DA::Integer, A::Array{FloatingPoint,1},
 end
 
 
-function sb08ny!(DA::Integer, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1}, EPSB::FloatingPoint)
+function sb08ny!(DA::Integer, A::Array{Float64,1},
+    B::Array{Float64,1}, EPSB::FloatingPoint)
 
     INFO = [0]
 
@@ -8761,11 +8761,11 @@ end
 
 
 function sb09md!(N::Integer, NC::Integer, NB::Integer,
-    H1::Array{FloatingPoint,2}, LDH1::Integer,
-    H2::Array{FloatingPoint,2}, LDH2::Integer,
-    SS::Array{FloatingPoint,2}, LDSS::Integer,
-    SE::Array{FloatingPoint,2}, LDSE::Integer,
-    PRE::Array{FloatingPoint,2}, LDPRE::Integer, TOL::FloatingPoint)
+    H1::Array{Float64,2}, LDH1::Integer,
+    H2::Array{Float64,2}, LDH2::Integer,
+    SS::Array{Float64,2}, LDSS::Integer,
+    SE::Array{Float64,2}, LDSE::Integer,
+    PRE::Array{Float64,2}, LDPRE::Integer, TOL::FloatingPoint)
 
     INFO = [0]
 
@@ -8785,21 +8785,21 @@ end
 
 function sb10ad!(JOB::Integer, N::Integer, M::Integer, NP::Integer,
     NCON::Integer, NMEAS::Integer, GAMMA::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    AC::Array{FloatingPoint,1}, LDAC::FloatingPoint,
-    BC::Array{FloatingPoint,1}, LDBC::FloatingPoint,
-    CC::Array{FloatingPoint,1}, LDCC::FloatingPoint,
-    DC::Array{FloatingPoint,1}, LDDC::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, GTOL::FloatingPoint,
-    ACTOL::FloatingPoint, IWORK::Array{Integer,1}, LIWORK::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    AC::Array{Float64,1}, LDAC::FloatingPoint,
+    BC::Array{Float64,1}, LDBC::FloatingPoint,
+    CC::Array{Float64,1}, LDCC::FloatingPoint,
+    DC::Array{Float64,1}, LDDC::FloatingPoint,
+    RCOND::Array{Float64,1}, GTOL::FloatingPoint,
+    ACTOL::FloatingPoint, IWORK::Array{BlasInt,1}, LIWORK::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1}, LBWORK::Integer)
 
     INFO = [0]
@@ -8829,18 +8829,18 @@ end
 
 
 function sb10dd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -8867,16 +8867,16 @@ end
 
 
 function sb10ed!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -8901,16 +8901,16 @@ end
 
 
 function sb10fd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -8935,16 +8935,16 @@ end
 
 
 function sb10hd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -8969,16 +8969,16 @@ end
 
 
 function sb10id!(N::Integer, M::Integer, NP::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    FACTOR::FloatingPoint, NK::Integer, AK::Array{FloatingPoint,1},
-    LDAK::FloatingPoint, BK::Array{FloatingPoint,1},
-    LDBK::FloatingPoint, CK::Array{FloatingPoint,1},
-    LDCK::FloatingPoint, DK::Array{FloatingPoint,1},
-    LDDK::FloatingPoint, RCOND::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    FACTOR::FloatingPoint, NK::Integer, AK::Array{Float64,1},
+    LDAK::FloatingPoint, BK::Array{Float64,1},
+    LDBK::FloatingPoint, CK::Array{Float64,1},
+    LDCK::FloatingPoint, DK::Array{Float64,1},
+    LDDK::FloatingPoint, RCOND::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9002,12 +9002,12 @@ end
 
 
 function sb10jd!(N::Integer, M::Integer, NP::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint, NSYS::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint, NSYS::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9027,15 +9027,15 @@ end
 
 
 function sb10kd!(N::Integer, M::Integer, NP::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    FACTOR::FloatingPoint, AK::Array{FloatingPoint,1},
-    LDAK::FloatingPoint, BK::Array{FloatingPoint,1},
-    LDBK::FloatingPoint, CK::Array{FloatingPoint,1},
-    LDCK::FloatingPoint, DK::Array{FloatingPoint,1},
-    LDDK::FloatingPoint, RCOND::Array{FloatingPoint,1},
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    FACTOR::FloatingPoint, AK::Array{Float64,1},
+    LDAK::FloatingPoint, BK::Array{Float64,1},
+    LDBK::FloatingPoint, CK::Array{Float64,1},
+    LDCK::FloatingPoint, DK::Array{Float64,1},
+    LDDK::FloatingPoint, RCOND::Array{Float64,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9058,19 +9058,19 @@ end
 
 
 function sb10ld!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    AC::Array{FloatingPoint,1}, LDAC::FloatingPoint,
-    BC::Array{FloatingPoint,1}, LDBC::FloatingPoint,
-    CC::Array{FloatingPoint,1}, LDCC::FloatingPoint,
-    DC::Array{FloatingPoint,1}, LDDC::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    AC::Array{Float64,1}, LDAC::FloatingPoint,
+    BC::Array{Float64,1}, LDBC::FloatingPoint,
+    CC::Array{Float64,1}, LDCC::FloatingPoint,
+    DC::Array{Float64,1}, LDDC::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -9097,19 +9097,19 @@ end
 
 
 function sb10md!(NC::Integer, MP::Integer, LENDAT::Integer,
-    F::Integer, ORD::Integer, MNB::Integer, NBLOCK::Array{Integer,1},
-    ITYPE::Array{Integer,1}, QUTOL::FloatingPoint,
-    A::Array{FloatingPoint,1}, LDA::Integer,
-    B::Array{FloatingPoint,1}, LDB::Integer,
-    C::Array{FloatingPoint,1}, LDC::Integer,
-    D::Array{FloatingPoint,1}, LDD::Integer,
-    OMEGA::Array{FloatingPoint,1}, TOTORD::Integer,
-    AD::Array{FloatingPoint,1}, LDAD::Integer,
-    BD::Array{FloatingPoint,1}, LDBD::Integer,
-    CD::Array{FloatingPoint,1}, LDCD::Integer,
-    DD::Array{FloatingPoint,1}, LDDD::Integer,
-    MJU::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    LIWORK::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    F::Integer, ORD::Integer, MNB::Integer, NBLOCK::Array{BlasInt,1},
+    ITYPE::Array{BlasInt,1}, QUTOL::FloatingPoint,
+    A::Array{Float64,1}, LDA::Integer,
+    B::Array{Float64,1}, LDB::Integer,
+    C::Array{Float64,1}, LDC::Integer,
+    D::Array{Float64,1}, LDD::Integer,
+    OMEGA::Array{Float64,1}, TOTORD::Integer,
+    AD::Array{Float64,1}, LDAD::Integer,
+    BD::Array{Float64,1}, LDBD::Integer,
+    CD::Array{Float64,1}, LDCD::Integer,
+    DD::Array{Float64,1}, LDDD::Integer,
+    MJU::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    LIWORK::Integer, DWORK::Array{Float64,1}, LDWORK::Integer,
     ZWORK::Array{Complex,1}, LZWORK::Integer)
 
     INFO = [0]
@@ -9137,14 +9137,14 @@ end
 
 
 function sb10pd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    TU::Array{FloatingPoint,1}, LDTU::FloatingPoint,
-    TY::Array{FloatingPoint,1}, LDTY::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    TU::Array{Float64,1}, LDTU::FloatingPoint,
+    TY::Array{Float64,1}, LDTY::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9166,16 +9166,16 @@ end
 
 
 function sb10qd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    Y::Array{FloatingPoint,1}, LDY::FloatingPoint,
-    XYCOND::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
+    Y::Array{Float64,1}, LDY::FloatingPoint,
+    XYCOND::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9200,21 +9200,21 @@ end
 
 
 function sb10rd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    TU::Array{FloatingPoint,1}, LDTU::FloatingPoint,
-    TY::Array{FloatingPoint,1}, LDTY::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    Y::Array{FloatingPoint,1}, LDY::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, GAMMA::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    TU::Array{Float64,1}, LDTU::FloatingPoint,
+    TY::Array{Float64,1}, LDTY::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
+    Y::Array{Float64,1}, LDY::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -9242,18 +9242,18 @@ end
 
 
 function sb10sd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    Y::Array{FloatingPoint,1}, LDY::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
+    Y::Array{Float64,1}, LDY::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9279,15 +9279,15 @@ end
 
 
 function sb10td!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    TU::Array{FloatingPoint,1}, LDTU::FloatingPoint,
-    TY::Array{FloatingPoint,1}, LDTY::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    RCOND::FloatingPoint, TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    NMEAS::Integer, D::Array{Float64,1}, LDD::FloatingPoint,
+    TU::Array{Float64,1}, LDTU::FloatingPoint,
+    TY::Array{Float64,1}, LDTY::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    RCOND::FloatingPoint, TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9310,13 +9310,13 @@ end
 
 
 function sb10ud!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    TU::Array{FloatingPoint,1}, LDTU::FloatingPoint,
-    TY::Array{FloatingPoint,1}, LDTY::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    NMEAS::Integer, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    TU::Array{Float64,1}, LDTU::FloatingPoint,
+    TY::Array{Float64,1}, LDTY::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9337,15 +9337,15 @@ end
 
 
 function sb10vd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    X::Array{FloatingPoint,1}, LDX::FloatingPoint,
-    Y::Array{FloatingPoint,1}, LDY::FloatingPoint,
-    XYCOND::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    X::Array{Float64,1}, LDX::FloatingPoint,
+    Y::Array{Float64,1}, LDY::FloatingPoint,
+    XYCOND::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9369,18 +9369,18 @@ end
 
 
 function sb10wd!(N::Integer, M::Integer, NP::Integer, NCON::Integer,
-    NMEAS::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint,
-    F::Array{FloatingPoint,1}, LDF::FloatingPoint,
-    H::Array{FloatingPoint,1}, LDH::FloatingPoint,
-    TU::Array{FloatingPoint,1}, LDTU::FloatingPoint,
-    TY::Array{FloatingPoint,1}, LDTY::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint)
+    NMEAS::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint,
+    F::Array{Float64,1}, LDF::FloatingPoint,
+    H::Array{Float64,1}, LDH::FloatingPoint,
+    TU::Array{Float64,1}, LDTU::FloatingPoint,
+    TY::Array{Float64,1}, LDTY::FloatingPoint,
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint)
 
     INFO = [0]
 
@@ -9404,12 +9404,12 @@ end
 
 
 function sb10yd!(DISCFL::Integer, FLAG::Integer, LENDAT::Integer,
-    RFRDAT::Array{FloatingPoint,1}, IFRDAT::Array{FloatingPoint,1},
-    OMEGA::Array{FloatingPoint,1}, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::Integer,
-    B::Array{FloatingPoint,1}, C::Array{FloatingPoint,1},
-    D::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    RFRDAT::Array{Float64,1}, IFRDAT::Array{Float64,1},
+    OMEGA::Array{Float64,1}, N::Integer,
+    A::Array{Float64,1}, LDA::Integer,
+    B::Array{Float64,1}, C::Array{Float64,1},
+    D::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, ZWORK::Array{Complex,1}, LZWORK::Integer)
 
     INFO = [0]
@@ -9434,12 +9434,12 @@ function sb10zd!(N::Integer, M::Integer, NP::Integer,
     A::FloatingPoint, LDA::FloatingPoint, B::FloatingPoint,
     LDB::FloatingPoint, C::FloatingPoint, LDC::FloatingPoint,
     D::FloatingPoint, LDD::FloatingPoint, FACTOR::FloatingPoint,
-    AK::Array{FloatingPoint,1}, LDAK::FloatingPoint,
-    BK::Array{FloatingPoint,1}, LDBK::FloatingPoint,
-    CK::Array{FloatingPoint,1}, LDCK::FloatingPoint,
-    DK::Array{FloatingPoint,1}, LDDK::FloatingPoint,
-    RCOND::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    AK::Array{Float64,1}, LDAK::FloatingPoint,
+    BK::Array{Float64,1}, LDBK::FloatingPoint,
+    CK::Array{Float64,1}, LDCK::FloatingPoint,
+    DK::Array{Float64,1}, LDDK::FloatingPoint,
+    RCOND::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1})
 
     INFO = [0]
@@ -9464,10 +9464,10 @@ end
 
 
 function sb10zp!(DISCFL::Integer, N::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, C::Array{FloatingPoint,1},
-    D::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, C::Array{Float64,1},
+    D::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9487,17 +9487,17 @@ end
 function sb16ad!(DICO::Char, JOBC::Char, JOBO::Char, JOBMR::Char,
     WEIGHT::Char, EQUIL::Char, ORDSEL::Char, N::Integer, M::Integer,
     P::Integer, NC::Integer, NCR::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AC::Array{FloatingPoint,2}, LDAC::Integer,
-    BC::Array{FloatingPoint,2}, LDBC::Integer,
-    CC::Array{FloatingPoint,2}, LDCC::Integer,
-    DC::Array{FloatingPoint,2}, LDDC::Integer, NCS::Integer,
-    HSVC::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AC::Array{Float64,2}, LDAC::Integer,
+    BC::Array{Float64,2}, LDBC::Integer,
+    CC::Array{Float64,2}, LDCC::Integer,
+    DC::Array{Float64,2}, LDDC::Integer, NCS::Integer,
+    HSVC::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -9525,17 +9525,17 @@ end
 
 function sb16ay!(DICO::Char, JOBC::Char, JOBO::Char, WEIGHT::Char,
     N::Integer, M::Integer, P::Integer, NC::Integer, NCS::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    AC::Array{FloatingPoint,2}, LDAC::Integer,
-    BC::Array{FloatingPoint,2}, LDBC::Integer,
-    CC::Array{FloatingPoint,2}, LDCC::Integer,
-    DC::Array{FloatingPoint,2}, LDDC::Integer, SCALEC::FloatingPoint,
-    SCALEO::FloatingPoint, S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    AC::Array{Float64,2}, LDAC::Integer,
+    BC::Array{Float64,2}, LDBC::Integer,
+    CC::Array{Float64,2}, LDCC::Integer,
+    DC::Array{Float64,2}, LDDC::Integer, SCALEC::FloatingPoint,
+    SCALEO::FloatingPoint, S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9562,16 +9562,16 @@ end
 
 function sb16bd!(DICO::Char, JOBD::Char, JOBMR::Char, JOBCF::Char,
     EQUIL::Char, ORDSEL::Char, N::Integer, M::Integer, P::Integer,
-    NCR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    DC::Array{FloatingPoint,2}, LDDC::Integer,
-    HSV::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer, IWARN::Integer)
+    NCR::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    DC::Array{Float64,2}, LDDC::Integer,
+    HSV::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
 
@@ -9597,14 +9597,14 @@ end
 
 function sb16cd!(DICO::Char, JOBD::Char, JOBMR::Char, JOBCF::Char,
     ORDSEL::Char, N::Integer, M::Integer, P::Integer, NCR::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer,
-    HSV::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    G::Array{Float64,2}, LDG::Integer,
+    HSV::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, IWARN::Integer)
 
     INFO = [0]
@@ -9629,14 +9629,14 @@ end
 
 
 function sb16cy!(DICO::Char, JOBCF::Char, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    F::Array{FloatingPoint,2}, LDF::Integer,
-    G::Array{FloatingPoint,2}, LDG::Integer, SCALEC::FloatingPoint,
-    SCALEO::FloatingPoint, S::Array{FloatingPoint,2}, LDS::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    F::Array{Float64,2}, LDF::Integer,
+    G::Array{Float64,2}, LDG::Integer, SCALEC::FloatingPoint,
+    SCALEO::FloatingPoint, S::Array{Float64,2}, LDS::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9659,18 +9659,18 @@ end
 
 function sg02ad!(DICO::Char, JOBB::Char, FACT::Char, UPLO::Char,
     JOBL::Char, SCAL::Char, SORT::Char, ACC::Char, N::Integer,
-    M::Integer, P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    R::Array{FloatingPoint,2}, LDR::Integer,
-    L::Array{FloatingPoint,2}, LDL::Integer, RCONDU::FloatingPoint,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    ALFAR::Array{FloatingPoint,1}, ALFAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, S::Array{FloatingPoint,2},
-    LDS::Integer, T::Array{FloatingPoint,2}, LDT::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, P::Integer, A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    R::Array{Float64,2}, LDR::Integer,
+    L::Array{Float64,2}, LDL::Integer, RCONDU::FloatingPoint,
+    X::Array{Float64,2}, LDX::Integer,
+    ALFAR::Array{Float64,1}, ALFAI::Array{Float64,1},
+    BETA::Array{Float64,1}, S::Array{Float64,2},
+    LDS::Integer, T::Array{Float64,2}, LDT::Integer,
+    U::Array{Float64,2}, LDU::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer, BWORK::Array{Bool,1}, IWARN::Integer)
 
     INFO = [0]
@@ -9700,15 +9700,15 @@ end
 
 
 function sg03ad!(DICO::Char, JOB::Char, FACT::Char, TRANS::Char,
-    UPLO::Char, N::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, SCALE::FloatingPoint,
+    UPLO::Char, N::Integer, A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    X::Array{Float64,2}, LDX::Integer, SCALE::FloatingPoint,
     SEP::FloatingPoint, FERR::FloatingPoint,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9730,9 +9730,9 @@ function sg03ad!(DICO::Char, JOB::Char, FACT::Char, TRANS::Char,
 end
 
 
-function sg03ax!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, SCALE::FloatingPoint)
+function sg03ax!(TRANS::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    X::Array{Float64,2}, LDX::Integer, SCALE::FloatingPoint)
 
     INFO = [0]
 
@@ -9748,9 +9748,9 @@ function sg03ax!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function sg03ay!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, SCALE::FloatingPoint)
+function sg03ay!(TRANS::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    X::Array{Float64,2}, LDX::Integer, SCALE::FloatingPoint)
 
     INFO = [0]
 
@@ -9767,13 +9767,13 @@ end
 
 
 function sg03bd!(DICO::Char, FACT::Char, TRANS::Char, N::Integer,
-    M::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, SCALE::FloatingPoint,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    B::Array{Float64,2}, LDB::Integer, SCALE::FloatingPoint,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -9795,10 +9795,10 @@ function sg03bd!(DICO::Char, FACT::Char, TRANS::Char, N::Integer,
 end
 
 
-function sg03bu!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, SCALE::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+function sg03bu!(TRANS::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer, SCALE::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -9815,10 +9815,10 @@ function sg03bu!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
 end
 
 
-function sg03bv!(TRANS::Char, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer, SCALE::FloatingPoint,
-    DWORK::Array{FloatingPoint,1})
+function sg03bv!(TRANS::Char, N::Integer, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer, SCALE::FloatingPoint,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -9836,11 +9836,11 @@ end
 
 
 function sg03bw!(TRANS::Char, M::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    X::Array{FloatingPoint,2}, LDX::Integer, SCALE::FloatingPoint)
+    A::Array{Float64,2}, LDA::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    X::Array{Float64,2}, LDX::Integer, SCALE::FloatingPoint)
 
     INFO = [0]
 
@@ -9858,12 +9858,12 @@ function sg03bw!(TRANS::Char, M::Integer, N::Integer,
 end
 
 
-function sg03bx!(DICO::Char, TRANS::Char, A::Array{FloatingPoint,2},
-    LDA::Integer, E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer, SCALE::FloatingPoint,
-    M1::Array{FloatingPoint,2}, LDM1::Integer,
-    M2::Array{FloatingPoint,2}, LDM2::Integer)
+function sg03bx!(DICO::Char, TRANS::Char, A::Array{Float64,2},
+    LDA::Integer, E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    U::Array{Float64,2}, LDU::Integer, SCALE::FloatingPoint,
+    M1::Array{Float64,2}, LDM1::Integer,
+    M2::Array{Float64,2}, LDM2::Integer)
 
     INFO = [0]
 
@@ -9902,10 +9902,10 @@ end
 
 
 function tb01id!(JOB::Char, N::Integer, M::Integer, P::Integer,
-    MAXRED::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    SCALE::Array{FloatingPoint,1})
+    MAXRED::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -9925,7 +9925,7 @@ end
 function tb01iz!(JOB::Char, N::Integer, M::Integer, P::Integer,
     MAXRED::FloatingPoint, A::Array{Complex,1}, LDA::Complex,
     B::Array{Complex,1}, LDB::Complex, C::Array{Complex,1},
-    LDC::Complex, SCALE::Array{FloatingPoint,1})
+    LDC::Complex, SCALE::Array{Float64,1})
 
     INFO = [0]
 
@@ -9945,12 +9945,12 @@ end
 
 function tb01kd!(DICO::Char, STDOM::Char, JOBA::Char, N::Integer,
     M::Integer, P::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NDIM::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NDIM::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9972,12 +9972,12 @@ end
 
 function tb01ld!(DICO::Char, STDOM::Char, JOBA::Char, N::Integer,
     M::Integer, P::Integer, ALPHA::FloatingPoint,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NDIM::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NDIM::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -9998,10 +9998,10 @@ end
 
 
 function tb01md!(JOBU::Char, UPLO::Char, N::Integer, M::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10019,10 +10019,10 @@ end
 
 
 function tb01nd!(JOBU::Char, UPLO::Char, N::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10040,11 +10040,11 @@ end
 
 
 function tb01pd!(JOB::Char, EQUIL::Char, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NR::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NR::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10064,13 +10064,13 @@ end
 
 
 function tb01td!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, LOW::Integer,
-    IGH::Integer, SCSTAT::Array{FloatingPoint,1},
-    SCIN::Array{FloatingPoint,1}, SCOUT::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, LOW::Integer,
+    IGH::Integer, SCSTAT::Array{Float64,1},
+    SCIN::Array{Float64,1}, SCOUT::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10091,8 +10091,8 @@ end
 
 function tb01ty!(MODE::Integer, IOFF::Integer, JOFF::Integer,
     NROW::Integer, NCOL::Integer, SIZE::FloatingPoint,
-    X::Array{FloatingPoint,2}, LDX::Integer,
-    BVECT::Array{FloatingPoint,1})
+    X::Array{Float64,2}, LDX::Integer,
+    BVECT::Array{Float64,1})
 
     INFO = [0]
 
@@ -10109,13 +10109,13 @@ end
 
 
 function tb01ud!(JOBZ::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NCONT::Integer,
-    INDCON::Integer, NBLK::Array{Integer,1},
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    TAU::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NCONT::Integer,
+    INDCON::Integer, NBLK::Array{BlasInt,1},
+    Z::Array{Float64,2}, LDZ::Integer,
+    TAU::Array{Float64,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -10137,12 +10137,12 @@ end
 
 
 function tb01vd!(APPLY::Char, N::Integer, M::Integer, L::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    X0::Array{FloatingPoint,1}, THETA::Array{FloatingPoint,1},
-    LTHETA::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    X0::Array{Float64,1}, THETA::Array{Float64,1},
+    LTHETA::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10162,12 +10162,12 @@ end
 
 
 function tb01vy!(APPLY::Char, N::Integer, M::Integer, L::Integer,
-    THETA::Array{FloatingPoint,1}, LTHETA::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    X0::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    THETA::Array{Float64,1}, LTHETA::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    X0::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -10188,12 +10188,12 @@ end
 
 
 function tb01wd!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    WR::Array{FloatingPoint,1}, WI::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    WR::Array{Float64,1}, WI::Array{Float64,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10212,10 +10212,10 @@ end
 
 
 function tb01xd!(JOBD::Char, N::Integer, M::Integer, P::Integer,
-    KL::Integer, KU::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    D::Array{FloatingPoint,1}, LDD::FloatingPoint)
+    KL::Integer, KU::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    D::Array{Float64,1}, LDD::FloatingPoint)
 
     INFO = [0]
 
@@ -10256,9 +10256,9 @@ end
 
 
 function tb01yd!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint)
 
     INFO = [0]
 
@@ -10275,11 +10275,11 @@ end
 
 
 function tb01zd!(JOBZ::Char, N::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,1}, C::Array{FloatingPoint,2},
-    LDC::Integer, NCONT::Integer, Z::Array{FloatingPoint,2},
-    LDZ::Integer, TAU::Array{FloatingPoint,1}, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,1}, C::Array{Float64,2},
+    LDC::Integer, NCONT::Integer, Z::Array{Float64,2},
+    LDZ::Integer, TAU::Array{Float64,1}, TOL::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10299,15 +10299,15 @@ end
 
 
 function tb03ad!(LERI::Char, EQUIL::Char, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NR::Integer,
-    INDEX::Array{Integer,1}, PCOEFF::Array{FloatingPoint,3},
-    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{FloatingPoint,3},
-    LDQCO1::Integer, LDQCO2::Integer, VCOEFF::Array{FloatingPoint,3},
+    P::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NR::Integer,
+    INDEX::Array{BlasInt,1}, PCOEFF::Array{Float64,3},
+    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{Float64,3},
+    LDQCO1::Integer, LDQCO2::Integer, VCOEFF::Array{Float64,3},
     LDVCO1::Integer, LDVCO2::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -10332,10 +10332,10 @@ function tb03ad!(LERI::Char, EQUIL::Char, N::Integer, M::Integer,
 end
 
 
-function tb03ay!(NR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    INDBLK::Integer, NBLK::Array{Integer,1},
-    VCOEFF::Array{FloatingPoint,3}, LDVCO1::Integer, LDVCO2::Integer,
-    PCOEFF::Array{FloatingPoint,3}, LDPCO1::Integer, LDPCO2::Integer)
+function tb03ay!(NR::Integer, A::Array{Float64,2}, LDA::Integer,
+    INDBLK::Integer, NBLK::Array{BlasInt,1},
+    VCOEFF::Array{Float64,3}, LDVCO1::Integer, LDVCO2::Integer,
+    PCOEFF::Array{Float64,3}, LDPCO1::Integer, LDPCO2::Integer)
 
     INFO = [0]
 
@@ -10354,17 +10354,17 @@ end
 
 
 function tb04ad!(ROWCOL::Char, N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NR::Array{Integer,1},
-    INDEX::Array{Integer,1}, DCOEFF::Array{FloatingPoint,2},
-    LDDCOE::Integer, UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer,
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NR::Array{BlasInt,1},
+    INDEX::Array{BlasInt,1}, DCOEFF::Array{Float64,2},
+    LDDCOE::Integer, UCOEFF::Array{Float64,3}, LDUCO1::Integer,
     LDUCO2::Integer, TOL1::FloatingPoint, TOL2::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
-    INFO = [0]
+    INFO = BlasInt[0]
 
     ccall((:tb04ad_, libslicot), Void, (Ptr{Char}, Ptr{BlasInt},
             Ptr{BlasInt}, Ptr{BlasInt}, Ptr{Float64}, Ptr{BlasInt},
@@ -10381,20 +10381,21 @@ function tb04ad!(ROWCOL::Char, N::Integer, M::Integer, P::Integer,
         throw(SlicotException(INFO[1], @sprintf("SlicotError in TB04AD: the 
         %dth argument had an illegal value", -INFO[1])))
     end
+    INFO
 end
 
 
 function tb04ay!(N::Integer, MWORK::Integer, PWORK::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NCONT::Integer,
-    INDEXD::Array{Integer,1}, DCOEFF::Array{FloatingPoint,2},
-    LDDCOE::Integer, UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer,
-    LDUCO2::Integer, AT::Array{FloatingPoint,2}, N1::Integer,
-    TAU::Array{FloatingPoint,1}, TOL1::FloatingPoint,
-    TOL2::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NCONT::Integer,
+    INDEXD::Array{BlasInt,1}, DCOEFF::Array{Float64,2},
+    LDDCOE::Integer, UCOEFF::Array{Float64,3}, LDUCO1::Integer,
+    LDUCO2::Integer, AT::Array{Float64,2}, N1::Integer,
+    TAU::Array{Float64,1}, TOL1::FloatingPoint,
+    TOL2::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10418,14 +10419,14 @@ end
 
 
 function tb04bd!(JOBD::Char, ORDER::Char, EQUIL::Char, N::Integer,
-    M::Integer, P::Integer, MD::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, IGN::Array{Integer,2},
-    LDIGN::Integer, IGD::Array{Integer,2}, LDIGD::Integer,
-    GN::Array{FloatingPoint,1}, GD::Array{FloatingPoint,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    M::Integer, P::Integer, MD::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, IGN::Array{BlasInt,2},
+    LDIGN::Integer, IGD::Array{BlasInt,2}, LDIGD::Integer,
+    GN::Array{Float64,1}, GD::Array{Float64,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10448,9 +10449,9 @@ end
 
 
 function tb04bv!(ORDER::Char, P::Integer, M::Integer, MD::Integer,
-    IGN::Array{Integer,2}, LDIGN::Integer, IGD::Array{Integer,2},
-    LDIGD::Integer, GN::Array{FloatingPoint,1},
-    GD::Array{FloatingPoint,1}, D::Array{FloatingPoint,2},
+    IGN::Array{BlasInt,2}, LDIGN::Integer, IGD::Array{BlasInt,2},
+    LDIGD::Integer, GN::Array{Float64,1},
+    GD::Array{Float64,1}, D::Array{Float64,2},
     LDD::Integer, TOL::FloatingPoint)
 
     INFO = [0]
@@ -10470,9 +10471,9 @@ end
 
 
 function tb04bw!(ORDER::Char, P::Integer, M::Integer, MD::Integer,
-    IGN::Array{Integer,2}, LDIGN::Integer, IGD::Array{Integer,2},
-    LDIGD::Integer, GN::Array{FloatingPoint,1},
-    GD::Array{FloatingPoint,1}, D::Array{FloatingPoint,2},
+    IGN::Array{BlasInt,2}, LDIGN::Integer, IGD::Array{BlasInt,2},
+    LDIGD::Integer, GN::Array{Float64,1},
+    GD::Array{Float64,1}, D::Array{Float64,2},
     LDD::Integer)
 
     INFO = [0]
@@ -10491,12 +10492,12 @@ function tb04bw!(ORDER::Char, P::Integer, M::Integer, MD::Integer,
 end
 
 
-function tb04bx!(IP::Integer, IZ::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,1},
-    C::Array{FloatingPoint,1}, D::FloatingPoint,
-    PR::Array{FloatingPoint,1}, PI::Array{FloatingPoint,1},
-    ZR::Array{FloatingPoint,1}, ZI::Array{FloatingPoint,1},
-    GAIN::FloatingPoint, IWORK::Array{Integer,1})
+function tb04bx!(IP::Integer, IZ::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,1},
+    C::Array{Float64,1}, D::FloatingPoint,
+    PR::Array{Float64,1}, PI::Array{Float64,1},
+    ZR::Array{Float64,1}, ZI::Array{Float64,1},
+    GAIN::FloatingPoint, IWORK::Array{BlasInt,1})
 
     INFO = [0]
 
@@ -10514,16 +10515,16 @@ end
 
 
 function tb04cd!(JOBD::Char, EQUIL::Char, N::Integer, M::Integer,
-    P::Integer, NPZ::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, NZ::Array{Integer,2},
-    LDNZ::Integer, NP::Array{Integer,2}, LDNP::Integer,
-    ZEROSR::Array{FloatingPoint,1}, ZEROSI::Array{FloatingPoint,1},
-    POLESR::Array{FloatingPoint,1}, POLESI::Array{FloatingPoint,1},
-    GAINS::Array{FloatingPoint,2}, LDGAIN::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Integer, NPZ::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, NZ::Array{BlasInt,2},
+    LDNZ::Integer, NP::Array{BlasInt,2}, LDNP::Integer,
+    ZEROSR::Array{Float64,1}, ZEROSI::Array{Float64,1},
+    POLESR::Array{Float64,1}, POLESI::Array{Float64,1},
+    GAINS::Array{Float64,2}, LDGAIN::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10548,13 +10549,13 @@ end
 
 
 function tb05ad!(BALEIG::Char, INITA::Char, N::Integer, M::Integer,
-    P::Integer, FREQ::Complex, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, RCOND::FloatingPoint,
-    G::Array{Complex,2}, LDG::Integer, EVRE::Array{FloatingPoint,1},
-    EVIM::Array{FloatingPoint,1}, HINVB::Array{Complex,2},
-    LDHINV::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer,
+    P::Integer, FREQ::Complex, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, RCOND::FloatingPoint,
+    G::Array{Complex,2}, LDG::Integer, EVRE::Array{Float64,1},
+    EVIM::Array{Float64,1}, HINVB::Array{Complex,2},
+    LDHINV::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer,
     ZWORK::Array{Complex,1}, LZWORK::Integer)
 
     INFO = [0]
@@ -10579,8 +10580,8 @@ end
 
 
 function tc01od!(LERI::Char, M::Integer, P::Integer, INDLIM::Integer,
-    PCOEFF::Array{FloatingPoint,3}, LDPCO1::Integer, LDPCO2::Integer,
-    QCOEFF::Array{FloatingPoint,3}, LDQCO1::Integer, LDQCO2::Integer)
+    PCOEFF::Array{Float64,3}, LDPCO1::Integer, LDPCO2::Integer,
+    QCOEFF::Array{Float64,3}, LDQCO1::Integer, LDQCO2::Integer)
 
     INFO = [0]
 
@@ -10598,14 +10599,14 @@ end
 
 
 function tc04ad!(LERI::Char, M::Integer, P::Integer,
-    INDEX::Array{Integer,1}, PCOEFF::Array{FloatingPoint,3},
-    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{FloatingPoint,3},
+    INDEX::Array{BlasInt,1}, PCOEFF::Array{Float64,3},
+    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{Float64,3},
     LDQCO1::Integer, LDQCO2::Integer, N::Integer,
-    RCOND::FloatingPoint, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    RCOND::FloatingPoint, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10628,11 +10629,11 @@ end
 
 
 function tc05ad!(LERI::Char, M::Integer, P::Integer, SVAL::Complex,
-    INDEX::Array{Integer,1}, PCOEFF::Array{FloatingPoint,3},
-    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{FloatingPoint,3},
+    INDEX::Array{BlasInt,1}, PCOEFF::Array{Float64,3},
+    LDPCO1::Integer, LDPCO2::Integer, QCOEFF::Array{Float64,3},
     LDQCO1::Integer, LDQCO2::Integer, RCOND::FloatingPoint,
     CFREQR::Array{Complex,2}, LDCFRE::Integer,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     ZWORK::Array{Complex,1})
 
     INFO = [0]
@@ -10655,18 +10656,18 @@ end
 
 
 function td03ad!(ROWCOL::Char, LERI::Char, EQUIL::Char, M::Integer,
-    P::Integer, INDEXD::Array{Integer,1},
-    DCOEFF::Array{FloatingPoint,2}, LDDCOE::Integer,
-    UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer, LDUCO2::Integer,
-    NR::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, INDEXP::Array{Integer,1},
-    PCOEFF::Array{FloatingPoint,3}, LDPCO1::Integer, LDPCO2::Integer,
-    QCOEFF::Array{FloatingPoint,3}, LDQCO1::Integer, LDQCO2::Integer,
-    VCOEFF::Array{FloatingPoint,3}, LDVCO1::Integer, LDVCO2::Integer,
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    P::Integer, INDEXD::Array{BlasInt,1},
+    DCOEFF::Array{Float64,2}, LDDCOE::Integer,
+    UCOEFF::Array{Float64,3}, LDUCO1::Integer, LDUCO2::Integer,
+    NR::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, INDEXP::Array{BlasInt,1},
+    PCOEFF::Array{Float64,3}, LDPCO1::Integer, LDPCO2::Integer,
+    QCOEFF::Array{Float64,3}, LDQCO1::Integer, LDQCO2::Integer,
+    VCOEFF::Array{Float64,3}, LDVCO1::Integer, LDVCO2::Integer,
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10693,12 +10694,12 @@ end
 
 
 function td03ay!(MWORK::Integer, PWORK::Integer,
-    INDEX::Array{Integer,1}, DCOEFF::Array{FloatingPoint,2},
-    LDDCOE::Integer, UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer,
-    LDUCO2::Integer, N::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer)
+    INDEX::Array{BlasInt,1}, DCOEFF::Array{Float64,2},
+    LDDCOE::Integer, UCOEFF::Array{Float64,3}, LDUCO1::Integer,
+    LDUCO2::Integer, N::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer)
 
     INFO = [0]
 
@@ -10718,13 +10719,13 @@ end
 
 
 function td04ad!(ROWCOL::Char, M::Integer, P::Integer,
-    INDEX::Array{Integer,1}, DCOEFF::Array{FloatingPoint,2},
-    LDDCOE::Integer, UCOEFF::Array{FloatingPoint,3}, LDUCO1::Integer,
-    LDUCO2::Integer, NR::Integer, A::Array{FloatingPoint,2},
-    LDA::Integer, B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    INDEX::Array{BlasInt,1}, DCOEFF::Array{Float64,2},
+    LDDCOE::Integer, UCOEFF::Array{Float64,3}, LDUCO1::Integer,
+    LDUCO2::Integer, NR::Integer, A::Array{Float64,2},
+    LDA::Integer, B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -10747,8 +10748,8 @@ end
 
 
 function td05ad!(UNITF::Char, OUTPUT::Char, NP1::Integer,
-    MP1::Integer, W::FloatingPoint, A::Array{FloatingPoint,1},
-    B::Array{FloatingPoint,1}, VALR::FloatingPoint,
+    MP1::Integer, W::FloatingPoint, A::Array{Float64,1},
+    B::Array{Float64,1}, VALR::FloatingPoint,
     VALI::FloatingPoint)
 
     INFO = [0]
@@ -10767,13 +10768,13 @@ end
 
 
 function tf01md!(N::Integer, M::Integer, P::Integer, NY::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    X::Array{FloatingPoint,1}, Y::Array{FloatingPoint,2},
-    LDY::Integer, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    X::Array{Float64,1}, Y::Array{Float64,2},
+    LDY::Integer, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10793,10 +10794,10 @@ end
 
 
 function tf01mx!(N::Integer, M::Integer, P::Integer, NY::Integer,
-    S::Array{FloatingPoint,2}, LDS::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    X::Array{FloatingPoint,1}, Y::Array{FloatingPoint,2},
-    LDY::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    S::Array{Float64,2}, LDS::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    X::Array{Float64,1}, Y::Array{Float64,2},
+    LDY::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10815,13 +10816,13 @@ end
 
 
 function tf01my!(N::Integer, M::Integer, P::Integer, NY::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    X::Array{FloatingPoint,1}, Y::Array{FloatingPoint,2},
-    LDY::Integer, DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    X::Array{Float64,1}, Y::Array{Float64,2},
+    LDY::Integer, DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10842,13 +10843,13 @@ end
 
 
 function tf01nd!(UPLO::Char, N::Integer, M::Integer, P::Integer,
-    NY::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    D::Array{FloatingPoint,2}, LDD::Integer,
-    U::Array{FloatingPoint,2}, LDU::Integer,
-    X::Array{FloatingPoint,1}, Y::Array{FloatingPoint,2},
-    LDY::Integer, DWORK::Array{FloatingPoint,1})
+    NY::Integer, A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    D::Array{Float64,2}, LDD::Integer,
+    U::Array{Float64,2}, LDU::Integer,
+    X::Array{Float64,1}, Y::Array{Float64,2},
+    LDY::Integer, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10869,8 +10870,8 @@ end
 
 
 function tf01od!(NH1::Integer, NH2::Integer, NR::Integer, NC::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer)
+    H::Array{Float64,2}, LDH::Integer,
+    T::Array{Float64,2}, LDT::Integer)
 
     INFO = [0]
 
@@ -10887,8 +10888,8 @@ end
 
 
 function tf01pd!(NH1::Integer, NH2::Integer, NR::Integer, NC::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer,
-    T::Array{FloatingPoint,2}, LDT::Integer)
+    H::Array{Float64,2}, LDH::Integer,
+    T::Array{Float64,2}, LDT::Integer)
 
     INFO = [0]
 
@@ -10905,8 +10906,8 @@ end
 
 
 function tf01qd!(NC::Integer, NB::Integer, N::Integer,
-    IORD::Array{Integer,1}, AR::Array{FloatingPoint,1},
-    MA::Array{FloatingPoint,1}, H::Array{FloatingPoint,2},
+    IORD::Array{BlasInt,1}, AR::Array{Float64,1},
+    MA::Array{Float64,1}, H::Array{Float64,2},
     LDH::Integer)
 
     INFO = [0]
@@ -10924,11 +10925,11 @@ end
 
 
 function tf01rd!(NA::Integer, NB::Integer, NC::Integer, N::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    H::Array{FloatingPoint,2}, LDH::Integer,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,2}, LDA::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    H::Array{Float64,2}, LDH::Integer,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -10947,12 +10948,12 @@ end
 
 
 function tg01ad!(JOB::Char, L::Integer, N::Integer, M::Integer,
-    P::Integer, THRESH::FloatingPoint, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    LSCALE::Array{FloatingPoint,1}, RSCALE::Array{FloatingPoint,1},
-    DWORK::Array{FloatingPoint,1})
+    P::Integer, THRESH::FloatingPoint, A::Array{Float64,1},
+    LDA::FloatingPoint, E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    LSCALE::Array{Float64,1}, RSCALE::Array{Float64,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10975,8 +10976,8 @@ function tg01az!(JOB::Char, L::Integer, N::Integer, M::Integer,
     P::Integer, THRESH::FloatingPoint, A::Array{Complex,1},
     LDA::Complex, E::Array{Complex,1}, LDE::Complex,
     B::Array{Complex,1}, LDB::Complex, C::Array{Complex,1},
-    LDC::Complex, LSCALE::Array{FloatingPoint,1},
-    RSCALE::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1})
+    LDC::Complex, LSCALE::Array{Float64,1},
+    RSCALE::Array{Float64,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -10998,13 +10999,13 @@ end
 
 function tg01bd!(JOBE::Char, COMPQ::Char, COMPZ::Char, N::Integer,
     M::Integer, P::Integer, ILO::Integer, IHI::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -11026,11 +11027,11 @@ end
 
 
 function tg01cd!(COMPQ::Char, L::Integer, N::Integer, M::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -11049,11 +11050,11 @@ end
 
 
 function tg01dd!(COMPZ::Char, L::Integer, N::Integer, P::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint,
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -11072,14 +11073,14 @@ end
 
 
 function tg01ed!(JOBA::Char, L::Integer, N::Integer, M::Integer,
-    P::Integer, A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint, RANKE::Integer,
+    P::Integer, A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint, RANKE::Integer,
     RNKA22::Integer, TOL::FloatingPoint,
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -11101,14 +11102,14 @@ end
 
 
 function tg01fd!(COMPQ::Char, COMPZ::Char, JOBA::Char, L::Integer,
-    N::Integer, M::Integer, P::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint, RANKE::Integer,
-    RNKA22::Integer, TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, LDWORK::Integer)
+    N::Integer, M::Integer, P::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint, RANKE::Integer,
+    RNKA22::Integer, TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, LDWORK::Integer)
 
     INFO = [0]
 
@@ -11136,8 +11137,8 @@ function tg01fz!(COMPQ::Char, COMPZ::Char, JOBA::Char, L::Integer,
     B::Array{Complex,1}, LDB::Complex, C::Array{Complex,1},
     LDC::Complex, Q::Array{Complex,1}, LDQ::Complex,
     Z::Array{Complex,1}, LDZ::Complex, RANKE::Integer,
-    RNKA22::Integer, TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1}, ZWORK::Array{Complex,1},
+    RNKA22::Integer, TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1}, ZWORK::Array{Complex,1},
     LZWORK::Integer)
 
     INFO = [0]
@@ -11163,15 +11164,15 @@ end
 
 
 function tg01hd!(JOBCON::Char, COMPQ::Char, COMPZ::Char, N::Integer,
-    M::Integer, P::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint, NCONT::Integer,
-    NIUCON::Integer, NRBLCK::Integer, RTAU::Array{Integer,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1})
+    M::Integer, P::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint, NCONT::Integer,
+    NIUCON::Integer, NRBLCK::Integer, RTAU::Array{BlasInt,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -11195,14 +11196,14 @@ end
 
 function tg01hx!(COMPQ::Char, COMPZ::Char, L::Integer, N::Integer,
     M::Integer, P::Integer, N1::Integer, LBE::Integer,
-    A::Array{FloatingPoint,1}, LDA::FloatingPoint,
-    E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint, NR::Integer,
-    NRBLCK::Integer, RTAU::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1})
+    A::Array{Float64,1}, LDA::FloatingPoint,
+    E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint, NR::Integer,
+    NRBLCK::Integer, RTAU::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -11225,15 +11226,15 @@ end
 
 
 function tg01id!(JOBOBS::Char, COMPQ::Char, COMPZ::Char, N::Integer,
-    M::Integer, P::Integer, A::Array{FloatingPoint,1},
-    LDA::FloatingPoint, E::Array{FloatingPoint,1}, LDE::FloatingPoint,
-    B::Array{FloatingPoint,1}, LDB::FloatingPoint,
-    C::Array{FloatingPoint,1}, LDC::FloatingPoint,
-    Q::Array{FloatingPoint,1}, LDQ::FloatingPoint,
-    Z::Array{FloatingPoint,1}, LDZ::FloatingPoint, NOBSV::Integer,
-    NIUOBS::Integer, NLBLCK::Integer, CTAU::Array{Integer,1},
-    TOL::FloatingPoint, IWORK::Array{Integer,1},
-    DWORK::Array{FloatingPoint,1})
+    M::Integer, P::Integer, A::Array{Float64,1},
+    LDA::FloatingPoint, E::Array{Float64,1}, LDE::FloatingPoint,
+    B::Array{Float64,1}, LDB::FloatingPoint,
+    C::Array{Float64,1}, LDC::FloatingPoint,
+    Q::Array{Float64,1}, LDQ::FloatingPoint,
+    Z::Array{Float64,1}, LDZ::FloatingPoint, NOBSV::Integer,
+    NIUOBS::Integer, NLBLCK::Integer, CTAU::Array{BlasInt,1},
+    TOL::FloatingPoint, IWORK::Array{BlasInt,1},
+    DWORK::Array{Float64,1})
 
     INFO = [0]
 
@@ -11256,12 +11257,12 @@ end
 
 
 function tg01jd!(JOB::Char, SYSTYP::Char, EQUIL::Char, N::Integer,
-    M::Integer, P::Integer, A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer, NR::Integer,
-    INFRED::Array{Integer,1}, TOL::FloatingPoint,
-    IWORK::Array{Integer,1}, DWORK::Array{FloatingPoint,1},
+    M::Integer, P::Integer, A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer, NR::Integer,
+    INFRED::Array{BlasInt,1}, TOL::FloatingPoint,
+    IWORK::Array{BlasInt,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]
@@ -11283,14 +11284,14 @@ end
 
 
 function tg01wd!(N::Integer, M::Integer, P::Integer,
-    A::Array{FloatingPoint,2}, LDA::Integer,
-    E::Array{FloatingPoint,2}, LDE::Integer,
-    B::Array{FloatingPoint,2}, LDB::Integer,
-    C::Array{FloatingPoint,2}, LDC::Integer,
-    Q::Array{FloatingPoint,2}, LDQ::Integer,
-    Z::Array{FloatingPoint,2}, LDZ::Integer,
-    ALPHAR::Array{FloatingPoint,1}, ALPHAI::Array{FloatingPoint,1},
-    BETA::Array{FloatingPoint,1}, DWORK::Array{FloatingPoint,1},
+    A::Array{Float64,2}, LDA::Integer,
+    E::Array{Float64,2}, LDE::Integer,
+    B::Array{Float64,2}, LDB::Integer,
+    C::Array{Float64,2}, LDC::Integer,
+    Q::Array{Float64,2}, LDQ::Integer,
+    Z::Array{Float64,2}, LDZ::Integer,
+    ALPHAR::Array{Float64,1}, ALPHAI::Array{Float64,1},
+    BETA::Array{Float64,1}, DWORK::Array{Float64,1},
     LDWORK::Integer)
 
     INFO = [0]

@@ -18,7 +18,7 @@ For more up to date information, check "status.md"
 Installation
 ------------
 ```
-Pkg.git("https://github.com/jcrist/Slicot.jl.git")
+Pkg.clone("https://github.com/jcrist/Slicot.jl.git")
 Pkg.build("Slicot")
 ```
 
